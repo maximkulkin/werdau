@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.4'
-gem 'mysql2'
+gem 'mysql2', '~> 0.2.7'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,10 +18,10 @@ end
 gem 'jquery-rails'
 
 # Use unicorn as the web server
-gem 'unicorn'
+# gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 group :test do
   # Pretty printed test output
