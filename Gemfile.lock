@@ -235,7 +235,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.1.1)
   jquery-rails
-  mysql2 (= 0.2.7)
+  mysql2
   rails (= 3.1.4)
   sass-rails (~> 3.1.5)
   spree (~> 1.0.0)
