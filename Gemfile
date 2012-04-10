@@ -29,6 +29,7 @@ end
 
 gem 'spree', '~> 1.0.0'
 gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
+gem 'spree_static_content', '= 1.0.1', :git => 'git://github.com/spree/spree_static_content.git', :branch => '1-0-stable'
 # gem 'mail_chimp', '>=1.3', :git => 'git://github.com/sbeam/spree-mail-chimp.git'
 gem 'spree_yandex_market_scraper', :git => 'git://github.com/maximkulkin/spree_yandex_market_scraper.git'
 
