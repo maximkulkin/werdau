@@ -1,0 +1,208 @@
+
+  <div class="mainmenu">
+    <% Spree::Taxon.all.each do |taxon| %>
+    <%= link_to image_tag(taxon.icon(:original)) + content_tag(:span, taxon.name), nested_taxons_path(taxon), :class => 'm1' %>
+    <% end %>
+    <!-- 
+    <a href="/" class="m1"><img src="img/menu/1.png" alt="" /><span>Компьютерная и офисная техника</span></a>
+    <a href="/" class="m2"><img src="img/menu/2.png" alt="" /><span>Бытовая техника</span></a>
+    <a href="/" class="m3"><img src="img/menu/3.png" alt="" /><span>Аудиотехника</span></a>
+    <a href="/" class="m4"><img src="img/menu/4.png" alt="" /><span>Телевизоры</span></a>
+    <a href="/" class="m5"><img src="img/menu/5.png" alt="" /><span>Фото-видеотехника</span></a>
+    <a href="/" class="m6"><img src="img/menu/6.png" alt="" /><span>Автомобильная электроника</span></a>
+    -->
+  </div>
+
+
+  <div class="content index">
+
+    <div class="compare">
+      Ожидают сравнения: <a href="/">Ноутбуки</a> [2] <a href="/" class="del"></a>
+    </div>
+
+    <div class="mainact">
+
+      <a href="/"><%= image_tag 'store/promo/1.jpg' %></a>
+      <div class="nav">
+        <a class="next" href="/">&nbsp;</a>
+        <a href="/">1</a><a href="/">2</a><a href="/">3</a><a href="/">4</a>....<a href="/">15</a>
+        <a class="last" href="/">&nbsp;</a>
+      </div>
+
+      <div class="additionalnav">
+        <a href="/sale">Распродажа</a><br />
+        <a href="/vacancies">Вакансии</a><br />
+        <a href="/service">Сервисные центры</a><br />
+        <a href="/advices">Советы потребителю</a><br />
+        <a href="/news">Новости</a><br />
+        <a href="/mobile">Мобильная версия</a><br />
+
+        <a class="callcenter" href="/"><span>Косультация сайта ONLINE" <span/></a>
+
+      </div>
+
+    </div>
+
+    <div class="col-1">
+      <h1>Мы рекомендуем</h1>
+      <div class="recommendations">
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+      </div>
+    </div><!-- end col-1 -->
+
+    <div class="col-2">
+
+      <div class="news">
+
+        <div class="actions">
+          <h2>Акции</h2>
+          <p class="date"><span>19.03.2012</span></p>
+          <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
+          <p class="all"><a href="/">Все акции</a></p>
+        </div>
+
+        <h2>Новости магазина</h2>
+        <p class="date"><span>19.03.2012</span></p>
+        <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
+        <p class="date"><span>19.03.2012</span></p>
+        <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
+        <p class="date"><span>19.03.2012</span></p>
+        <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
+        <p class="all"><a href="/">Все новости</a></p>        
+
+      </div>
+
+      <div class="about">
+
+        <div class="corner"></div>
+
+        <div class="textpage">
+
+          <h3>Почему Werdau.ru? Отзывы наших покупателей </h3>
+
+          <p>Vivat "Werdau"!.. Всё быстро, качественно, без обмана.. :) И цены весьма радуют, не говоря уже об акциях, надеюсь не раз ещё обращаться в сей прекрасный магазин... Спасибо.
+
+          <p><b>О магазине.</b>
+          <p>По поводу данного интернет-магазина. Делая заказ, я нашел его случайно. Были сомнения, теперь твердо уверен заказывать товар только у них. Радуют приятные цены. После оформления заказа сразу перезвонили, уточнили все детали. Товар в отменном качестве на след. день был у меня. 
+
+          <p><a href="/">Форум Werdau.ru></p>
+
+          <p class="more"><a href="/">Развернуть </a></p>
+
+        </div>
+
+      </div>
+
+    </div><!-- end col-2 -->
+
+    <div class="col-3">
+
+      <h2><span class="lc"></span>Часы работы<span class="rc"></span></h2>
+      <div class="schedule">
+
+        <div class="tab"><span>Обслуживание звонков:</span>
+          <div>
+            <a href="/">  Доставка товаров</a>
+            <a href="/">Прием посетителей</a>
+          </div>
+        </div>
+
+        <p class="day">Пн - Пт<br />Сб<br />Вс</p>
+        <p class="time">9 - 21<br />10 - 17<br />10 - 16</p>
+
+      </div>
+
+      <h2><span class="lc"></span>Просмотренные товары<span class="rc"></span></h2>
+
+        <ul class="justwatched">
+        <li>
+          <a href="/">
+            <img src="img/goods/1.jpg" width="50px" alt="" />
+            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
+            <span class="price">3'793 грн.</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src="img/goods/1.jpg" width="50px" alt="" />
+            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
+            <span class="price">3'793 грн.</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src="img/goods/1.jpg" width="50px" alt="" />
+            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
+            <span class="price">3'793 грн.</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src="img/goods/1.jpg" width="50px" alt="" />
+            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
+            <span class="price">3'793 грн.</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src="img/goods/1.jpg" width="50px" alt="" />
+            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
+            <span class="price">3'793 грн.</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src="img/goods/1.jpg" width="50px" alt="" />
+            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
+            <span class="price">3'793 грн.</span>
+          </a>
+        </li>
+
+        </ul>
+
+      <h2><span class="lc"></span>Аукцион!<span class="rc"></span></h2><div class="clearright"></div>
+
+      <div class="auction"><a href="/">
+      <img src="img/goods/1.jpg" width="70" alt="" />
+      <span class="name">Western Digital USB 2000Gb (WDBACW0020HBK-EESN) My Book Essential Black, 3.5"</span>
+      <span class="price">200.00 р.</span>
+      </a>
+      </div>
+
+    </div><!-- end col-3 -->
+
+    <div style="clear: left;"></div>
+
+  </div><!-- end content index -->
+
