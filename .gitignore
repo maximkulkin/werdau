@@ -15,6 +15,9 @@
 /log/*.log
 /tmp
 
+/public/spree
+/public/assets
+
 # Mac OS X Folder cache
 .DS_Store
 
