@@ -9,5 +9,7 @@
 //= require admin/spree_auth
 //= require admin/spree_api
 //= require admin/spree_promo
+//= require tinymce-jquery
+//= require admin/spree_editor
 
 //= require_tree .
