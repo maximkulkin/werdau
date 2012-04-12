@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409172746) do
+ActiveRecord::Schema.define(:version => 20120411182713) do
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -178,6 +178,15 @@ ActiveRecord::Schema.define(:version => 20120409172746) do
     t.boolean  "active",      :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "spree_news_items", :force => true do |t|
+    t.integer "category_id"
+    t.string  "title"
+    t.text    "contents"
+    t.string  "image_file_name"
+    t.date    "active_from"
+    t.date    "active_till"
   end
 
   create_table "spree_option_types", :force => true do |t|

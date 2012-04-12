@@ -1,0 +1,6 @@
+# encoding: utf-8
+
+ru:
+  date:
+    formats:
+      default: '%d.%m.%Y'

@@ -11,5 +11,6 @@
 //= require admin/spree_promo
 //= require tinymce-jquery
 //= require admin/spree_editor
+//= require admin/spree_news
 
 //= require_tree .

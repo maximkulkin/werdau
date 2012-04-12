@@ -1,7 +1,7 @@
 
   <div class="mainmenu">
-    <% Spree::Taxon.all.each do |taxon| %>
-    <%= link_to image_tag(taxon.icon(:original)) + content_tag(:span, taxon.name), nested_taxons_path(taxon), :class => 'm1' %>
+    <% Spree::Taxonomy.all.each do |taxon| %>
+    <!--%= link_to image_tag(taxon.icon(:original)) + content_tag(:span, taxon.name), nested_taxons_path(taxon), :class => 'm1' %-->
     <% end %>
     <!-- 
     <a href="/" class="m1"><img src="img/menu/1.png" alt="" /><span>Компьютерная и офисная техника</span></a>
@@ -85,22 +85,23 @@
 
       <div class="news">
 
-        <div class="actions">
+        <div class="promo">
           <h2>Акции</h2>
-          <p class="date"><span>19.03.2012</span></p>
-          <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
-          <p class="all"><a href="/">Все акции</a></p>
+          <% category = Spree::NewsItem::Category::PROMO %>
+          <% Spree::NewsItem.active.from_category(category).limit(2).each do |news_item| %>
+            <p class="date"><span><%= l(news_item.active_from) %></span></p>
+            <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
+          <% end %>
+          <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>
         </div>
 
         <h2>Новости магазина</h2>
-        <p class="date"><span>19.03.2012</span></p>
-        <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
-        <p class="date"><span>19.03.2012</span></p>
-        <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
-        <p class="date"><span>19.03.2012</span></p>
-        <p class="pre"><a href="/">При покупке любой стиральной машины Samsung противовибрационный коврик в подарок! Интернет-магазин Фотос делает...</a></p>
-        <p class="all"><a href="/">Все новости</a></p>        
-
+        <% category = Spree::NewsItem::Category::NEWS %>
+        <% Spree::NewsItem.active.from_category(category).limit(4).each do |news_item| %>
+          <p class="date"><span><%= l(news_item.active_from) %></span></p>
+          <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
+        <% end %>
+        <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>        
       </div>
 
       <div class="about">
