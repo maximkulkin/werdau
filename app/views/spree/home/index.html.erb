@@ -1,18 +1,34 @@
 
-  <div class="mainmenu">
-    <% Spree::Taxonomy.all.each do |taxon| %>
-    <!--%= link_to image_tag(taxon.icon(:original)) + content_tag(:span, taxon.name), nested_taxons_path(taxon), :class => 'm1' %-->
-    <% end %>
-    <!-- 
-    <a href="/" class="m1"><img src="img/menu/1.png" alt="" /><span>Компьютерная и офисная техника</span></a>
-    <a href="/" class="m2"><img src="img/menu/2.png" alt="" /><span>Бытовая техника</span></a>
-    <a href="/" class="m3"><img src="img/menu/3.png" alt="" /><span>Аудиотехника</span></a>
-    <a href="/" class="m4"><img src="img/menu/4.png" alt="" /><span>Телевизоры</span></a>
-    <a href="/" class="m5"><img src="img/menu/5.png" alt="" /><span>Фото-видеотехника</span></a>
-    <a href="/" class="m6"><img src="img/menu/6.png" alt="" /><span>Автомобильная электроника</span></a>
-    -->
-  </div>
+  <nav id="mainmenu">
+    <ul class="mainmenu">
+      <% Spree::Taxonomy.find_by_name('Товары').root.children.each do |taxon| %>
+      <li>
+        <%= link_to image_tag(taxon.icon.url(:normal) || asset_path('store/default_taxon.png')) + content_tag('span', taxon.name), seo_url(taxon) %>
 
+        <% if taxon.children.size > 0 %>
+        <ul class="submenu">
+          <% taxon.children.each do |sub_taxon| %>
+          <li>
+            <%= image_tag(sub_taxon.icon.url(:normal) || asset_path('store/default_taxon.png'))  %>
+            <%= link_to sub_taxon.name, seo_url(sub_taxon) %>
+            
+            <% if sub_taxon.children.size > 0 %>
+            <ul class="subsubmenu">
+              <% sub_taxon.children.each do |sub_sub_taxon| %>
+              <li><%= link_to sub_sub_taxon.name, seo_url(sub_sub_taxon) %></li>
+              <% end %>
+            </ul>
+            <% end %>
+
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
+
+      </li>
+      <% end %>
+    </ul>
+  </nav>
 
   <div class="content index">
 

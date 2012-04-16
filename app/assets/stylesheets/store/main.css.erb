@@ -180,22 +180,32 @@ p {
 
 .mainmenu {
   width: 1250px;
-  overflow: hidden;
   height: 132px;
-}
-
-.mainmenu * {
   display: block;
+  position: relative;
 }
 
-.mainmenu a {
+.mainmenu li {
   display: block;
   float: left;
   font-size: 10px;
   text-transform: uppercase;
-  position: relative;
   text-decoration: none;
   color: #505a59;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0 12px 0 60px;
+}
+
+.mainmenu li.selected {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  z-index: 2;
+}
+
+.mainmenu a {
+  position: relative;
 }
 
 .mainmenu a:hover {
@@ -205,8 +215,54 @@ p {
 
 .mainmenu a span {
   position: absolute;
-  top: 101px;
+  bottom: 0px;
   width: 96px;
+  left: 20px;
+}
+
+.mainmenu .selected .submenu {
+  display: block;
+}
+
+.mainmenu .submenu {
+  display: none;
+  width: 1240px;
+  position: absolute;
+  padding: 10px 10px;
+  left: 30px;
+  top: 120px;
+  z-index: 1;
+  background: #fff;
+  border: 2px solid black;
+}
+
+.mainmenu .submenu li {
+  width: 230px;
+  margin: 0;
+  padding-left: 70px;
+  float: left;
+  position: relative;
+  min-height: 55px;
+}
+
+.mainmenu .submenu img {
+  position: absolute;
+  margin-left: -70px;
+}
+
+.mainmenu .submenu li a {
+  font-size: 14px;
+  color: blue;
+}
+
+.mainmenu .subsubmenu li {
+  min-height: 0;
+  padding: 0;
+}
+
+.mainmenu .subsubmenu li a {
+  color: black;
+  font-size: 10px;
 }
 
 .mainact {
