@@ -20,6 +20,7 @@
 
 # Mac OS X Folder cache
 .DS_Store
+/**/.DS_Store
 
 # Vim swap files
 .*.swp
