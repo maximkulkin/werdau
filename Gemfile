@@ -27,6 +27,7 @@ group :test do
   gem 'turn', '~> 0.8.3', :require => false
 end
 
+gem 'escape_utils'
 gem 'spree', '~> 1.0.0'
 gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 gem 'spree_static_content', '= 1.0.1', :git => 'git://github.com/spree/spree_static_content.git', :branch => '1-0-stable'
