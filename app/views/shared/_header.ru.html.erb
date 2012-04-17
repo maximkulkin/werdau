@@ -47,3 +47,34 @@
 
 <div class="photoline"></div>
 
+<nav id="mainmenu">
+  <ul class="mainmenu">
+    <% Spree::Taxonomy.find_by_name('Товары').root.children.each do |taxon| %>
+    <li>
+      <%= link_to image_tag(taxon.icon.url(:normal)) + content_tag('span', taxon.name), seo_url(taxon) %>
+
+      <% if taxon.children.size > 0 %>
+      <ul class="submenu">
+        <% taxon.children.each do |sub_taxon| %>
+        <li>
+          <%= image_tag(sub_taxon.icon.url(:normal))  %>
+          <%= link_to sub_taxon.name, seo_url(sub_taxon) %>
+          
+          <% if sub_taxon.children.size > 0 %>
+          <ul class="subsubmenu">
+            <% sub_taxon.children.each do |sub_sub_taxon| %>
+            <li><%= link_to sub_sub_taxon.name, seo_url(sub_sub_taxon) %></li>
+            <% end %>
+          </ul>
+          <% end %>
+
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+
+    </li>
+    <% end %>
+  </ul>
+</nav>
+
