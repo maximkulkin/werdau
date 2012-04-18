@@ -1,0 +1,36 @@
+
+<%= f.field_container :category_id do %>
+  <%= f.label :category_id, t(:news_item_category) %> <span class="required">*</span><br />
+  <%= f.collection_select :category_id, Spree::NewsItem::Category.all, :id, :name, :include_blank => true %>
+  <%= f.error_message_on :category_id %>
+<% end %>
+
+<%= f.field_container :active_from do %>
+  <%= f.label :active_from, t(:news_item_active_from) %> <span class="required">*</span><br />
+  <%= f.text_field :active_from, :class => 'datepicker' %>
+  <%= f.error_message_on :active_from %>
+<% end %>
+
+<%= f.field_container :active_till do %>
+  <%= f.label :active_till, t(:news_item_active_till) %> <span class="required">*</span><br />
+  <%= f.text_field :active_till, :class => 'datepicker' %>
+  <%= f.error_message_on :active_till %>
+<% end %>
+
+<%= f.field_container :title do %>
+  <%= f.label :title, t(:news_item_title) %> <span class="required">*</span><br />
+  <%= f.text_field :title %>
+  <%= f.error_message_on :title %>
+<% end %>
+
+<%= f.field_container :contents do %>
+  <%= f.label :contents, t(:news_item_contents) %><br />
+  <%= f.text_area :contents %>
+  <%= f.error_message_on :contents %>
+<% end %>
+
+<%= f.field_container :image do %>
+  <%= f.label :image, t(:news_item_image) %><br />
+  <%= f.file_field :image %>
+<% end %>
+

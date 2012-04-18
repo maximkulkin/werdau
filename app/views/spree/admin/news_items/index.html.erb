@@ -1,0 +1,41 @@
+<div class="toolbar">
+  <ul class="actions">
+    <li id="new_news_item_link">
+      <%= button_link_to t(:add_news_item), new_object_url %>
+    </li>
+  </ul>
+  <br class="clear" />
+</div>
+
+<h2><%= t(:listing_news_items) %></h2>
+
+<table class="news_items">
+  <thead>
+    <tr>
+      <th class='category'><%= t(:news_item_category) %></th>
+      <th class='title'><%= t(:news_item_title) %></th>
+      <th class='active_from'><%= t(:news_item_active_from) %></th>
+      <th class='active_till'><%= t(:news_item_active_till) %></th>
+      <th class='actions'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collection.each do |news_item| %>
+      <tr class="<%= 'inactive' unless news_item.active? %>">
+        <td class='category'><%= news_item.category %></td>
+        <td class='title'><%= link_to news_item.title, object_url(news_item) %></td>
+        <td class='active_from'><%= l(news_item.active_from) %></td>
+        <td class='active_till'><%= l(news_item.active_till) %></td>
+        <td class='actions'>
+          <%= link_to_edit news_item %>
+          &nbsp;
+          <%= link_to_delete news_item %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--%= paginate @collection %-->
+

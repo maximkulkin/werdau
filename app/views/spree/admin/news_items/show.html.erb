@@ -1,0 +1,28 @@
+<h1><%= t(:news_item) %></h1>
+
+<div class="field">
+  <span class="field-name"><%= t(:news_item_category) %>:</span>
+  <%= @object.category %>
+</div>
+
+<div class="field">
+  <span class="field-name"><%= t(:news_item_title) %>:</span>
+  <%= @object.title %>
+</div>
+
+<div class="field">
+  <span class="field-name"><%= t(:news_item_contents) %>:</span>
+  <%= @object.contents %>
+</div>
+
+<div class="field">
+  <span class="field-name"><%= t(:news_item_image) %>:</span><br/>
+  <%= image_tag @object.image.url if @object.image %>
+</div>
+
+<p>
+  <%= link_to_edit @object %>
+  <%= t(:or) %>
+  <%= link_to t(:back), collection_url %>
+</p>
+

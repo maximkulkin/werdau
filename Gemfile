@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.4'
-gem 'mysql2'
+gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -37,5 +37,5 @@ gem 'tinymce-rails-langs'
 
 # gem 'mail_chimp', '>=1.3', :git => 'git://github.com/sbeam/spree-mail-chimp.git'
 gem 'spree_yandex_market_scraper', :git => 'git://github.com/maximkulkin/spree_yandex_market_scraper.git'
-gem 'spree_news', :git => 'git://github.com/maximkulkin/spree_news.git'
+# gem 'spree_news', :git => 'git://github.com/maximkulkin/spree_news.git'
 

@@ -47,9 +47,9 @@
 
       <div class="additionalnav">
         <a href="/service">Сервисные центры</a><br />
-        <a href="/advices">Советы потребителю</a><br />
+        <a href="/news/advices">Советы потребителю</a><br />
         <a href="/news/info">Новости магазина</a><br />
-        <a href="/news">Новости техники</a><br />
+        <a href="/news/tech">Новости техники</a><br />
 
         <a class="callcenter" href="/"><span>Косультация сайта ONLINE" <span/></a>
 
@@ -110,12 +110,20 @@
         </div>
 
         <h2>Новости магазина</h2>
-        <% category = Spree::NewsItem::Category::NEWS %>
+        <% category = Spree::NewsItem::Category::NEWS_INFO %>
         <% Spree::NewsItem.active.from_category(category).limit(4).each do |news_item| %>
           <p class="date"><span><%= l(news_item.active_from) %></span></p>
           <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
         <% end %>
         <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>        
+
+        <h2>Новости техники</h2>
+        <% category = Spree::NewsItem::Category::NEWS_TECH %>
+        <% Spree::NewsItem.active.from_category(category).limit(4).each do |news_item| %>
+          <p class="date"><span><%= l(news_item.active_from) %></span></p>
+          <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
+        <% end %>
+        <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>  
       </div>
 
       <div class="about">

@@ -4,3 +4,31 @@ ru:
   date:
     formats:
       default: '%d.%m.%Y'
+
+  news_items: Новости
+  news_item: Новость
+  add_news_item: Добавить новость
+  news_item_new: Добавить новость
+  news_item_edit: Изменить новость
+  listing_news_items: Новости
+  news_item_category: Категория
+  news_item_active_from: Действует с
+  news_item_active_till: Действует по
+  news_item_title: Заголовок
+  news_item_contents: Текст
+  news_item_image: Изображение
+
+  activerecord:
+    errors:
+      models:
+        spree/news_item:
+          attributes:
+            category_id:
+              blank: 'Категория обязательна для заполнения'
+            title:
+              blank: 'Заголовок обязателен для заполнения'
+            active_from:
+              blank: 'Дата обязательна для заполнения'
+            active_till:
+              blank: 'Дата обязательна для заполнения'
+
