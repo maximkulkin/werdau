@@ -32,5 +32,3 @@
 .project
 
 config/database.yml
-config/deploy.rb
-Capfile
