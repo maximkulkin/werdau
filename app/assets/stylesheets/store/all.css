@@ -5,6 +5,7 @@
  *
  *= require store/normalize
  *= require store/main
+ *= require store/content
 
  *= require_self
 */
