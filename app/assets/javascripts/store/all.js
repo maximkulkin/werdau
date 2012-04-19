@@ -9,6 +9,5 @@
 //= require store/spree_auth
 //= require store/spree_api
 //= require store/spree_promo
-//= require store/spree_news
 
 //= require_tree .
