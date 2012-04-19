@@ -47,6 +47,8 @@ set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
 set :unicorn_pid,     "/var/run/unicorn/#{application}.#{login}.pid"
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 
+set :shared_children, shared_children + %w{public/spree}
+
 role :web,            deploy_server
 role :app,            deploy_server
 role :db,             deploy_server, :primary => true
