@@ -1,4 +1,4 @@
-class AddPositionToProperties < ActiveRecord::Migration
+class AddPositionToProductProperties < ActiveRecord::Migration
   def up
     add_column :spree_product_properties, :position, :integer
 
