@@ -1,14 +1,14 @@
 Deface::Override.new(
-  :name => 'add_position_field_to_product_property',
-  :virtual_path => 'spree/admin/product_properties/_product_property_fields',
-  :insert_bottom => 'td.property_name',
-  :text => "<%= f.hidden_field :position %>"
+  :name => 'make_table_sortable',
+  :virtual_path => 'spree/admin/product_properties/index',
+  :add_to_attributes => 'table[class=index]',
+  :attributes => { 'class' => 'client-sortable' }
 )
 
 Deface::Override.new(
-  :name => 'make_product_properties_sortable',
-  :virtual_path => 'spree/admin/product_properties/index',
-  :insert_after => 'code[erb-loud]:contains("javascript_tag do")',
-  :text => "$('#product_properties').closest('table').sortable_table();"
+  :name => 'add_sortable_handle',
+  :virtual_path => 'spree/admin/product_properties/_product_property_fields',
+  :insert_top => 'td.property_name',
+  :text => "<span class='handle' /><%= f.hidden_field :position %>"
 )
 

@@ -1,35 +1,13 @@
 
-jQuery.fn.sortable_table = function() {
-  var options = { 'position': 'input[name$="[position]"]' }
-  if (arguments.length > 0)
-    $.extend(options, arguments[0])
+$('table.client-sortable').ready(function() {
+  var table = $(this)
 
-  var drag_handle_template = '<span class=\"handle\"></span>'
-
-  var tbody = $(this).find('tbody')
-
-  tbody.find('tr td:first-child').prepend(drag_handle_template);
-
-  tbody.bind('DOMNodeInserted', function(event) {
-    var elem = $(event.target)
-    if (elem.find('.handle').length != 0)
-      return
-
-    elem.find('td:first-child').prepend(drag_handle_template)
-    tbody.sortable('refresh')
-  })
-
-  tbody.sortable({
+  table.find('tbody').sortable({
     handle: '.handle',
     items: 'tr',
     update: function() {
-      console.log(tbody)
-      console.log(options)
-      tbody.find(options.position).each(function(i, e) {
-        console.log(i, e)
-        $(e).val(i+1)
-      })
+      table.find('input[name$="[position]"]').each(function(i, e) { $(e).val(i+1) })
     }
   })
-}
+})
 
