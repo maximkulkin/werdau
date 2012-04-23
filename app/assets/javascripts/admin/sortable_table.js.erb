@@ -4,7 +4,7 @@ jQuery.fn.sortable_table = function() {
   if (arguments.length > 0)
     $.extend(options, arguments[0])
 
-  var drag_handle_template = '<img class=\"drag-handle\" src=\"<%= image_path 'admin/drag_handle.png' %>\" />'
+  var drag_handle_template = '<span class=\"handle\"></span>'
 
   var tbody = $(this).find('tbody')
 
@@ -12,7 +12,7 @@ jQuery.fn.sortable_table = function() {
 
   tbody.bind('DOMNodeInserted', function(event) {
     var elem = $(event.target)
-    if (elem.find('.drag-handle').length != 0)
+    if (elem.find('.handle').length != 0)
       return
 
     elem.find('td:first-child').prepend(drag_handle_template)
@@ -20,7 +20,7 @@ jQuery.fn.sortable_table = function() {
   })
 
   tbody.sortable({
-    handle: '.drag-handle',
+    handle: '.handle',
     items: 'tr',
     update: function() {
       console.log(tbody)
