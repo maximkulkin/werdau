@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422094048) do
+ActiveRecord::Schema.define(:version => 20120424124244) do
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20120422094048) do
     t.string   "type",                    :limit => 75
     t.datetime "attachment_updated_at"
     t.text     "alt"
+    t.string   "origin"
   end
 
   add_index "spree_assets", ["viewable_id"], :name => "index_assets_on_viewable_id"
