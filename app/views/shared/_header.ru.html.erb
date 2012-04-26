@@ -19,7 +19,11 @@
   </div>
 
   <div class="search">
-    <input type="text" placeholder="Найти легко! Поиск товара." /><a href="/">Найти</a>
+    <%= form_tag products_url, :method => :get do %>
+      <%= search_field_tag :keywords, params[:keywords], :placeholder => "Найти легко! Поиск товара." %>
+      <%= submit_tag "Найти", :name => nil %>
+      <%# <a href="/">Найти</a> %>
+    <% end %>
   </div>
 
   <div class="contacts">
