@@ -1,6 +1,15 @@
 # encoding: utf-8
 
 ru:
+  number:
+    currency:
+      format:
+        delimiter: " "
+        separator: ','
+        format: '%n %u'
+        precision: 2
+        unit: 'руб.'
+
   date:
     formats:
       default: '%d.%m.%Y'
