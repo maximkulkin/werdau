@@ -28,7 +28,9 @@ group :test do
 end
 
 gem 'unicode'
-gem 'spree', '~> 1.0.0'
+gem 'spree_core', '~> 1.0.0'
+gem 'spree_auth', '~> 1.0.0'
+gem 'spree_api', '~> 1.0.0'
 gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 gem 'spree_static_content', '= 1.0.1', :git => 'git://github.com/spree/spree_static_content.git', :branch => '1-0-stable'
 gem 'spree_editor', :git => 'git://raw.github.com/spree/spree_editor.git'
