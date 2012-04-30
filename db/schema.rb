@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424124244) do
+ActiveRecord::Schema.define(:version => 20120427144447) do
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20120424124244) do
     t.string   "match_policy", :default => "all"
     t.string   "code"
     t.boolean  "advertise",    :default => false
-    t.string   "path"
   end
 
   create_table "spree_addresses", :force => true do |t|
@@ -239,6 +238,8 @@ ActiveRecord::Schema.define(:version => 20120424124244) do
     t.string   "payment_state"
     t.string   "email"
     t.text     "special_instructions"
+    t.string   "name"
+    t.string   "phone"
   end
 
   add_index "spree_orders", ["number"], :name => "index_orders_on_number"

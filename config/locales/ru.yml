@@ -14,6 +14,17 @@ ru:
     formats:
       default: '%d.%m.%Y'
 
+  purchase: Купить
+  order_state:
+    contacts: Ваши данные
+
+  shipment_states:
+    not_started: Не начата
+
+  contacts: Ваши данные
+  delivery_instructions: Дополнительно
+  person_name: ФИО
+
   news_items: Новости
   news_item: Новость
   add_news_item: Добавить новость

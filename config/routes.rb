@@ -8,6 +8,9 @@ Werdau::Application.routes.draw do
       :constraints => { :id => /\d+/ }
     match '/news/:category' => 'news_items#index', :as => :news_item_category
 
+    match '/checkout(.:format)' => 'checkout#edit', :as => :checkout,
+      :state => 'contacts'
+
     namespace :admin do
       resources :news_items
     end

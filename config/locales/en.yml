@@ -2,4 +2,41 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  purchase: Purchase
+
+  order_state:
+    contacts: Contact information
+
+  shipment_states:
+    not_started: Not started
+
+  contacts: Contacts
+  delivery_instructions: Delivery Instructions
+  person_name: Name
+
+  news_items: News
+  news_item: News Item
+  add_news_item: Add news item
+  news_item_new: Add news item
+  news_item_edit: Edit news item
+  listing_news_items: News Items
+  news_item_category: Category
+  news_item_active_from: Active from
+  news_item_active_till: Active till
+  news_item_title: Title
+  news_item_contents: Contents
+  news_item_image: Image
+
+  activerecord:
+    errors:
+      models:
+        spree/news_item:
+          attributes:
+            category_id:
+              blank: Category is required
+            title:
+              blank: Title is required
+            active_from:
+              blank: Date is required
+            active_till:
+              blank: Date is required

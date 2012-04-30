@@ -1,0 +1,37 @@
+
+<fieldset id="contacts" data-hook>
+  <legend><%= t(:contacts) %></legend>
+  <p class="field" id="name">
+    <%= form.label :name, t(:person_name) %><span class="req">*</span><br />
+    <%= form.text_field :name, :class => 'required' %>
+  </p>
+  <p class="field" id="phone">
+    <%= form.label :phone, t(:phone) %><span class="req">*</span><br />
+    <%= form.text_field :phone, :class => 'required' %>
+  </p>
+  <p class="field" id="email">
+    <%= form.label :email, t(:email) %><span class="req">*</span><br />
+    <%= form.text_field :email, :class => 'required' %>
+  </p>
+
+  <%= form.fields_for :ship_address do |ship_form| %>
+    <p class="field" id="saddress">
+      <%= ship_form.label :address1, t(:street_address) %><span class="req">*</span><br />
+      <%= ship_form.text_field :address1, :class => 'required' %>
+    </p>
+  <% end %>
+</fieldset>
+
+<fieldset id="instructions" data-hook>
+  <legend><%= t(:delivery_instructions) %></legend>
+  <p class="field" id="special_instructions">
+    <%= form.label :special_instructions, t(:special_instructions) %>
+    <%= form.text_area :special_instructions %>
+  </p>
+</fieldset>
+
+<hr class="clear" />
+<div class="form-buttons" data-hook="buttons">
+  <%= submit_tag t(:place_order), :class => 'continue button primary' %>
+</div>
+

@@ -1,0 +1,25 @@
+
+<div class="row steps-data">
+  <div class="columns alpha four">
+    <h6><%= t(:person_name) %> <%= link_to "(#{t(:edit)})", checkout_state_path(:contacts) unless order.completed? %></h6>
+    <div class="person_name">
+      <%= order.name %>
+    </div>
+  </div>
+
+  <div class="columns alpha four">
+    <h6><%= t(:phone) %> <%= link_to "(#{t(:edit)})", checkout_state_path(:contacts) unless order.completed? %></h6>
+    <div class="phone">
+      <%= order.phone %>
+    </div>
+  </div>
+
+  <div class="columns alpha four">
+    <h6><%= t(:email) %> <%= link_to "(#{t(:edit)})", checkout_state_path(:contacts) unless order.completed? %></h6>
+    <div class="email">
+      <%= order.email %>
+    </div>
+  </div>
+
+</div>
+
