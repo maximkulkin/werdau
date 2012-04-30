@@ -18,7 +18,8 @@ task :all_routes => :environment do
           :name => route.name.to_s,
           :verb => route.verb.to_s,
           :path => mount+route.path,
-          :reqs => route.requirements.inspect
+          :reqs => route.requirements.inspect,
+          :defaults => route.defaults.inspect
         }
       end
     end
@@ -27,11 +28,12 @@ task :all_routes => :environment do
    # Skip the route if it's internal info route
   routes.reject! { |r| r[:path] =~ %r{/rails/info/properties|^/assets} }
 
-  name_width = routes.map{ |r| r[:name].length }.max
-  verb_width = routes.map{ |r| r[:verb].length }.max
-  path_width = routes.map{ |r| r[:path].length }.max
+  name_width = routes.map { |r| r[:name].length }.max
+  verb_width = routes.map { |r| r[:verb].length }.max
+  path_width = routes.map { |r| r[:path].length }.max
+  reqs_width = routes.map { |r| r[:reqs].length }.max
 
   routes.each do |r|
-    puts "#{r[:name].rjust(name_width)} #{r[:verb].ljust(verb_width)} #{r[:path].ljust(path_width)} #{r[:reqs]}"
+    puts "#{r[:path].ljust(path_width)} #{r[:name].ljust(name_width)} #{r[:verb].ljust(verb_width)} #{r[:reqs].ljust(reqs_width)} #{r[:defaults]}"
   end
 end
