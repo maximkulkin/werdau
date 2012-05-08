@@ -1,0 +1,22 @@
+<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
+
+<% if @error_message %>
+  <div class="flash error">
+    <%= @error_message %>
+  </div>
+<% end %>
+
+<h1><%= t(:product_import) %></h1>
+
+<fieldset>
+  <%= form_tag import_admin_products_path do %>
+    <%= label_tag 'data', t(:data_file) %>
+    <%= file_field_tag 'data' %>
+    <div class="form-buttons">
+      <%= button t(:upload) %>
+      <%= t(:or) %>
+      <%= link_to t(:cancel), admin_products_path %>
+    </div>
+  <% end %>
+</fieldset>
+

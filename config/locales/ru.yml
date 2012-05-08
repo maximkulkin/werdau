@@ -14,6 +14,16 @@ ru:
     formats:
       default: '%d.%m.%Y'
 
+  listing_products: Товары
+
+  product_import: Импорт товаров
+  import_products: Импорт
+  data_file: Файл данных
+  upload: Загрузить
+  product_import_result:
+    success: Данные товаров были успешно загружены
+    failure: 'Не удалось загрузить данные товаров: %{message}'
+
   purchase: Купить
   order_state:
     contacts: Ваши данные
