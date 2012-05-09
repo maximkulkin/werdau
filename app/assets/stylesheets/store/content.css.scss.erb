@@ -1,3 +1,60 @@
+
+@mixin button($url, $height, $padding) {
+  display: inline-block;
+  background: url(#{$url}-right.png) no-repeat top right;
+  padding: 0 $padding 0 0;
+
+  span {
+    display: inline-block;
+    height: $height;
+    line-height: $height;
+    background: url(#{$url}-left.png) no-repeat;
+    padding: 0 0 0 $padding;
+  }
+
+  &:hover {
+    background-position: right #{-$height};
+
+    span {
+      background-position: 0 #{-$height};
+    }
+  }
+
+  &:active {
+    background-position: right #{-2*$height};
+
+    span {
+      background-position: 0 #{-2*$height};
+    }
+  }
+}
+
+.button.small-red {
+  @include button('<%= image_path 'store/red-button2' %>', 27px, 10px);
+
+  font-size: 11px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.button.large-red {
+  @include button('<%= image_path 'store/red-button1' %>', 40px, 15px);
+
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.button.large-blue {
+  @include button('<%= image_path 'store/blue-button' %>', 36px, 10px);
+
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+
+
 .mainmenu a.m1 {
   margin-left: 28px;
   padding-top: 37px;
