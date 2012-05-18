@@ -33,4 +33,16 @@ namespace :import do
 
     puts "Data successfully imported"
   end
+
+  desc "Import products and/or price updates"
+  task :products, [:csv_file] => :environment do |t, args|
+    csv_file = args[:csv_file] || begin
+      puts "Error: csv_file argument is required"
+      next
+    end
+
+    File.open(csv_file) do |f|
+      Werdau::CsvProductImporter.import(f)
+    end
+  end
 end
