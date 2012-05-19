@@ -3,7 +3,7 @@
 module Werdau
   class CsvProductImporter
     def self.import(file)
-      taxonomy = Spree::Taxonomy.find_by_name('Товары')
+      taxonomy = Spree::Taxonomy.find_by_name('Категории')
 
       path2taxon = {}
       taxonomy.taxons.each do |taxon|

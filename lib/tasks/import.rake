@@ -5,7 +5,7 @@ namespace :import do
     # For debugging uncomment following line
     # ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-    taxonomy = Spree::Taxonomy.find_or_create_by_name('Товары')
+    taxonomy = Spree::Taxonomy.find_or_create_by_name('Категории')
 
     taxon_stack = [taxonomy.root]
     level_stack = [-1]
