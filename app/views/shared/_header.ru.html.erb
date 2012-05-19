@@ -49,6 +49,7 @@
 
 <div class="photoline"></div>
 
+<% cache 'main_product_categories_menu' do %>
 <nav id="product-categories">
   <ul class="level1">
     <% Spree::Taxonomy.find_by_name('Категории').root.children.each do |taxon1| %>
@@ -79,6 +80,7 @@
     <% end %>
   </ul>
 </nav>
+<% end %>
 
 <div style="clear: both;" />
 
