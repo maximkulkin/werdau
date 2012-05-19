@@ -3,6 +3,10 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.4'
 gem 'mysql2'
 
+group :development do
+  gem 'rails-dev-tweaks', '~> 0.6.1'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
