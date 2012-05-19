@@ -24,6 +24,8 @@ ru:
     success: Данные товаров были успешно загружены
     failure: 'Не удалось загрузить данные товаров: %{message}'
 
+  filters: Фильтры
+
   purchase: Купить
   order_state:
     contacts: Ваши данные
