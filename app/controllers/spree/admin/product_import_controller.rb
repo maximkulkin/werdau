@@ -4,7 +4,7 @@ class Spree::Admin::ProductImportController < Spree::Admin::BaseController
   end
   
   def import
-    Werdau::CsvProductImporter.import(params[:data])
+    Werdau::CsvProductImporter.import(params[:data].tempfile)
 
     flash[:notice] = I18n.t('product_import_result.success')
     redirect_to admin_products_path

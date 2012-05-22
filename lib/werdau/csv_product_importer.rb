@@ -11,7 +11,10 @@ module Werdau
         path2taxon[path] = taxon
       end
 
+      file.gets # skip header line
+
       file.each do |line|
+        line.force_encoding('UTF-8')
         line.gsub!(/^~/, '')
         line.gsub!(/~$/, '')
 

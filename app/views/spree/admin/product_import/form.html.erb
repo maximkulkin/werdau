@@ -9,7 +9,7 @@
 <h1><%= t(:product_import) %></h1>
 
 <fieldset>
-  <%= form_tag import_admin_products_path do %>
+  <%= form_tag import_admin_products_path, :multipart => true do %>
     <%= label_tag 'data', t(:data_file) %>
     <%= file_field_tag 'data' %>
     <div class="form-buttons">
