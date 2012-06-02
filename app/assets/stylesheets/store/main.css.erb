@@ -415,29 +415,29 @@ aside#sidebar {
   float: right;
   width: 300px;
   margin-left: 50px;
+}
 
-  .title {
-    border-bottom: 2px solid red;
-    margin-bottom: 1em;
-    text-align: right;
-    font-size: 13px;
-    text-transform: uppercase;
+aside#sidebar .title {
+  border-bottom: 2px solid red;
+  margin-bottom: 1em;
+  text-align: right;
+  font-size: 13px;
+  text-transform: uppercase;
+}
 
-    span {
-      display: inline-block;
-      height: 26px;
-      line-height: 26px;
-    }
+aside#sidebar .title span {
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+}
 
-    & > span {
-      padding-right: 15px;
-      background: url(<%= image_path('store/tab-right.png') %>) top right no-repeat;
+aside#sidebar .title > span {
+  padding-right: 15px;
+  background: url(<%= image_path('store/tab-right.png') %>) top right no-repeat;
+}
 
-      & > span {
-        padding-left: 15px;
-        background: url(<%= image_path 'store/tab-left.png' %>) top left no-repeat;
-      }
-    }
-  }
+aside#sidebar .title > span > span {
+  padding-left: 15px;
+  background: url(<%= image_path 'store/tab-left.png' %>) top left no-repeat;
 }
 

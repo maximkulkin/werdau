@@ -1,57 +1,72 @@
 
-@mixin button($url, $height, $padding) {
-  display: inline-block;
-  background: url(#{$url}-right.png) no-repeat top right;
-  padding: 0 $padding 0 0;
-
-  span {
-    display: inline-block;
-    height: $height;
-    line-height: $height;
-    background: url(#{$url}-left.png) no-repeat;
-    padding: 0 0 0 $padding;
-  }
-
-  &:hover {
-    background-position: right #{-$height};
-
-    span {
-      background-position: 0 #{-$height};
-    }
-  }
-
-  &:active {
-    background-position: right #{-2*$height};
-
-    span {
-      background-position: 0 #{-2*$height};
-    }
-  }
-}
-
 .button.small-red {
-  @include button('<%= image_path 'store/red-button2' %>', 27px, 10px);
+  display: inline-block;
+  background: url('<%= image_path 'store/red-button2-right.png' %>) no-repeat top right;
+  padding: 0 10px 0 0;
 
   font-size: 11px;
   color: #fff;
   text-transform: uppercase;
 }
 
+.button.small-red span {
+  display: inline-block;
+  height: 27px;
+  line-height: 27px;
+  background: url(<%= image_path 'store/red-button2-left.png' %>) no-repeat;
+  padding: 0 0 0 10px;
+}
+
+.button.small-red:hover       { background-position: right -27px; }
+.button.small-red:hover span  { background-position: left  -27px; }
+.button.small-red:active      { background-position: right -54px; }
+.button.small-red:active span { background-position: left  -54px; }
+
 .button.large-red {
-  @include button('<%= image_path 'store/red-button1' %>', 40px, 15px);
+  display: inline-block;
+  background: url('<%= image_path 'store/red-button1-right.png' %>) no-repeat top right;
+  padding: 0 15px 0 0;
 
   font-size: 18px;
   text-transform: uppercase;
   color: #fff;
 }
 
+.button.large-red span {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  background: url(<%= image_path 'store/red-button1-left.png' %>) no-repeat;
+  padding: 0 0 0 15px;
+}
+
+.button.large-red:hover       { background-position: right -40px; }
+.button.large-red:hover span  { background-position: left  -40px; }
+.button.large-red:active      { background-position: right -80px; }
+.button.large-red:active span { background-position: left  -80px; }
+
 .button.large-blue {
-  @include button('<%= image_path 'store/blue-button' %>', 36px, 10px);
+  display: inline-block;
+  background: url('<%= image_path 'store/blue-button-right.png' %>) no-repeat top right;
+  padding: 0 10px 0 0;
 
   font-size: 15px;
   text-transform: uppercase;
   color: #fff;
 }
+
+.button.large-blue span {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  background: url(<%= image_path 'store/blue-button-left.png' %>) no-repeat;
+  padding: 0 0 0 10px;
+}
+
+.button.large-blue:hover       { background-position: right -36px; }
+.button.large-blue:hover span  { background-position: left  -36px; }
+.button.large-blue:active      { background-position: right -72px; }
+.button.large-blue:active span { background-position: left  -72px; }
 
 
 
@@ -598,9 +613,6 @@
   height: 240px;
 }
 
-#breadcrumbs ul {
-  padding-left: 0;
-
-  li { display: inline; }
-}
+#breadcrumbs ul    { padding-left: 0; }
+#breadcrumbs ul li { display: inline; }
 
