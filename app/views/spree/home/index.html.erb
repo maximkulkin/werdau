@@ -71,8 +71,7 @@
         <h2>Новости магазина</h2>
         <% category = Spree::NewsItem::Category::NEWS_INFO %>
         <% news_item = Spree::NewsItem.from_category(category).last %>
-        <% if news_item.nil? %>
-        <% else %>
+        <% unless news_item.nil? %>
           <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
           <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
         <% end %>
@@ -81,8 +80,7 @@
         <h2>Новости техники</h2>
         <% category = Spree::NewsItem::Category::NEWS_TECH %>
         <% news_item = Spree::NewsItem.from_category(category).last %>
-        <% if news_item.nil? %>
-        <% else %>
+        <% unless news_item.nil? %>
           <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
           <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
         <% end %>
