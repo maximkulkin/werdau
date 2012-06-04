@@ -181,12 +181,12 @@ ActiveRecord::Schema.define(:version => 20120519181058) do
   end
 
   create_table "spree_news_items", :force => true do |t|
-    t.integer "category_id"
-    t.string  "title"
-    t.text    "contents"
-    t.string  "image_file_name"
-    t.date    "active_from"
-    t.date    "active_till"
+    t.integer  "category_id"
+    t.string   "title"
+    t.text     "contents"
+    t.string   "image_file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_option_types", :force => true do |t|
