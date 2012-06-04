@@ -68,28 +68,22 @@
 
       <div class="news">
 
-        <div class="promo">
-          <h2>Акции</h2>
-          <% category = Spree::NewsItem::Category::PROMO %>
-          <% Spree::NewsItem.active.from_category(category).limit(2).each do |news_item| %>
-            <p class="date"><span><%= l(news_item.active_from) %></span></p>
-            <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
-          <% end %>
-          <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>
-        </div>
-
         <h2>Новости магазина</h2>
         <% category = Spree::NewsItem::Category::NEWS_INFO %>
-        <% Spree::NewsItem.active.from_category(category).limit(4).each do |news_item| %>
-          <p class="date"><span><%= l(news_item.active_from) %></span></p>
+        <% news_item = Spree::NewsItem.from_category(category).last %>
+        <% if news_item.nil? %>
+        <% else %>
+          <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
           <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
         <% end %>
         <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>        
 
         <h2>Новости техники</h2>
         <% category = Spree::NewsItem::Category::NEWS_TECH %>
-        <% Spree::NewsItem.active.from_category(category).limit(4).each do |news_item| %>
-          <p class="date"><span><%= l(news_item.active_from) %></span></p>
+        <% news_item = Spree::NewsItem.from_category(category).last %>
+        <% if news_item.nil? %>
+        <% else %>
+          <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
           <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
         <% end %>
         <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>  

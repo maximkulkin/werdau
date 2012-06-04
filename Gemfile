@@ -5,6 +5,7 @@ gem 'mysql2'
 
 group :development do
   gem 'rails-dev-tweaks', '~> 0.6.1'
+  gem 'sqlite3'
 end
 
 # Gems used only for assets and not required

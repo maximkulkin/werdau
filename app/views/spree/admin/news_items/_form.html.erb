@@ -5,18 +5,6 @@
   <%= f.error_message_on :category_id %>
 <% end %>
 
-<%= f.field_container :active_from do %>
-  <%= f.label :active_from, t(:news_item_active_from) %> <span class="required">*</span><br />
-  <%= f.text_field :active_from, :class => 'datepicker' %>
-  <%= f.error_message_on :active_from %>
-<% end %>
-
-<%= f.field_container :active_till do %>
-  <%= f.label :active_till, t(:news_item_active_till) %> <span class="required">*</span><br />
-  <%= f.text_field :active_till, :class => 'datepicker' %>
-  <%= f.error_message_on :active_till %>
-<% end %>
-
 <%= f.field_container :title do %>
   <%= f.label :title, t(:news_item_title) %> <span class="required">*</span><br />
   <%= f.text_field :title %>

@@ -8,6 +8,6 @@ class Spree::Admin::NewsItemsController < Spree::Admin::ResourceController
   private
 
   def collection
-    Spree::NewsItem.order('active_from desc')
+    Spree::NewsItem.order('created_at desc')
   end
 end

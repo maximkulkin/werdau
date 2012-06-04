@@ -5,9 +5,7 @@ class CreateSpreeNewsItems < ActiveRecord::Migration
       t.string  :title
       t.text    :contents
       t.string  :image_file_name
-
-      t.date    :active_from
-      t.date    :active_till
+      t.timestamps
     end
   end
 end
