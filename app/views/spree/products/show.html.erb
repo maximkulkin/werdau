@@ -21,7 +21,7 @@
         </div>
 
         <div class="s-img">
-          <% for image in @product.images[1..-1] %>
+          <% for image in @product.images[1..-1] || [] %>
             <a href="/"><%= image_tag image.attachment.url(:small) %></a>
           <% end %>
         </div>
