@@ -21,7 +21,7 @@ module Werdau
         sku, name, path, price, active, tag = line.split('~^~')
 
         variant = Spree::Variant.where(sku: sku).includes(:product).first
-        product = variant ? variant.product : Spree::Product.create(name: name, price: price)
+        product = variant ? variant.product : Spree::Product.create(name: name, price: price, sku: sku)
 
         product.name = name
         product.price = price
