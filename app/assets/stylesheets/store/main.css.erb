@@ -310,22 +310,54 @@ header .cart .icon.act{
   font-size: 10px;
 }
 
-
 .mainact {
-  padding: 30px 40px;
-  width: 880px;
-  position: relative;
-  text-align: center;
+  clear: both;
 }
 
-.additionalnav {
-  position: absolute;
-  right: -209px;
-  width: 200px;
-  top: 0;
+.mainact .advertisement {
+  padding: 30px 40px;
+  width: 880px;
+  float: left;
+}
+
+.mainact nav.additional {
   text-align: left;
   padding: 30px 0 0 0;
+  margin-left: 950px;
   height: 220px;
+  position: relative;
+}
+
+.mainact nav.additional a {
+  border-bottom: 1px dashed #d82123;
+  font-size: 19px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+  line-height: 18px;
+}
+
+.mainact nav.additional a:hover {
+  color: #f8dbd3;
+}
+
+.mainact nav.additional a.callcenter {
+  width: 186px;
+  height: 68px;
+  display: block;
+  background: url(<%= image_path 'store/callme.png' %>) no-repeat;
+  position: absolute;
+  bottom: -12px;
+  border: none;
+}
+
+.mainact nav.additional a.callcenter:hover {
+  background: url(<%= image_path 'store/callmeon.png' %>) no-repeat;  
+  padding: 0px;
+}
+
+.mainact .callcenter span {
+  display: none;
 }
 
 .popup .personal-data input:focus {  
@@ -341,7 +373,7 @@ header .cart .icon.act{
   width: 880px;
 }
 
-.col-1, .index .col-2 {
+.col-1 {
   float: left;
 }
 
@@ -356,7 +388,9 @@ header .cart .icon.act{
   border: 1px dashed #dddce1;
   padding: 22px 22px 0px 22px;
   border-bottom-width: 0px;
+
   width: 259px;
+  margin-left: 605px;
   position: relative;
   overflow: show;
 }
@@ -365,19 +399,44 @@ header .cart .icon.act{
   min-height: 560px;
 }
 
-.col-2 .about {
+.about {
+  clear: left;
+  position: relative;
   border-right: 1px solid #edeef2;
   width: 904px;
-  margin-left: -637px;
-  margin-top: 20px;
-  position: relative;
-  z-index: 100;
 }
 
-.col-3 {
-  margin-left: 890px;
-  width: 270px;
-  padding-top: 20px;
+.about .textpage {
+  background: #efefef;
+  border-right: 5px solid #fff;
+  border-top: 5px solid #fff;
+  padding: 25px 30px 25px 40px;  
+  font-size: 13px;
+}
+
+.about .corner {
+  background: url(<%= image_path 'store/corner.png' %>) no-repeat right top; 
+  position: absolute;
+  z-index: 100;
+  width: 50px;
+  height: 70px;
+  top: -15px;
+  right: -5px;
+}
+
+.about .textpage h3 {
+  font-weight: normal;
+  font-size: 18px;
+  color: #d8201e;
+  margin: 0 0 20px 0;
+}
+
+.about .textpage a {
+  color: #d8201e;
+}
+
+#content {
+  margin-right: 300px;
 }
 
 #footer {
@@ -414,14 +473,10 @@ header .cart .icon.act{
   width: 100%;
 }
 
-#content {
-  margin: 0 0 0 40px;
-}
-
 aside#sidebar {
   float: right;
-  width: 300px;
-  margin-left: 50px;
+  width: 270px;
+  margin-left: 30px;
 }
 
 aside#sidebar .title {
@@ -447,4 +502,37 @@ aside#sidebar .title > span > span {
   padding-left: 15px;
   background: url(<%= image_path 'store/tab-left.png' %>) top left no-repeat;
 }
+
+ul.pager {
+  list-style-type: none;
+  text-align: center;
+}
+
+ul.pager li {
+  display: inline;
+}
+
+.pager a {
+  display: inline-block;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #565656;  
+}      
+
+.pager a:hover {
+  text-decoration: underline;
+}
+
+.pager a.prev,
+.pager a.next {
+  width: 13px;
+  height: 13px;
+  
+  position: relative;
+  bottom: -1px;
+  margin: 0;
+}
+
+.pager a.prev { background: url(<%= image_path 'store/arrowl.png' %>) no-repeat; }
+.pager a.next { background: url(<%= image_path 'store/arrowr.png' %>) no-repeat; }
 

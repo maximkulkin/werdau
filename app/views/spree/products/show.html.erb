@@ -178,7 +178,8 @@
 
   </div>
 
-  <div class="col-3">
+  <% content_for :sidebar do %>
+  <div>
 
     <h2><div class="subtitle"><span class="lc"></span>Отзывы<span class="rc"></span></div></h2><div class="clearright"></div>
 
@@ -303,7 +304,8 @@
       </a>
     </div>
 
-  </div><!-- end col-3 -->
+  </div>
+  <% end %>
 
   <div style="clear: left;"></div>
 

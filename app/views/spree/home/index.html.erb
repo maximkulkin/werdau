@@ -1,116 +1,35 @@
-
-  <div class="content index">
-
-    <div class="compare">
-      Ожидают сравнения: <a href="/">Ноутбуки</a> [2] <a href="/" class="del"></a>
-    </div>
-
+  <% content_for :advertisement do %>
     <div class="mainact">
 
-      <a href="/"><%= image_tag 'store/promo/1.jpg' %></a>
-      <div class="nav">
-        <a class="next" href="/">&nbsp;</a>
-        <a href="/">1</a><a href="/">2</a><a href="/">3</a><a href="/">4</a>....<a href="/">15</a>
-        <a class="last" href="/">&nbsp;</a>
+      <div class="advertisement">
+
+        <a href="/"><%= image_tag 'store/promo/1.jpg' %></a>
+        <ul class="pager">
+          <li><a class="prev" href="/">&nbsp;</a></li>
+          <li><a href="/">1</a></li>
+          <li><a href="/">2</a></li>
+          <li><a href="/">3</a></li>
+          <li><a href="/">4</a>....</li>
+          <li><a href="/">15</a></li>
+          <li><a class="next" href="/">&nbsp;</a></li>
+        </ul>
       </div>
 
-      <div class="additionalnav">
-        <a href="/service">Сервисные центры</a><br />
-        <a href="/news/advices">Советы потребителю</a><br />
-        <a href="/news/info">Новости магазина</a><br />
-        <a href="/news/tech">Новости техники</a><br />
-
-        <a class="callcenter" href="/"><span>Косультация сайта ONLINE" <span/></a>
-
-      </div>
+      <nav class="additional">
+        <ul>
+          <li><a href="/service">Сервисные центры</a></li>
+          <li><a href="/news/advices">Советы потребителю</a></li>
+          <li><a href="/news/info">Новости магазина</a></li>
+          <li><a href="/news/tech">Новости техники</a></li>
+          <li><a class="callcenter" href="/"><span>Косультация сайта ONLINE" <span/></a></li>
+        </ul>
+      </nav>
 
     </div>
+  <% end %>
 
-    <div class="col-1">
-      <h1>Мы рекомендуем</h1>
-      <div class="recommendations">
-        <div class="good">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
-        <div class="good">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
-        <div class="good">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
-        <div class="good">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
-      </div>
-    </div><!-- end col-1 -->
-
-    <div class="col-2">
-
-      <div class="news">
-
-        <h2>Новости магазина</h2>
-        <% category = Spree::NewsItem::Category::NEWS_INFO %>
-        <% news_item = Spree::NewsItem.from_category(category).last %>
-        <% unless news_item.nil? %>
-          <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
-          <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
-        <% end %>
-        <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>        
-
-        <h2>Новости техники</h2>
-        <% category = Spree::NewsItem::Category::NEWS_TECH %>
-        <% news_item = Spree::NewsItem.from_category(category).last %>
-        <% unless news_item.nil? %>
-          <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
-          <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
-        <% end %>
-        <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>  
-      </div>
-
-      <div class="about">
-
-        <div class="corner"></div>
-
-        <div class="textpage">
-
-          <h3>Почему Werdau.ru? Отзывы наших покупателей </h3>
-
-          <p>Vivat "Werdau"!.. Всё быстро, качественно, без обмана.. :) И цены весьма радуют, не говоря уже об акциях, надеюсь не раз ещё обращаться в сей прекрасный магазин... Спасибо.
-
-          <p><b>О магазине.</b>
-          <p>По поводу данного интернет-магазина. Делая заказ, я нашел его случайно. Были сомнения, теперь твердо уверен заказывать товар только у них. Радуют приятные цены. После оформления заказа сразу перезвонили, уточнили все детали. Товар в отменном качестве на след. день был у меня. 
-
-          <p><a href="/">Форум Werdau.ru></p>
-
-          <p class="more"><a href="/">Развернуть </a></p>
-
-        </div>
-
-      </div>
-
-    </div><!-- end col-2 -->
-
-    <div class="col-3">
+  <% content_for :sidebar do %>
+    <div>
 
       <h2><span class="lc"></span>Часы работы<span class="rc"></span></h2>
       <div class="schedule">
@@ -184,9 +103,94 @@
       </a>
       </div>
 
-    </div><!-- end col-3 -->
+    </div>
+  <% end %>
 
-    <div style="clear: left;"></div>
+  <div class="content index">
+
+    <div class="col-1">
+      <h1>Мы рекомендуем</h1>
+      <div class="recommendations">
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+        <div class="good">
+          <h2><a href="/">Объективы</a></h2>
+          <a href="/">
+           <img src="img/goods/1.jpg" alt="" />
+           <span class="price">3'276 Р.</span>
+           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
+          </a>
+        </div>
+      </div>
+    </div><!-- end col-1 -->
+
+    <div class="col-2">
+
+      <div class="news">
+
+        <h2>Новости магазина</h2>
+        <% category = Spree::NewsItem::Category::NEWS_INFO %>
+        <% news_item = Spree::NewsItem.from_category(category).last %>
+        <% unless news_item.nil? %>
+          <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
+          <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
+        <% end %>
+        <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>        
+
+        <h2>Новости техники</h2>
+        <% category = Spree::NewsItem::Category::NEWS_TECH %>
+        <% news_item = Spree::NewsItem.from_category(category).last %>
+        <% unless news_item.nil? %>
+          <p class="date"><span><%= l(news_item.created_at.to_date) %></span></p>
+          <p class="pre"><%= link_to news_item.title, news_item_path(news_item) %></p>
+        <% end %>
+        <p class="all"><%= link_to "Все #{category.name.downcase}", news_item_category_path(category) %></p>  
+      </div>
+
+    </div><!-- end col-2 -->
+
+    <div class="about">
+
+      <div class="corner"></div>
+
+      <div class="textpage">
+
+        <h3>Почему Werdau.ru? Отзывы наших покупателей </h3>
+
+        <p>Vivat "Werdau"!.. Всё быстро, качественно, без обмана.. :) И цены весьма радуют, не говоря уже об акциях, надеюсь не раз ещё обращаться в сей прекрасный магазин... Спасибо.
+
+        <p><b>О магазине.</b>
+        <p>По поводу данного интернет-магазина. Делая заказ, я нашел его случайно. Были сомнения, теперь твердо уверен заказывать товар только у них. Радуют приятные цены. После оформления заказа сразу перезвонили, уточнили все детали. Товар в отменном качестве на след. день был у меня. 
+
+        <p><a href="/">Форум Werdau.ru></p>
+
+        <p class="more"><a href="/">Развернуть </a></p>
+
+      </div>
+
+    </div>
 
   </div><!-- end content index -->
 

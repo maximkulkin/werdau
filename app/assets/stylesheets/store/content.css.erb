@@ -69,70 +69,6 @@
 .button.large-blue:active span { background-position: left  -72px; }
 
 
-
-.mainmenu a.m1 {
-  margin-left: 28px;
-  padding-top: 37px;
-}
-
-.mainmenu a.m2 {
-  margin-left: 114px;
-  padding-top: 35px;
-}
-
-.mainmenu a.m3 {
-  margin-left: 118px;
-  padding-top: 23px;
-}
-
-.mainmenu a.m4 {
-  margin-left: 97px;
-  padding-top: 25px;
-}
-
-.mainmenu a.m5 {
-  margin-left: 112px;
-  padding-top: 20px;
-}
-
-.mainmenu a.m6 {
-  margin-left: 99px;
-  padding-top: 20px;
-}
-
-.mainmenu a.m1 span {
-  left: 35px;
-}
-
-.mainmenu a.m2 span {
-  left: 28px;
-  width: 50px;
-}
-
-
-.mainmenu a.m3 span {
-  top: 113px;
-  left: 8px;
-}
-
-
-.mainmenu a.m4 span {
-  top: 113px;
-  left: 39px;
-}
-
-
-.mainmenu a.m5 span {
-  top: 113px;
-  left: 15px;
-  width: 120px;
-}
-
-
-.mainmenu a.m6 span {
-  left: 18px;
-}
-
 .compare {
   border-top: 1px dashed #eeeef0;
   border-bottom: 1px dashed #eeeef0;
@@ -147,68 +83,6 @@
   background: url(<%= image_path 'store/del.png' %>) no-repeat;
   line-height: 0;
   margin-bottom: -3px;
-}
-
-.additionalnav a {
-  border-bottom: 1px dashed #d82123;
-  font-size: 19px;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 6px;
-  line-height: 18px;
-}
-
-.additionalnav a:hover {
-  color: #f8dbd3;
-}
-
-.additionalnav .callcenter {
-  width: 186px;
-  height: 68px;
-  display: block;
-  background: url(<%= image_path 'store/callme.png' %>) no-repeat;
-  position: absolute;
-  bottom: -12px;
-  left: -10px;
-  border-width: 0px;
-}
-
-.additionalnav  .callcenter:hover {
-  background: url(<%= image_path 'store/callmeon.png' %>) no-repeat;  
-  padding: 0px;
-}
-
-.callcenter span {
-  display: none;
-}
-
-.nav a {
-  display: inline-block;
-  margin: 0 5px;
-  text-decoration: none;
-  color: #565656;  
-}      
-
-.nav a:hover {
-  text-decoration: underline;
-}
-
-.nav a.last {
-  width: 13px;
-  height: 13px;
-  background: url(<%= image_path 'store/arrowr.png' %>) no-repeat;  
-  position: relative;
-  bottom: -1px;
-  margin: 0;
-}
-
-.nav a.next {
-  width: 13px;
-  height: 13px;
-  background: url(<%= image_path 'store/arrowl.png' %>) no-repeat;  
-  position: relative;
-  bottom: -1px;
-  margin: 0;
 }
 
 .index .col-2 h2 {
@@ -257,35 +131,6 @@
 
 .index .col-2 .news .promo p.date span {
   background: #d8201e;
-}
-
-.about .textpage {
-  background: #efefef;
-  border-right: 5px solid #fff;
-  border-top: 5px solid #fff;
-  padding: 25px 30px 25px 40px;  
-  font-size: 13px;
-}
-
-.about .corner {
-  background: url(<%= image_path 'store/corner.png' %>) no-repeat right top; 
-  position: absolute;
-  z-index: 100;
-  width: 50px;
-  height: 70px;
-  top: -15px;
-  right: -5px;
-}
-
-.about .textpage h3 {
-  font-weight: normal;
-  font-size: 18px;
-  color: #d8201e;
-  margin: 0 0 20px 0;
-}
-
-.about .textpage a {
-  color: #d8201e;
 }
 
 .more {
@@ -355,7 +200,8 @@
   margin-bottom: 20px;
 }
 
-.col-3 h2{
+
+#sidebar h2{
   height: 22px;
   line-height: 22px;
   padding-right: 4px;
@@ -365,7 +211,7 @@
   border-bottom: 3px solid #d82022;
 }
 
-.col-3 h2 .subtitle {
+#sidebar h2 .subtitle {
   background: url(<%= image_path 'store/header.png' %>) repeat-x top; 
   text-transform: uppercase;
   font-weight: normal;
@@ -377,7 +223,7 @@
   font-size: 13px;
 }
 
-.col-3 h2 .lc{
+#sidebar h2 .lc{
   position: absolute;
   top: 0;
   left: -5px;
@@ -387,7 +233,7 @@
   background: url(<%= image_path 'store/lc2.png' %>) no-repeat;
 }
 
-.col-3 h2 .rc{
+#sidebar h2 .rc{
   position: absolute;
   top: 0;
   right: -4px;
@@ -397,7 +243,7 @@
   background: url(<%= image_path 'store/rc2.png' %>) no-repeat;
 }
 
-.col-3 h2 {
+#sidebar h2 {
   float: right;
   background: url(<%= image_path 'store/header.png' %>) repeat-x top; 
   text-transform: uppercase;
