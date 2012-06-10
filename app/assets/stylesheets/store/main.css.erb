@@ -12,7 +12,7 @@ body {
   background: url(<%= image_path 'store/bg.png' %>) top repeat-x;
 } 
 
-a {color:#6e7777;}
+a {color:#D91F24;}
 a:hover {text-decoration:none;}
 
 nav ul {
@@ -21,7 +21,7 @@ nav ul {
 }
 
 .container {
-  width: 1200px;
+  width: 1230px;
   position:relative;
   min-width:1150px;
   background: url(<%= image_path 'store/bg2.png' %>) no-repeat right bottom;
@@ -381,6 +381,7 @@ header .cart .icon.act{
   padding: 10px 0 0 40px;
   width: 575px;
   overflow: hidden;
+  border-right: 1px dashed #dddce1;
 }
 
 .col-2 {
@@ -390,7 +391,7 @@ header .cart .icon.act{
   border-bottom-width: 0px;
 
   width: 259px;
-  margin-left: 605px;
+  margin-left: 615px;
   position: relative;
   overflow: show;
 }
@@ -399,14 +400,19 @@ header .cart .icon.act{
   min-height: 560px;
 }
 
-.about {
+.content.index {
+  width: 919px;
+  border-right: 1px dashed #dddce1;
+}
+
+#about {
   clear: left;
   position: relative;
   border-right: 1px solid #edeef2;
   width: 904px;
 }
 
-.about .textpage {
+#about .textpage {
   background: #efefef;
   border-right: 5px solid #fff;
   border-top: 5px solid #fff;
@@ -414,7 +420,7 @@ header .cart .icon.act{
   font-size: 13px;
 }
 
-.about .corner {
+#about .corner {
   background: url(<%= image_path 'store/corner.png' %>) no-repeat right top; 
   position: absolute;
   z-index: 100;
@@ -424,14 +430,14 @@ header .cart .icon.act{
   right: -5px;
 }
 
-.about .textpage h3 {
+#about .textpage h3 {
   font-weight: normal;
   font-size: 18px;
   color: #d8201e;
   margin: 0 0 20px 0;
 }
 
-.about .textpage a {
+#about .textpage a {
   color: #d8201e;
 }
 
@@ -479,27 +485,29 @@ aside#sidebar {
   margin-left: 30px;
 }
 
-aside#sidebar .title {
-  border-bottom: 2px solid red;
-  margin-bottom: 1em;
+aside#sidebar h2 {
+  border-bottom: 3px solid #D82022;
+  margin-bottom: 20px;
   text-align: right;
+  color: #575757;
   font-size: 13px;
+  font-weight: normal;
   text-transform: uppercase;
 }
 
-aside#sidebar .title span {
+aside#sidebar h2 span {
   display: inline-block;
   height: 26px;
   line-height: 26px;
 }
 
-aside#sidebar .title > span {
-  padding-right: 15px;
+aside#sidebar h2 > span {
+  padding-right: 10px;
   background: url(<%= image_path('store/tab-right.png') %>) top right no-repeat;
 }
 
-aside#sidebar .title > span > span {
-  padding-left: 15px;
+aside#sidebar h2 > span > span {
+  padding-left: 10px;
   background: url(<%= image_path 'store/tab-left.png' %>) top left no-repeat;
 }
 

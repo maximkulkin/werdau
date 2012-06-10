@@ -28,90 +28,16 @@
     </div>
   <% end %>
 
-  <% content_for :sidebar do %>
-    <div>
-
-      <h2><span class="lc"></span>Часы работы<span class="rc"></span></h2>
-      <div class="schedule">
-
-        <div class="tab"><span>Обслуживание звонков:</span>
-          <div>
-            <a href="/">  Доставка товаров</a>
-            <a href="/">Прием посетителей</a>
-          </div>
-        </div>
-
-        <p class="day">Пн - Пт<br />Сб<br />Вс</p>
-        <p class="time">9 - 21<br />10 - 17<br />10 - 16</p>
-
-      </div>
-
-      <h2><span class="lc"></span>Просмотренные товары<span class="rc"></span></h2>
-
-        <ul class="justwatched">
-        <li>
-          <a href="/">
-            <img src="img/goods/1.jpg" width="50px" alt="" />
-            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-            <span class="price">3'793 грн.</span>
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <img src="img/goods/1.jpg" width="50px" alt="" />
-            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-            <span class="price">3'793 грн.</span>
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <img src="img/goods/1.jpg" width="50px" alt="" />
-            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-            <span class="price">3'793 грн.</span>
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <img src="img/goods/1.jpg" width="50px" alt="" />
-            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-            <span class="price">3'793 грн.</span>
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <img src="img/goods/1.jpg" width="50px" alt="" />
-            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-            <span class="price">3'793 грн.</span>
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <img src="img/goods/1.jpg" width="50px" alt="" />
-            <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-            <span class="price">3'793 грн.</span>
-          </a>
-        </li>
-
-        </ul>
-
-      <h2><span class="lc"></span>Аукцион!<span class="rc"></span></h2><div class="clearright"></div>
-
-      <div class="auction"><a href="/">
-      <img src="img/goods/1.jpg" width="70" alt="" />
-      <span class="name">Western Digital USB 2000Gb (WDBACW0020HBK-EESN) My Book Essential Black, 3.5"</span>
-      <span class="price">200.00 р.</span>
-      </a>
-      </div>
-
-    </div>
-  <% end %>
+  <%= render :partial => 'spree/shared/working_hours' %>
+  <%= render :partial => 'spree/shared/viewed_recently' %>
+  <%= render :partial => 'spree/shared/auction' %>
 
   <div class="content index">
 
     <div class="col-1">
       <h1>Мы рекомендуем</h1>
-      <div class="recommendations">
-        <div class="good">
+      <div id="recommendations">
+        <div class="product">
           <h2><a href="/">Объективы</a></h2>
           <a href="/">
            <img src="img/goods/1.jpg" alt="" />
@@ -119,7 +45,7 @@
            <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
           </a>
         </div>
-        <div class="good">
+        <div class="product">
           <h2><a href="/">Объективы</a></h2>
           <a href="/">
            <img src="img/goods/1.jpg" alt="" />
@@ -127,7 +53,7 @@
            <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
           </a>
         </div>
-        <div class="good">
+        <div class="product">
           <h2><a href="/">Объективы</a></h2>
           <a href="/">
            <img src="img/goods/1.jpg" alt="" />
@@ -135,7 +61,7 @@
            <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
           </a>
         </div>
-        <div class="good">
+        <div class="product">
           <h2><a href="/">Объективы</a></h2>
           <a href="/">
            <img src="img/goods/1.jpg" alt="" />
@@ -171,7 +97,7 @@
 
     </div><!-- end col-2 -->
 
-    <div class="about">
+    <div id="about">
 
       <div class="corner"></div>
 
@@ -184,7 +110,7 @@
         <p><b>О магазине.</b>
         <p>По поводу данного интернет-магазина. Делая заказ, я нашел его случайно. Были сомнения, теперь твердо уверен заказывать товар только у них. Радуют приятные цены. После оформления заказа сразу перезвонили, уточнили все детали. Товар в отменном качестве на след. день был у меня. 
 
-        <p><a href="/">Форум Werdau.ru></p>
+        <p><a href="/">Форум Werdau.ru</a></p>
 
         <p class="more"><a href="/">Развернуть </a></p>
 

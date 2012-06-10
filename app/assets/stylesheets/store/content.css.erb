@@ -150,43 +150,43 @@
   margin-bottom: 60px;
 }
 
-.index .recommendations {
+#recommendations {
   background: url(<%= image_path 'store/rec.png' %>) no-repeat ; 
   width: auto;
   overflow: hidden;
 }
 
-.index .good {
+#recommendations .product {
   float: left;
   width: 214px;
   height: 250px;
   padding:  0 0 0 20px;
 }
 
-.index .good h2 {
+#recommendations .product h2 {
   color: #226184;
   font-weight: normal;
 }
 
-.index .good a {
+#recommendations .product a {
   color: #1d1d1b;
   font-size: 18px;
   text-decoration: none;
   line-height: 13px;
 }
 
-.index .good h2 a:hover {
+#recommendations .product h2 a:hover {
   text-decoration: underline;
 }
 
-.index .good .price {
+#recommendations .product .price {
   display: block;
   font-size: 18px;
   padding-left: 15px;
   background: url(<%= image_path 'store/line2.png' %>) no-repeat left; 
 }
 
-.index .good a .name {
+#recommendations .product a .name {
   color: #717171;
   font-size: 13px;
   text-decoration: underline;
@@ -194,77 +194,23 @@
   line-height: 12px;
 }
 
-.index .good img {
+#recommendations .product img {
   display: block;
   margin: 10px auto;  
   margin-bottom: 20px;
+  min-width: 150px;
+  min-height: 100px;
 }
 
 
-#sidebar h2{
-  height: 22px;
-  line-height: 22px;
-  padding-right: 4px;
-  position: relative;
-  margin: 0 5px 20px 0;
-  font-size: 13px;
-  border-bottom: 3px solid #d82022;
-}
-
-#sidebar h2 .subtitle {
-  background: url(<%= image_path 'store/header.png' %>) repeat-x top; 
-  text-transform: uppercase;
-  font-weight: normal;
-  float: right;
-  position: relative;
-  height: 22px;
-  line-height: 22px;
-  padding: 0 5px;
-  font-size: 13px;
-}
-
-#sidebar h2 .lc{
-  position: absolute;
-  top: 0;
-  left: -5px;
-  display: block;
-  width: 5px;
-  height: 22px;
-  background: url(<%= image_path 'store/lc2.png' %>) no-repeat;
-}
-
-#sidebar h2 .rc{
-  position: absolute;
-  top: 0;
-  right: -4px;
-  display: block;
-  width: 4px;
-  height: 22px;
-  background: url(<%= image_path 'store/rc2.png' %>) no-repeat;
-}
-
-#sidebar h2 {
-  float: right;
-  background: url(<%= image_path 'store/header.png' %>) repeat-x top; 
-  text-transform: uppercase;
-  font-weight: normal;
-  height: 22px;
-  line-height: 22px;
-  position: relative;
-  margin: 0 5px 20px 0;
-  padding: 0 5px;
-  font-size: 13px;
-}
-
-
-.index .schedule {
+#working_hours {
   clear: right;
   width: auto;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.index .schedule .tab {
+#working_hours .tab {
   position: relative;
   width: auto;
   overflow: hidden;
@@ -274,16 +220,16 @@
   margin-bottom: 10px;
 }
 
-.index .schedule .tab span {
+#working_hours .tab span {
   float: left;
 }
 
-.index .schedule .tab a {
+#working_hours .tab a {
   display: block;
   margin-bottom: 2px;
 }
 
-.index .schedule .tab div {
+#working_hours .tab div {
   float: left;
   padding-left: 20px;
   background: url(<%= image_path 'store/line3.png' %>) no-repeat left 0px;
@@ -294,18 +240,17 @@
   line-height: 12px;
 }
 
-.index .schedule .day {
-  float: left;
+#working_hours table th {
   font-weight:bold;
   width: 60px;
   font-size: 15px;
   text-align: right;
   line-height: 25px;
   white-space: no-wrap;
+  vertical-align: bottom;
 }
 
-.index .schedule .time {
-  float: left;
+#working_hours table td {
   font-size: 25px;
   line-height: 25px;
   font-weight: bold;
@@ -315,65 +260,77 @@
   letter-spacing: -0.1em;
   white-space: no-wrap;
   width: 80px;
+  vertical-align: bottom;
 }
 
-.justwatched {
+#viewed_recently {
   clear: right;
   max-height: 200px;
   overflow: auto;
   margin-bottom: 30px;
+  list-style-type: none;
+  padding: 0;
 }
 
-.justwatched img {
+#viewed_recently img {
   float: left;
+  width: 48px;
 }
 
-.justwatched li {
+#viewed_recently li {
   margin-bottom: 10px;
 }
 
-.justwatched a {
+#viewed_recently a {
   color: #545a5a;
 }
 
-.justwatched .name, .justwatched .price {
+#viewed_recently .name, #viewed_recently .price {
   display: block;
   margin-left: 60px;
 }
 
-.justwatched .name {
+#viewed_recently .name {
   font-weight: bold;
 }
 
-.justwatched .price {
+#viewed_recently .price {
   text-decoration: none;
 }
 
-.auction {
+
+#auction {
   text-align: center;
   position: relative;
+  list-style-type: none;
+  padding: 0;
 }
 
-.auction img {
+#auction li {
+  margin: 0;
+}
+
+#auction img {
   float: left;
+  width: 70px;
 }
 
-.auction a {
+#auction a {
   color: #717e87;
   text-decoration: none;
 }
 
-.auction a .name, .auction a .price {
+#auction a .name, #auction a .price {
   display: block;
   text-align: left;
-  margin-left: 70px;
+  margin-left: 80px;
 }
 
-.auction a .name {
+#auction a .name {
   text-decoration: underline;
 }
 
-.auction a .price {
+#auction a .price {
   font-size: 35px;
   color: #489fba;
   font-weight: bold;
@@ -485,68 +442,6 @@
 #breadcrumbs ul    { padding-left: 0; }
 #breadcrumbs ul li { display: inline; }
 
-.justwatched {
-  clear: right;
-  max-height: 200px;
-  overflow: auto;
-  margin-bottom: 30px;
-}
-
-.justwatched img {
-  float: left;
-}
-
-.justwatched li {
-  margin-bottom: 10px;
-}
-
-.justwatched a {
-  color: #545a5a;
-}
-
-.justwatched .name, .justwatched .price {
-  display: block;
-  margin-left: 60px;
-}
-
-.justwatched .name {
-  font-weight: bold;
-}
-
-.justwatched .price {
-  text-decoration: none;
-}
-
-.auction {
-  text-align: center;
-  position: relative;
-}
-
-.auction img {
-  float: left;
-}
-
-.auction a {
-  color: #717e87;
-  text-decoration: none;
-}
-
-.auction a .name, .auction a .price {
-  display: block;
-  text-align: left;
-  margin-left: 70px;
-}
-
-.auction a .name {
-  text-decoration: underline;
-}
-
-.auction a .price {
-  font-size: 35px;
-  color: #489fba;
-  font-weight: bold;
-  white-space: nowrap;
-}
 
 .prodpart h1 .kod {
   border-left: 2px solid #d82022;

@@ -1,0 +1,27 @@
+<% content_for :sidebar do %>
+  <%= sidebar_title 'Часы работы' %>
+  <div id="working_hours">
+    <div class="tab">
+      <span>Обслуживание звонков:</span>
+      <div>
+        <a href="/">Доставка товаров</a>
+        <a href="/">Прием посетителей</a>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Пн - Пт</th>
+        <td>9 - 21</td>
+      </tr>
+      <tr>
+        <th>Сб</th>
+        <td>10 - 17<td>
+      </tr>
+      <tr>
+        <th>Вс</th>
+        <td>10 - 16</td>
+      </tr>
+    </table>
+  </div>
+<% end %>
