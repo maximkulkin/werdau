@@ -204,41 +204,49 @@
 
 
 #working_hours {
-  clear: right;
-  width: auto;
-  overflow: hidden;
   margin-bottom: 30px;
 }
 
 #working_hours .tab {
-  position: relative;
-  width: auto;
-  overflow: hidden;
-  height: 30px;
   font-size: 13px;
   letter-spacing: -0.1em;
   margin-bottom: 10px;
 }
 
-#working_hours .tab span {
+#working_hours .title {
   float: left;
 }
 
-#working_hours .tab a {
-  display: block;
-  margin-bottom: 2px;
+#working_hours ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-#working_hours .tab div {
-  float: left;
+#working_hours ul.links {
   padding-left: 20px;
   background: url(<%= image_path 'store/line3.png' %>) no-repeat left 0px;
-  position: absolute;
-  left: 125px;
-  height: 28px;   
+  margin-left: 125px;
   white-space: nowrap;
   line-height: 12px;
 }
+
+#working_hours .title.callcenter,
+#working_hours .title.delivery,
+#working_hours .title.visitors,
+#working_hours table.callcenter,
+#working_hours table.delivery,
+#working_hours table.visitors { display: none; }
+
+#working_hours.callcenter .title.callcenter,
+#working_hours.delivery   .title.delivery,
+#working_hours.visitors   .title.visitors,
+#working_hours.callcenter table.callcenter,
+#working_hours.delivery   table.delivery,
+#working_hours.visitors   table.visitors   { display: block; }
+
+#working_hours.callcenter .links .callcenter,
+#working_hours.delivery   .links .delivery,
+#working_hours.visitors   .links .visitors { display: none; }
 
 #working_hours table th {
   font-weight:bold;
@@ -247,7 +255,6 @@
   text-align: right;
   line-height: 25px;
   white-space: no-wrap;
-  vertical-align: bottom;
 }
 
 #working_hours table td {
@@ -260,7 +267,6 @@
   letter-spacing: -0.1em;
   white-space: no-wrap;
   width: 80px;
-  vertical-align: bottom;
 }
 
 #viewed_recently {

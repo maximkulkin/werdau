@@ -1,15 +1,18 @@
 <% content_for :sidebar do %>
   <%= sidebar_title 'Часы работы' %>
-  <div id="working_hours">
+  <div id="working_hours" class="callcenter">
     <div class="tab">
-      <span>Обслуживание звонков:</span>
-      <div>
-        <a href="/">Доставка товаров</a>
-        <a href="/">Прием посетителей</a>
-      </div>
+      <span class="title callcenter">Обслуживание звонков:</span>
+      <span class="title delivery">Доставка товаров:</span>
+      <span class="title visitors">Прием посетителей:</span>
+      <ul class="links">
+        <li class="callcenter"><a href="#">Обслуживание звонков</a></li>
+        <li class="delivery"><a href="#">Доставка товаров</a></li>
+        <li class="visitors"><a href="#">Прием посетителей</a></li>
+      </ul>
     </div>
 
-    <table>
+    <table class="callcenter">
       <tr>
         <th>Пн - Пт</th>
         <td>9 - 21</td>
@@ -23,5 +26,33 @@
         <td>10 - 16</td>
       </tr>
     </table>
+
+    <table class="delivery">
+      <tr>
+        <th>Пн - Пт</th>
+        <td>9 - 21</td>
+      </tr>
+    </table>
+
+    <table class="visitors">
+      <tr>
+        <th>Пн - Пт</th>
+        <td>9 - 21</td>
+      </tr>
+      <tr>
+        <th>Сб</th>
+        <td>10 - 17<td>
+      </tr>
+    </table>
+
+    <script>
+      $(document).ready(function() {
+        $('#working_hours .links a').click(function(e) {
+          var c = $(e.target).parent('li').attr('class')
+          $('#working_hours').removeClass('callcenter delivery visitors').addClass(c)
+          e.preventDefault()
+        })
+      })
+    </script>
   </div>
 <% end %>
