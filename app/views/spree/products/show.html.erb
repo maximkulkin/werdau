@@ -19,10 +19,12 @@
           <%= product_image(@product) %></a>
         <% end %>
 
+        <!--
         <div class="rating">
           <span class="stars ran0"></span> 141 оценка<br />
           <span class="assess">Оценить</span>
         </div>
+        -->
       </div>
 
       <ul class="small">
@@ -35,10 +37,12 @@
     <div class="description">
       <p><%= raw @product.description %></p>
 
+      <!--
       <div class="share">
       Поделиться ссылочкой: <br />
       <%= image_tag 'store/temp.png' %>
       </div>
+      -->
 
       <div class="price-block">
         <span class="price"><%= format_price(@product.price) %></span>
@@ -47,10 +51,10 @@
 
       <div class="submenu">
         <ul>
-          <li><a href="/">Купить в кредит</a></li>
-          <li><a href="/">Следить за этим товаром</a></li>
-          <li><a href="/">Добавить в закладки</a></li>
-          <li><a href="/">Доставка по Саратову</a></li>
+          <li><a href="#">Купить в кредит</a></li>
+          <li><a href="#">Следить за этим товаром</a></li>
+          <li><a href="#">Добавить в закладки</a></li>
+          <li><a href="/shipping" target="_blank">Доставка по Саратову</a></li>
           <li><span class="ntxt">* Привезем без предоплаты</span></li>
         </ul>
       </div>
@@ -97,16 +101,9 @@
   </div>
 
   <ul class="submenu2">
-    <li>- <a href="/">Читайте отзывы других пользователей</a></li>
-    <li>- <a href="/">Оставьте свой отзыв</a></li>
-    <li>- <a href="/">Сравните с другой хлебопечкой</a></li>
-    <li>- <a href="/">Просмотрите изображения</a></li>
-    <li>- <a href="/">Просмотрите видео</a></li>
-    <li>- Файлы для загрузки<br />
-      <ul>
-        <li><a href="/" >Руководство пользователя (Orion OBM-204 ) (323.87 KB)</a></li>
-      </ul>
-    </li>
+    <li>- <a href="#">Читайте отзывы других пользователей</a></li>
+    <li>- <a href="#">Оставьте свой отзыв</a></li>
+    <li>- <a href="#">Сравните с другим товаром</a></li>
   </ul>
 
   <div class="note">
