@@ -7,5 +7,7 @@
  *= require store/main
  *= require store/content
 
+ *= require jquery.fancybox
+
  *= require_self
 */
