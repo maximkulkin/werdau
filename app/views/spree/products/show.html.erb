@@ -22,7 +22,7 @@
       </div>
 
       <ul class="small">
-        <% for image in @product.images[1..-1] || [] %>
+        <% for image in @product.images[1, 4] || [] %>
           <li><a href="/"><%= image_tag image.attachment.url(:mini) %></a></li>
         <% end %>
       </ul>
