@@ -46,7 +46,7 @@
 
       <div class="price-block">
         <span class="price"><%= format_price(@product.price) %></span>
-        <a href="/" class="buy">Купить</a>
+        <%= purchase_button_for @product %>
       </div>
 
       <div class="submenu">

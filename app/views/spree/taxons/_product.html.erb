@@ -6,7 +6,7 @@
 
   <div class="price-block">
     <%= format_price product.price %>
-    <a href="#" class="buy">Купить</a>
+    <%= purchase_button_for product %>
   </div>
 
   <div class="descr"><%= raw product.description %></div>

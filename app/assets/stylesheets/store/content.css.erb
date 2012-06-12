@@ -561,6 +561,10 @@
 }
 
 .product-table .product .buy {
+  display: inline;
+}
+
+.product-table .product .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -572,13 +576,14 @@
   font-size: 16px;
   display: block;
   margin-top: 10px;
+  border: none;
 }
 
-.product-table .product .buy:hover {
+.product-table .product .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left center;
 }
 
-.product-table .product .buy:active {
+.product-table .product .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
 }
 
@@ -650,6 +655,10 @@
 }
 
 .product-list .product .buy {
+  display: inline;
+}
+
+.product-list .product .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -661,13 +670,14 @@
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left top;
   font-size: 12px;
   margin: 0;
+  border: none;
 }
 
-.product-list .product .buy:hover {
+.product-list .product .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left center;
 }
 
-.product-list .product .buy:active {
+.product-list .product .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left bottom;
 }
 
@@ -912,6 +922,10 @@
 }
 
 .content.product .buy {
+  display: inline;
+}
+
+.content.product .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -923,14 +937,16 @@
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left top;
   font-size: 16px;
   float: left;
+  margin-top: -3px;
   margin-right: 30px;
+  border: none;
 }
 
-.content.product .buy:hover {
+.content.product .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left center;
 }
 
-.content.product .buy:active {
+.content.product .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
 }
 
@@ -1159,6 +1175,10 @@
 }
 
 .content.product .set .buy {
+  display: inline;
+}
+
+.content.product .set .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -1174,11 +1194,11 @@
   position: relative;
 }
 
-.content.product .set .buy:hover {
+.content.product .set .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left center;
 }
 
-.content.product .set .buy:active {
+.content.product .set .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left bottom;
 }
 
@@ -1239,6 +1259,10 @@
 }
 
 .content.product .sim-goods .buy {
+  display: inline;
+}
+
+.content.product .sim-goods .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -1254,11 +1278,11 @@
   margin: 0 10px 0 0;
 }
 
-.content.product .sim-goods .buy:hover {
+.content.product .sim-goods .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left center;
 }
 
-.content.product .sim-goods .buy:active {
+.content.product .sim-goods .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left bottom;
 }
 
