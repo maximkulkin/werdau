@@ -4,11 +4,11 @@ ru:
   number:
     currency:
       format:
-        delimiter: " "
+        delimiter: "'"
         separator: ','
         format: '%n %u'
-        precision: 2
-        unit: 'руб.'
+        precision: 0
+        unit: 'Р.'
 
   date:
     formats:
