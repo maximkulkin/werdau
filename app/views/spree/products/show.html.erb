@@ -12,8 +12,12 @@
     <div class="images">
 
       <div class="main">
-        <a href="/"><%= product_image @product %></a>
-        <a href="/" class="zoom"></a>
+        <% unless @product.images.empty? %>
+          <%= link_to product_image(@product), @product.images.first.attachment.url(:large), :rel => 'product' %></a>
+          <span class="zoom"></span>
+        <% else %>
+          <%= product_image(@product) %></a>
+        <% end %>
 
         <div class="rating">
           <span class="stars ran0"></span> 141 оценка<br />
@@ -23,7 +27,7 @@
 
       <ul class="small">
         <% for image in @product.images[1, 4] || [] %>
-          <li><a href="/"><%= image_tag image.attachment.url(:mini) %></a></li>
+          <li><%= link_to image_tag(image.attachment.url(:mini)), image.attachment.url(:large), :rel => 'product' %></a></li>
         <% end %>
       </ul>
     </div>
