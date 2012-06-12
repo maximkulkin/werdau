@@ -7,11 +7,10 @@ Spree::Image.class_eval do
   }
 
   attachment_definitions[:attachment][:convert_options] = {
-    :all => "-background white -gravity center",
-    :mini => "-extent 65x65",
-    :small => "-extent 160x160",
-    :product => "-extent 300x300",
-    :large => '-extent 600x600'
+    :mini => "-background white -gravity center -extent 65x65",
+    :small => "-background white -gravity center -extent 160x160",
+    :product => "-background white -gravity center -extent 300x300",
+    :large => '-background white -gravity center -extent 600x600'
   }
 end
 
