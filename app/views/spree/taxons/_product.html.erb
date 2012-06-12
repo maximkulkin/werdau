@@ -1,0 +1,23 @@
+<li class="product">
+
+  <span class="name"><%= product.name %></span>
+
+  <%= link_to product_image(product), product, :class => 'image' %>
+
+  <div class="price-block">
+    <%= format_price product.price %>
+    <a href="#" class="buy">Купить</a>
+  </div>
+
+  <div class="descr"><%= raw product.description %></div>
+
+  <div class="more-dscr">
+    <a href="#">Оставить отзыв</a>
+  </div>
+  
+  <div class="options">          
+    <a href="#" class="sbcompare">К сравнению</a>
+    <a href="#" class="sbaddtab">В закладки</a>
+  </div>
+</li>
+

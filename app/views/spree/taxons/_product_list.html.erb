@@ -1,0 +1,39 @@
+
+<div class="listing-controls">
+  <span class="lc"></span>
+
+  <div>
+    <span>Сортировка:</span>
+    <a href="">по&nbsp;наименованию</a>
+    <a href="">по&nbsp;цене</a>
+    <strong class="linked">по&nbsp;рейтингу</strong>
+    
+    <span>
+      <select name="onpage" class="onpage">
+        <option value="15">15 на стр.</option>
+        <option value="30" selected="selected">30 на стр.</option>
+        <option value="60">60 на стр.</option>
+      </select>
+    <span>
+  </div>
+
+  <span class="rc"></span>
+</div>
+
+<ol class="product-table">
+  <%= render :partial => 'product', :collection => products %>
+</ol>
+
+
+<h1>Трудно сделать выбор? Мы вам поможем!</h1>
+
+<dl class="compare-block-2">
+  <dd>Звонок с сайта!<br /><span class="phone"><a href="/">(044) 206 206 9 </a></span></dd>
+  <dd>Не дозвонились?<br /><span class="recall"><a href="/">Мы вам перезвоним!</a></span></dd>
+  <dd>Косультант сайта<br /><span class="question"><a href="/">Задайте вопрос!</a></span></dd>
+</dl>
+
+<ol class="product-list">
+  <%= render :partial => 'product', :collection => products %>
+</ol>
+
