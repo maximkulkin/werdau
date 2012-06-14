@@ -1,4 +1,3 @@
-
 <div class="row steps-data">
   <div class="columns alpha four">
     <h6><%= t(:person_name) %> <%= link_to "(#{t(:edit)})", checkout_state_path(:contacts) unless order.completed? %></h6>
@@ -22,4 +21,8 @@
   </div>
 
 </div>
+
+<hr />
+
+<%= render :partial => 'spree/shared/order_items', :locals => { :items => @order.line_items } %>
 

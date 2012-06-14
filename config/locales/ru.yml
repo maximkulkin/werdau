@@ -56,6 +56,11 @@ ru:
     many: '%{count} ошибок не позволяют сохранить запись в базе'
 
   activerecord:
+    attributes:
+      spree/order:
+        name: ФИО
+        phone: Телефон
+
     errors:
       models:
         spree/news_item:
@@ -68,4 +73,3 @@ ru:
               blank: 'Дата обязательна для заполнения'
             active_till:
               blank: 'Дата обязательна для заполнения'
-

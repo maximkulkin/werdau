@@ -3,35 +3,7 @@
 
   <h1>Оформление заказа</h1>
 
-  <table class="cart-contents">
-    <thead>
-      <tr>
-        <td><div class="lc"></div>Товар</td>
-        <td>Кол-во</td>
-        <td>Цена</td>
-        <td>Скидка</td>
-        <td class="rt">Стоимость</td>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% for line_item in @order.line_items %>
-        <% variant = line_item.variant %>
-        <tr>
-          <td class="name"><b><%= link_to variant.name, variant.product %></b></td>
-          <td class="quantity"><%= line_item.quantity %></td>
-          <td class="price"><%= format_price line_item.price %></td>
-          <td class="discount"></td>
-          <td class="cost"><%= format_price line_item.amount %></td>
-        </tr>
-      <% end %>
-
-      <tr class="total">
-        <td colspan="4" align="right">Итого:</td>
-        <td class="cost"><%= @order.total %></td>
-      </tr>
-    </tbody>
-  </table>
+  <%= render :partial => 'spree/shared/order_items', :locals => { :items => @order.line_items } %>
 
   <%= form_for @order, :url => update_checkout_path(:contacts) do |checkout_form| %>
     <%= render :partial => 'spree/checkout/contacts', :locals => { :form => checkout_form } %>

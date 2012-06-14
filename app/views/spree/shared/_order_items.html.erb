@@ -1,0 +1,31 @@
+
+<table class="order-items">
+  <thead>
+    <tr>
+      <td><div class="lc"></div>Товар</td>
+      <td>Кол-во</td>
+      <td>Цена</td>
+      <td>Скидка</td>
+      <td class="rt">Стоимость</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% for line_item in items %>
+      <% variant = line_item.variant %>
+      <tr>
+        <td class="name"><b><%= link_to variant.name, variant.product %></b></td>
+        <td class="quantity"><%= line_item.quantity %></td>
+        <td class="price"><%= format_price line_item.price %></td>
+        <td class="discount"></td>
+        <td class="cost"><%= format_price line_item.amount %></td>
+      </tr>
+    <% end %>
+
+    <tr class="total">
+      <td colspan="4" align="right">Итого:</td>
+      <td class="cost"><%= @order.total %></td>
+    </tr>
+  </tbody>
+</table>
+

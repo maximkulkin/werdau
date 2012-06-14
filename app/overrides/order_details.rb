@@ -1,12 +1,5 @@
 Deface::Override.new(
   :name => 'order_fields',
-  :virtual_path => 'spree/shared/_order_details',
-  :replace_contents => 'div.steps-data',
-  :partial => 'spree/shared/order_steps_data'
-)
-
-Deface::Override.new(
-  :name => 'order_fields',
   :virtual_path => 'spree/admin/orders/customer_details/_form',
   :insert_top => 'table[data-hook="customer_guest"] tbody',
   :text => "
