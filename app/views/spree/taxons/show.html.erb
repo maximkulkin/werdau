@@ -4,5 +4,6 @@
   <% if @taxon.children.empty? || !params[:keywords].blank? %>
     <%= render :partial => 'product_list', :locals => { :products => @products, :taxon => @taxon } %>
   <% else %>
+    <%= render :partial => 'taxon_list', :locals => { :taxon => @taxon } %>
   <% end %>
 </div>

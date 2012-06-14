@@ -1,0 +1,8 @@
+<ul class="taxons">
+  <% for child_taxon in taxon.children %>
+    <li>
+      <%= link_to image_tag(child_taxon.icon.url) + content_tag(:span, child_taxon.name), seo_url(child_taxon) %>
+    </li>
+  <% end %>
+</ul>
+
