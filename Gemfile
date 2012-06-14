@@ -33,6 +33,7 @@ group :test do
 end
 
 gem 'unicode'
+gem 'russian', '~> 0.6.0'
 gem 'spree_core', '~> 1.0.0'
 gem 'spree_auth', '~> 1.0.0'
 gem 'spree_api', '~> 1.0.0'
