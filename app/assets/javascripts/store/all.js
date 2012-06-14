@@ -9,5 +9,6 @@
 //= require store/spree_api
 
 //= require jquery.fancybox
+//= require jquery.pageless
 
 //= require_tree .

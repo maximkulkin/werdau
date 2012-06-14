@@ -12,9 +12,16 @@
   <span class="rc"></span>
 </div>
 
-<ol class="product-table">
+<ol id="products" class="product-table">
   <%= render :partial => 'product', :collection => products %>
 </ol>
+
+<script>
+  $('#products').pageless({
+    totalPages: <%= products.num_pages %>,
+    loaderImage: '<%= image_path 'loading.gif' %>'
+  })
+</script>
 
 <h1>Трудно сделать выбор? Мы вам поможем!</h1>
 
