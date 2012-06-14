@@ -1,6 +1,6 @@
 (function($){
   $(document).ready(function() {
-    $('.cart-contents a.delete').live('click', function(e) {
+    $('.order-items a.delete').live('click', function(e) {
       $(this).parents('tr').first().find('input.quantity').val(0);
       $(this).parents('form').first().submit();
       e.preventDefault();
