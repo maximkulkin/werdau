@@ -50,6 +50,11 @@ ru:
   news_item_contents: Текст
   news_item_image: Изображение
 
+  errors_prohibited_this_record_from_being_saved:
+    one: '1 ошибка не позволяет сохранить запись в базе'
+    few: '%{count} ошибки не позволяют сохранить запись в базе'
+    many: '%{count} ошибок не позволяют сохранить запись в базе'
+
   activerecord:
     errors:
       models:
