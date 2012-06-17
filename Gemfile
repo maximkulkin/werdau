@@ -46,4 +46,5 @@ gem 'tinymce-rails-langs'
 # gem 'mail_chimp', '>=1.3', :git => 'git://github.com/sbeam/spree-mail-chimp.git'
 gem 'spree_yandex_market_scraper', :git => 'git://github.com/maximkulkin/spree_yandex_market_scraper.git'
 
+gem 'spree_recently_viewed', :git => 'git://github.com/spree/spree_recently_viewed.git'
 

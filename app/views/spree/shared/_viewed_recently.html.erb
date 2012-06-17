@@ -1,12 +1,14 @@
-<% content_for :throw_out do %>
-  <%= section_title 'Просмотренные товары' %>
-  <ul id="viewed_recently">
-    <li>
-      <a href="/">
-        <img src="img/goods/1.jpg" />
-        <span class="name">Dell Inspiron N5110 (N5110HiB960X3C500BDSblack)</span>
-        <span class="price">3'793 грн.</span>
-      </a>
-    </li>
-  </ul>
+<% content_for :sidebar do %>
+  <% if get_recently_viewed_products.any? %>
+    <%= section_title 'Просмотренные товары' %>
+    <ul id="viewed_recently">
+      <% for product in get_recently_viewed_products %>
+        <li>
+          <%= link_to product_image(product) + 
+                      content_tag(:span, product.name, :class => 'name') +
+                      content_tag(:span, number_to_currency(product.price), :class => 'price'), product %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>

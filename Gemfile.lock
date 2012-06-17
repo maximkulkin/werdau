@@ -13,6 +13,13 @@ GIT
       spree_core (>= 0.30.0)
 
 GIT
+  remote: git://github.com/spree/spree_recently_viewed.git
+  revision: 94da8eae4286fd5eac4319e21dffb0980a2e6d0a
+  specs:
+    spree_recently_viewed (1.1)
+      spree_core (>= 1.0.0)
+
+GIT
   remote: git://github.com/spree/spree_static_content.git
   revision: 35c1255dd77b607f304b2a338e5b6632f214daf1
   branch: 1-0-stable
@@ -260,6 +267,7 @@ DEPENDENCIES
   spree_core (~> 1.0.0)
   spree_editor!
   spree_i18n!
+  spree_recently_viewed!
   spree_static_content (= 1.0.1)!
   spree_yandex_market_scraper!
   sqlite3
