@@ -36,40 +36,19 @@
 
     <div class="col-1">
       <h1>Мы рекомендуем</h1>
+      <% if taxon_recommend %>
       <div id="recommendations">
+        <% for product in taxon_recommend.products.limit(4) %>
         <div class="product">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
+          <% taxon = categories_taxon(product) %>
+          <h2><%= link_to taxon.name, seo_url(taxon) %></h2>
+          <%= link_to tiny_image(product) + 
+                      content_tag(:span, product.name, :class => 'name') +
+                      content_tag(:span, number_to_currency(product.price), :class => 'price'), product %>
         </div>
-        <div class="product">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
-        <div class="product">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
-        <div class="product">
-          <h2><a href="/">Объективы</a></h2>
-          <a href="/">
-           <img src="img/goods/1.jpg" alt="" />
-           <span class="price">3'276 Р.</span>
-           <span class="name">Dell Streak Mini 5 Red (210-33300)</span>
-          </a>
-        </div>
+        <% end %>
       </div>
+      <% end %>
     </div><!-- end col-1 -->
 
     <div class="col-2">

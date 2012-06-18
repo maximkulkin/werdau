@@ -11,4 +11,14 @@ module MarkupHelper
       concat submit_tag('Купить')
     end
   end
+
+  def tiny_image(product, options={})
+    if product.images.empty?
+      image_tag "noimage/tiny.png", options
+    else
+      image = product.images.first
+      options.reverse_merge! :alt => image.alt.blank? ? product.name : image.alt
+      image_tag image.attachment.url(:tiny), options
+    end
+  end
 end
