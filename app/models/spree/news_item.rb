@@ -35,11 +35,11 @@ class Spree::NewsItem < ActiveRecord::Base
 
   # validates :category_id, :inclusion => { :in => Spree::Config[:news_categories] }
   has_attached_file :image,
-    :styles => { :main_block => '220x220>', :preview_block => '130x130' },
+    :styles => { :main_block => '250x250>', :preview_block => '75x75' },
     :default_style => :main_block,
     :url => '/spree/news/:id/:style.:extension',
-    :path => ':rails_root/public/spree/news/:id/:style.:extension',
-    :default_url => '/assets/default_news_image.png'
+    :path => ':rails_root/public/spree/news/:id/:style.:extension'
+    #:default_url => '/assets/default_news_image.png'
 
   def category
     Category.find(category_id)

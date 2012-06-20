@@ -1,8 +1,16 @@
+<div class="news-list">
+
 <h1><%= @category ? @category.name : t(:all_news) %></h1>
 
 <% for news_item in @news_items %>
-  <ul>
-    <li><%= link_to news_item.title, news_item_path(news_item) %></li>
-  </ul>
+  <h2><%= link_to news_item.title, news_item_path(news_item) %><span class="date"><%= l(news_item.created_at.to_date) %></span></h2>
+    <div class="art-descr">
+      <% if news_item.image.exists? then %>
+        <p class="pr-pic"><%= image_tag(news_item.image.url(:preview_block)) %></p>
+      <% end %>
+      <%= raw(news_item.contents.split(/\n/).slice(0)) %>
+      <%= raw(news_item.contents.split(/\n/).slice(1)) %>
+    </div>
 <% end %>
-
+</div>
+ <%= render :partial => 'spree/shared/working_hours' %>

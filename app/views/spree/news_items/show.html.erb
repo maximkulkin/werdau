@@ -1,2 +1,16 @@
+<div class="news-list">
 
-<%= raw @news_item.contents %>
+<h1><%= link_to @news_item.category, news_item_category_path(@news_item.category) %></h1>
+
+
+  <h2><%= link_to @news_item.title, news_item_path(@news_item) %><span class="date"><%= l(@news_item.created_at.to_date) %></span></h2>
+    <div class="art-descr">
+      <% if @news_item.image.exists? then %>
+        <p class="pr-pic"><%= image_tag(@news_item.image.url) %></p>
+      <% end %>
+      <%= raw(@news_item.contents) %>
+
+    </div>
+
+</div>
+ <%= render :partial => 'spree/shared/working_hours' %>
