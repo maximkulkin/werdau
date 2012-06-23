@@ -64,14 +64,21 @@
       <p><%= raw @product.description %></p>
 
       <div class="share">
-      Поделиться ссылочкой: <br />
+        Поделиться ссылочкой: <br />
 
-      <div id="vk_like"></div>
-      <script type="text/javascript">
-      VK.Widgets.Like("vk_like", {type: "mini"});
-      </script>
+        <div id="vk_like" style="clear:none !important; display: inline-block;"></div>
+        <script type="text/javascript">
+        VK.Widgets.Like("vk_like", {type: "mini"});
+        </script>
 
-      <div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" data-font="arial"></div>
+        <div class="fb-like"
+             style="display: inline-block;"
+             data-send="false"
+             data-layout="button_count"
+             data-width="200" 
+             data-show-faces="false" 
+             data-font="arial">
+        </div>
 
       </div>
 
