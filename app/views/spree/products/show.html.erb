@@ -1,3 +1,28 @@
+<% content_for :head do %>
+<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 3009106, onlyWidgets: true});
+</script>
+
+<meta property="og:title" content="<%= @product.name %>" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<%= product_url(@product) %>" />
+<% if @product.images.first %>
+<meta property="og:image" content="<%= @product.images.first.attachment.url %>" />
+<% end %>
+<meta property="og:site_name" content="Werdau.ru" />
+<meta property="fb:admins" content="100000422507731" />
+<% end %>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="content product">
   <h1>
@@ -37,12 +62,17 @@
     <div class="description">
       <p><%= raw @product.description %></p>
 
-      <!--
       <div class="share">
       Поделиться ссылочкой: <br />
-      <%= image_tag 'store/temp.png' %>
+
+      <div id="vk_like"></div>
+      <script type="text/javascript">
+      VK.Widgets.Like("vk_like", {type: "mini"});
+      </script>
+
+      <div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" data-font="arial"></div>
+
       </div>
-      -->
 
       <div class="price-block">
         <span class="price"><%= format_price(@product.price) %></span>
