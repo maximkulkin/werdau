@@ -69,6 +69,7 @@
 .button.large-blue:active span { background-position: left  -72px; }
 
 
+/*
 .compare {
   border-top: 1px dashed #eeeef0;
   border-bottom: 1px dashed #eeeef0;
@@ -84,6 +85,7 @@
   line-height: 0;
   margin-bottom: -3px;
 }
+*/
 
 .index .col-2 h2 {
   text-transform: uppercase;
@@ -386,27 +388,27 @@
   background: url(<%= image_path 'store/lc.png' %>) no-repeat;
 }
 
-.bpanel .l1 .ic {
+.bpanel .tab.account .ic {
   background: url(<%= image_path 'store/ic1.png' %>) no-repeat left top;
   padding-left: 18px;
 }
 
-.bpanel .l2 .ic {
+.bpanel .tab.compare .ic {
   background: url(<%= image_path 'store/ic2.png' %>) no-repeat left -1px;
   padding-left: 18px;
 }
 
-.bpanel .l3 .ic {
+.bpanel .tab.bookmarks .ic {
   background: url(<%= image_path 'store/ic3.png' %>) no-repeat left -1px;
   padding-left: 18px;
 }
 
-.bpanel .l4 .ic {
+.bpanel .tab.viewed_recently .ic {
   background: url(<%= image_path 'store/ic4.png' %>) no-repeat left -1px;
   padding-left: 18px;
 }
 
-.bpanel .l5 .ic {
+.bpanel .tab.cart .ic {
   background: url(<%= image_path 'store/ic5.png' %>) no-repeat left -1px;
   padding-left: 22px;
 }
@@ -558,6 +560,7 @@
   white-space: nowrap;
 }
 
+/*
 .product-table .product .buy {
   display: inline;
 }
@@ -582,6 +585,34 @@
 }
 
 .product-table .product .buy input[type=submit]:active {
+  background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
+}
+*/
+
+.product .buy {
+  display: inline;
+}
+
+.product .buy input[type=submit] {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 91px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background: url(<%= image_path 'store/buyb.png' %>) no-repeat left top;
+  font-size: 16px;
+  display: block;
+  margin-top: 10px;
+  border: none;
+}
+
+.product .buy input[type=submit]:hover {
+  background: url(<%= image_path 'store/buyb.png' %>) no-repeat left center;
+}
+
+.product .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
 }
 
@@ -716,7 +747,7 @@
   background: url(<%= image_path 'store/compare2.png' %>) no-repeat left bottom;
 }
 
-.product a.sbaddtab {
+.product a.bookmark {
   border-width: 0;
   overflow: hidden;
   height: 22px;
@@ -733,11 +764,11 @@
   text-transform: uppercase;
 }
 
-.product .sbaddtab:hover {
+.product .bookmark:hover {
   background: url(<%= image_path 'store/mark.png' %>) no-repeat left center;
 }
 
-.product .sbaddtab:active {
+.product .bookmark:active {
   background: url(<%= image_path 'store/mark.png' %>) no-repeat left bottom;
 }
 
@@ -975,13 +1006,19 @@
 .content.product .submenu {
   padding: 17px 18px 12px 18px;
   margin-top: 20px;
+  margin-right: 1px;
   border: 2px solid #eceeef;
   -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
   background: url(<%= image_path 'store/gr.png' %>) repeat-x bottom;
 }
 
+.content.product .submenu ul {
+  list-style-type: none;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
 .content.product .submenu li {
-  dispkay: inlay-block;
   margin-bottom: 8px;
 }
 
@@ -1555,3 +1592,33 @@ ul.taxons li span {
   float: left;
   padding: 0 10px 10px 0; 
 }
+
+#bookmarks .product td.title {
+  vertical-align: top;
+}
+
+#bookmarks .product a.title {
+  color: #2E7FA7;
+  text-decoration: none;
+}
+
+#bookmarks .product td.price {
+  font-size: 24px;
+  white-space: nowrap;
+  text-align: right;
+}
+
+#bookmarks .product td.actions {
+  width: 50px;
+}
+
+#bookmarks .product a.delete {
+  float: right;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-indent: -1000em;
+  overflow: hidden;
+  background: url('<%= image_path 'icons/delete.png' %>') no-repeat;
+}
+

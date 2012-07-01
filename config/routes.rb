@@ -11,6 +11,10 @@ Werdau::Application.routes.draw do
     match '/checkout(.:format)' => 'checkout#edit', :as => :checkout,
       :state => 'contacts'
 
+    match '/bookmarks'     => 'bookmarks#index',  :via => :get,  :as => :bookmarks
+    match '/bookmarks/:id' => 'bookmarks#create', :via => :post, :as => :bookmark
+    match '/bookmarks/:id' => 'bookmarks#delete', :via => :delete
+
     namespace :admin do
       resources :news_items
       resources :products do

@@ -14,7 +14,7 @@ module BpanelHelper
   end
 
   def bpanel_bookmarks_tab
-    bpanel_tab "Закладки (0)", :bookmarks
+    bpanel_tab "Закладки (#{current_user.bookmarked_variants.count})", :bookmarks, bookmarks_path
   end
 
   def bpanel_viewed_recently_tab

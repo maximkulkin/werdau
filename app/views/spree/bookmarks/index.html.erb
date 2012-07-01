@@ -1,0 +1,31 @@
+<h1>Закладки</h1>
+
+<table id="bookmarks">
+  <tbody>
+    <% if @variants.empty? %>
+      <tr class="empty">
+        <td colspan="3">Пока нет закладок</td>
+      </tr>
+    <% else %>
+      <% for variant in @variants %>
+        <% product = variant.product %>
+        <tr class="product variant-<%= variant.id %>">
+          <td class="image"><%= link_to small_image(product), product %></td>
+          <td class="title">
+            <%= link_to product.name, product, :class => 'title' %>
+            <%= raw product.description %>
+          </td>
+          <td class="price">
+            <%= format_price variant.price %>
+            <%= purchase_button_for product %>
+          </td>
+          <td class="actions">
+            <%= link_to 'Удалить', bookmark_path(variant),
+                  :method => :delete, :remote => true,
+                  :class  => 'delete', :title => 'Удалить' %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

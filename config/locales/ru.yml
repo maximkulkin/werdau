@@ -50,6 +50,9 @@ ru:
   news_item_contents: Текст
   news_item_image: Изображение
 
+  bookmark: В закладки
+  in_bookmarks: В закладках
+
   errors_prohibited_this_record_from_being_saved:
     one: '1 ошибка не позволяет сохранить запись в базе'
     few: '%{count} ошибки не позволяют сохранить запись в базе'
