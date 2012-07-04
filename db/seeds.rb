@@ -5,7 +5,8 @@
   ['shipping', 'Доставка'],
   ['contacts', 'Контакты'],
   ['payments', 'Оплата'],
-  ['warranty', 'Гарантии']
+  ['warranty', 'Гарантии'],
+  ['reviews',  'Отзывы о магазине']
 ].each do |slug, title|
   next if Spree::Page.exists?(:slug => slug)
   Spree::Page.create!(:slug => slug, :title => title, :body => title, :visible => true)
