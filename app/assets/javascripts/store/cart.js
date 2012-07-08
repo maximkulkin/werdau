@@ -8,7 +8,7 @@
 
     $('header .cart .icon').fancybox({type: 'ajax'})
 
-    $('.buy input[type=submit]').click(function(e) {
+    $('.buy input[type=submit]').live('click', function(e) {
       var form = $(this).parent('form')
       $.post(form.attr('action'), form.serialize(), function() {
         $.fancybox({type: 'ajax', href: '/cart'})
