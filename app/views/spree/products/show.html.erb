@@ -39,7 +39,7 @@
 
       <div class="main">
         <% unless @product.images.empty? %>
-          <%= link_to product_image(@product), @product.images.first.attachment.url(:large), :rel => 'product' %></a>
+          <%= link_to product_image(@product), product_images_path(@product, :current => @product.images.first.id), :rel => 'product' %></a>
           <span class="zoom"></span>
         <% else %>
           <%= product_image(@product) %></a>
@@ -55,7 +55,7 @@
 
       <ul class="small">
         <% for image in @product.images[1, 4] || [] %>
-          <li><%= link_to image_tag(image.attachment.url(:mini)), image.attachment.url(:large), :rel => 'product' %></a></li>
+          <li><%= link_to image_tag(image.attachment.url(:mini)), product_images_path(@product, :current => image.id), :rel => 'product' %></a></li>
         <% end %>
       </ul>
     </div>

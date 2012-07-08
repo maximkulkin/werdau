@@ -1,0 +1,31 @@
+<div class="content product-images">
+  <h1><%= @product.name %></h1>
+
+  <%
+    current_image_id = (@images.
+      find { |img| img.id == params[:current].to_i } ||
+      @images.first).id
+  %>
+  <ul id="images">
+    <% for image in @images %>
+      <% image_url = image.attachment.url(:product) %>
+      <li class="image-<%= image.id %> <%= 'current' if image.id == current_image_id %>"><%= link_to image_tag(image_url), image_url %></li>
+    <% end %>
+  </ul>
+
+  <div class="info">
+    <%= purchase_button_for @product %>
+
+    <%== @product.description %>
+  </div>
+
+  <% if @images.size > 1 %>
+    <ul id="thumbnails">
+      <% for image in @images %>
+        <% image_url = image.attachment.url(:mini) %>
+        <li class="image-<%= image.id %>"><%= link_to image_tag(image_url), image_url %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+

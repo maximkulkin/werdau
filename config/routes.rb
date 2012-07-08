@@ -15,6 +15,9 @@ Werdau::Application.routes.draw do
     match '/bookmarks/:id' => 'bookmarks#create', :via => :post, :as => :bookmark
     match '/bookmarks/:id' => 'bookmarks#delete', :via => :delete
 
+    match '/products/:product_id/images' => 'product_images#index',
+      :as => :product_images
+
     namespace :admin do
       resources :news_items
       resources :products do
