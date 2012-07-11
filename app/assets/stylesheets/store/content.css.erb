@@ -1439,21 +1439,32 @@
   margin: 0 0 10px 0;
 }
 
+.content.cart {
+  width: 800px;
+  margin: 0;
+  padding: 0;
+}
+
+.content.cart .empty {
+  text-align: center;
+  font-size: 18px;
+}
+
 .content.cart .note {
   padding: 10px;
   margin: 20px 0;
 }
 
-table.order-items {
+.order-items table {
   width: 100%;
   margin: 20px 0 10px 5px;
 }
 
-table.order-items a {
+.order-items a {
   color: #4c6d80;
 }
 
-table.order-items thead td {
+.order-items thead td {
   background: #3f8bab;
   padding: 2px 10px;
   height: 27px;
@@ -1462,7 +1473,7 @@ table.order-items thead td {
   position: relative;
 }
 
-table.order-items thead .lc {
+.order-items thead .lc {
   position: absolute;
   top: 0;
   left: -3px;
@@ -1472,7 +1483,7 @@ table.order-items thead .lc {
   background: url(<%= image_path 'store/lc4.png' %>) no-repeat left;
 }
 
-table.order-items thead .rc {
+.order-items thead .rc {
   position: absolute;
   top: 0;
   right: -3px;
@@ -1482,29 +1493,29 @@ table.order-items thead .rc {
   background: url(<%= image_path 'store/rc4.png' %>) no-repeat right;
 }
 
-table.order-items tbody td {
+.order-items tbody td {
   border-bottom: 1px solid #ccccd5;
   padding: 2px 10px; 
 }
 
-table.order-items tbody td.delete {
+.order-items tbody td.delete {
   background: #f5f9fb;
   width: 30px;
   text-align: center;
 }
 
-table.order-items tbody tr:hover {
+.order-items tbody tr:hover {
   background: #f5f9fb;
 }
 
-table.order-items tr.total td {
+.order-items tr.total td {
   background: #496a7d;
   color: #fff;
   border-top: 1px solid #fff;
   padding-bottom: 5px;
 }
 
-table.order-items tr.total .cost {
+.order-items tr.total .cost {
   font-size: 18px;
 }
 

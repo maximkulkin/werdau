@@ -1,0 +1,16 @@
+<div id="cart_header" class="cart">
+  <% order = current_order(false) %>
+  <h2>Корзина</h2>
+  <a href="<%= cart_path %>" class="icon <%= 'act' if order && order.item_count > 0 %>"></a>
+  <div class="cont">
+    <% if order && !order.line_items.empty? %>
+      В корзине <%= ru_quantify order.item_count, '%d товар', '%d товара', '%d товаров' %><br />
+      на сумму <%= format_price order.total %>
+    <% else %>
+      Пока пусто...
+      <p>Самое время что-то купить </p>
+    <% end %>
+  </div>
+</div>
+
+

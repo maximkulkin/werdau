@@ -1,19 +1,43 @@
 (function($){
   $(document).ready(function() {
-    $('.order-items a.delete').live('click', function(e) {
-      $(this).parents('tr').first().find('input.quantity').val(0);
-      $(this).parents('form').first().submit();
-      e.preventDefault();
+    $(document).ajaxStart(function() { $.fancybox.showActivity() })
+    $(document).ajaxStop(function() { $.fancybox.hideActivity() })
+
+    function updateCart() {
+      $('.content.cart form.order-items').ajaxSubmit({dataType: 'script'})
+    }
+
+    // The "buy" button
+    $('.buy input[type="submit"]').live('click', function(event) {
+      event.preventDefault();
+
+      $(this).closest('form').ajaxSubmit({dataType: 'script'})
+    })
+
+    $('.content.cart .order-items a.delete').live('click', function(event) {
+      event.preventDefault();
+
+      $(this).closest('tr').find('input.quantity').val(0)
+
+      updateCart()
     });
 
-    $('header .cart .icon').fancybox({type: 'ajax'})
-
-    $('.buy input[type=submit]').live('click', function(e) {
-      var form = $(this).parent('form')
-      $.post(form.attr('action'), form.serialize(), function() {
-        $.fancybox({type: 'ajax', href: '/cart'})
-      })
-      e.preventDefault();
+    $('.content.cart .update input[type="submit"]').live('click', function(event) {
+      event.preventDefault()
+      updateCart()
     })
+
+    $('.content.cart form.checkout input[type="submit"]').live('click', function(event) {
+      event.preventDefault()
+      $(this).closest('form').ajaxSubmit({dataType: 'script'})
+    })
+
+    $('header .cart .icon, .bpanel .tab.cart').live('click', function(event) {
+      event.preventDefault()
+
+      $.ajax('/cart.js')
+    })
+
   });
 })(jQuery);
+

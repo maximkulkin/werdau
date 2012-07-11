@@ -23,7 +23,8 @@ module BpanelHelper
   end
 
   def bpanel_cart_tab
-    bpanel_tab "Корзина (0)", :cart
+    count = current_order.item_count rescue 0
+    bpanel_tab "Корзина (#{count})", :cart, cart_path
   end
 end
 

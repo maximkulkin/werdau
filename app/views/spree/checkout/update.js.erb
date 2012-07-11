@@ -1,0 +1,9 @@
+<% unless @order.valid? %>
+  $('.content.cart form.checkout .errorExplanation').remove()
+  $('.content.cart form.checkout').prepend("<%=j render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>")
+<% else %>
+  <% current_order %>
+  <%= render :partial => 'spree/orders/update_cart.js' %>
+  $.fancybox({type: 'html', content: "<div class=\"info\">Ваш заказ принят!</div>"})
+<% end %>
+
