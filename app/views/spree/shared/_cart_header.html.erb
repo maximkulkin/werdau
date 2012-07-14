@@ -11,6 +11,37 @@
       <p>Самое время что-то купить </p>
     <% end %>
   </div>
+
+  <% if order && !order.line_items.empty? %>
+    <div id="cart_header_contents">
+      <div class="heading">В вашей корзине</div>
+      <table>
+        <% for line_item in order.line_items %>
+          <tr>
+            <td class="image">
+              <%= mini_image line_item.product %>
+            </td>
+            <td class="product">
+              <%= link_to line_item.product.name, line_item.product %>
+              <br/>
+              <span class="price">
+                <%= format_price line_item.price %>
+              </span>
+            </td>
+            <td class="quantity">
+              <%= line_item.quantity %> шт.
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <div class="summary">
+        Всего <%= ru_quantify order.item_count, '%d товар', '%d товара', '%d товаров' %>
+        на сумму <%= format_price order.total %><br/>
+        <%= link_to 'Открыть корзину', cart_path, :class => 'open_cart' %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 

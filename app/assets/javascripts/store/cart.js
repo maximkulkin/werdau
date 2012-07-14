@@ -32,7 +32,7 @@
       $(this).closest('form').ajaxSubmit({dataType: 'script'})
     })
 
-    $('header .cart .icon, .bpanel .tab.cart').live('click', function(event) {
+    $('header .cart .icon, header a.open_cart, .bpanel .tab.cart').live('click', function(event) {
       event.preventDefault()
 
       $.ajax('/cart.js')

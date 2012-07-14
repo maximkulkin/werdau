@@ -1719,3 +1719,47 @@ ul.taxons li span {
 .content.product-images .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
 }
+
+#cart_header_contents {
+  background: #fff;
+  border: 2px solid #369;
+  width: 280px;
+  color: #000;
+  position: relative;
+  left: -50px;
+  padding: 5px;
+  z-index: 100;
+
+  display: none;
+}
+
+#cart_header:hover #cart_header_contents {
+  display: block;
+}
+
+#cart_header_contents .heading {
+  font-weight: bold;
+}
+
+#cart_header_contents table {
+  width: 100%;
+  margin: 10px 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+#cart_header_contents table tr:hover {
+  background: #d8d8d8;
+}
+
+#cart_header_contents table td.image {
+  width: 75px;
+}
+
+#cart_header_contents table td.quantity {
+  width: 50px;
+}
+
+#cart_header_contents .summary {
+  text-align: center;
+}
+
