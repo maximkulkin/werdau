@@ -22,8 +22,9 @@ module BpanelHelper
     bpanel_tab "Просмотренные (0)", :viewed_recently
   end
 
-  def bpanel_cart_tab
-    count = current_order.item_count rescue 0
+  def bpanel_cart_tab(order=nil)
+    order ||= current_order
+    count = order ? order.item_count : 0
     bpanel_tab "Корзина (#{count})", :cart, cart_path
   end
 end

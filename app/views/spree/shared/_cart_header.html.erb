@@ -1,5 +1,9 @@
+<%
+  unless defined? order
+    order = current_order(false)
+  end
+%>
 <div id="cart_header" class="cart">
-  <% order = current_order(false) %>
   <h2>Корзина</h2>
   <a href="<%= cart_path %>" class="icon <%= 'act' if order && order.item_count > 0 %>"></a>
   <div class="cont">

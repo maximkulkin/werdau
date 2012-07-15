@@ -2,8 +2,9 @@
   $('.content.cart form.checkout .errorExplanation').remove()
   $('.content.cart form.checkout').prepend("<%=j render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>")
 <% else %>
-  <% current_order %>
-  <%= render :partial => 'spree/orders/update_cart.js' %>
-  $.fancybox({type: 'html', content: "<div class=\"info\">Ваш заказ принят!</div>"})
+  <% order = Spree::Order.new %>
+  $('.bpanel .tab.cart').replaceWith("<%=j bpanel_cart_tab(order) %>")
+  $('#cart_header').replaceWith("<%=j render :partial => 'spree/shared/cart_header.html', :locals => { :order => order } %>")
+  $.fancybox({type: 'html', content: "<div class=\"info\">Ваш заказ принят! Наши менеджеры свяжутся с вами, чтобы уточнить детали.</div>"})
 <% end %>
 
