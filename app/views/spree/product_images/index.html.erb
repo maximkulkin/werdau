@@ -14,7 +14,10 @@
   </ul>
 
   <div class="info">
-    <%= purchase_button_for @product %>
+    <div class="price_block">
+      <span class="price"><%= format_price @product.price %></span>
+      <%= purchase_button_for @product %>
+    </div>
 
     <%== @product.description %>
   </div>
