@@ -86,7 +86,7 @@
 
         <%= raw Spree::Page.find_by_slug('/reviews').body %>
 
-        <p><a href="/">Форум Werdau.ru</a></p>
+        <p><%= link_to 'Форум Werdau.ru', forum.root_path %></p>
 
       </div>
 
