@@ -1,0 +1,104 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+
+  
+  <head data-hook="inside_head">
+    <%= stylesheet_link_tag 'application', :media => 'screen' %>
+    <%= stylesheet_link_tag 'store/all', :media => 'screen' %>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'store/all' %>
+    <%= yield :head %>
+  </head>
+
+  <body id="<%= @body_id || 'default' %>" data-hook="body">
+    
+    <div class="container">
+
+      <nav class="top-nav">
+        <ul>
+          <li><a href="/about">О компании</a></li>
+          <li><a href="/shipping">Доставка</a></li>
+          <li><a href="/contacts">Контакты</a></li>
+          <li><a href="/payments">Оплата</a></li>
+          <li><a href="/warranty">Гарантии</a></li>
+        </ul>
+      </nav>
+
+      <% if current_user %>
+        <div class="logout"><%= link_to 'Выйти', spree.destroy_user_session_path %></div>
+      <% else %>
+        <div class="login"><%= link_to 'Вход для клиентов', spree.login_path, :remote => true %></div>
+      <% end %>
+
+      <header>
+        <div class="logo">
+          <a href="/">
+            <%= image_tag 'store/logo.png' %>
+            <span>г. Саратов</span>
+          </a>
+        </div>
+
+        <div class="search">
+          <%= form_tag spree.products_url, :method => :get do %>
+            <%= search_field_tag :keywords, params[:keywords], :placeholder => "Найти легко! Поиск товара." %>
+            <%= submit_tag "Найти", :name => nil %>
+            <%# <a href="/">Найти</a> %>
+          <% end %>
+        </div>
+
+        <div class="contacts">
+          <div class="phone"><span>т.</span> (8452) 25-49-90</div>
+          <a href="/" class="callback">Услуга "Обратный звонок"</a>
+        </div>
+
+        <div class="notice">
+          <span>Оплата при получении.</span>
+          <span class="ship">Доставка на следующий день.</span>
+        </div>
+      </header>
+
+      <div class="photoline"></div>
+
+      <div style="clear: both;" />
+
+      <div id="wrapper" class="row" data-hook>
+        
+        <% if content_for?(:sidebar) %>
+          <aside id="sidebar" data-hook>
+            <%= yield :sidebar %>
+          </aside>
+        <% end %>
+
+        <div id="content" data-hook>
+          <%= yield %>
+        </div>
+
+      </div>
+
+      <div id="footer"> 
+
+        <div class="copy">&copy;  COPYRIGHT 2012
+        <br />Российский интернет магазин 
+        <br />Телефон в Саратове   (845-2) 25-49-90
+        </div>
+
+        <div class="bmenu">
+          <a href="/about">О нас</a> |
+          <a href="/shipping">Доставка</a> |
+          <a href="/contacts">Контакты</a> |
+          <a href="/">ФОРУМ</a> |
+          <a href="/">Оплата </a> |
+          <a href="/">Гарантии</a>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>

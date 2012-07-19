@@ -1,9 +1,12 @@
 Werdau::Application.routes.draw do
+  mount Forem::Engine, :at => "/forums"
 
-  mount Spree::Core::Engine, :at => '/'
+  mount Spree::Core::Engine, :at => '/', :as => 'spree'
+  mount Forem::Engine, :at => '/forum', :as => 'forum'
   root :to => 'spree/home#index'
 
   Spree::Core::Engine.routes.draw do
+  mount Forem::Engine, :at => "/forums"
     # Add your extension routes here
     match '/news/:id' => 'news_items#show', :as => :news_item,
       :constraints => { :id => /\d+/ }

@@ -5,4 +5,8 @@ Spree::User.class_eval do
     :uniq => true
 
   has_many :bookmarked_products, :through => :bookmarked_variants
+
+  def to_s
+    login
+  end
 end
