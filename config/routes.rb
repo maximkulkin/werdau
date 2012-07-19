@@ -1,6 +1,7 @@
 Werdau::Application.routes.draw do
 
   mount Spree::Core::Engine, :at => '/'
+  root :to => 'spree/home#index'
 
   Spree::Core::Engine.routes.draw do
     # Add your extension routes here

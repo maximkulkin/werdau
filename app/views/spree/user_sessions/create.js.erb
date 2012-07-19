@@ -1,0 +1,6 @@
+$.fancybox({type: 'html', content: "<%=j t(:logged_in_successfully) %>"})
+<% if session['user_return_to'] %>
+location.href = "<%=j session['user_return_to'] %>"
+<% else %>
+location.reload()
+<% end %>

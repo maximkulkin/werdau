@@ -71,7 +71,8 @@ h6 {
   text-decoration: underline;
 }
 
-.login {
+.login,
+.logout {
   float: right;
   margin-top: -36px;
   width: 55px;
@@ -79,8 +80,17 @@ h6 {
 
   font-size: 11px;
   line-height: 11px;
+}
+
+.login {
   background: url(<%= image_path 'store/key.png' %>) no-repeat left 2px;
   padding-left: 17px;
+}
+
+.logout {
+  padding-top: 6px;
+  width: auto;
+  height: 11px;
 }
 
 

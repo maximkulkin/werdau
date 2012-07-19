@@ -1,0 +1,5 @@
+<% if @user.errors.empty? %>
+  $.fancybox({content: "<%=j t(:'devise.user_passwords.user.send_instructions') %>"})
+<% else %>
+  $.fancybox({content: "<%=j render(:template => 'spree/user_passwords/new.html') %>"})
+<% end %>

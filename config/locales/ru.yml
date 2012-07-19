@@ -14,6 +14,14 @@ ru:
     formats:
       default: '%d.%m.%Y'
 
+  devise:
+    failure:
+      invalid: Неправильное имя пользователя или пароль.
+    user_passwords:
+      user:
+        send_instructions: Инструкции по сбросу пароля были высланы Вам по email.
+  logged_in_successfully: Вход выполнен успешно.
+
   views:
     pagination:
       first: Первая
@@ -61,6 +69,10 @@ ru:
   bookmark: В закладки
   in_bookmarks: В закладках
 
+  errors:
+    messages:
+      not_saved: ''
+
   errors_prohibited_this_record_from_being_saved:
     one: '1 ошибка не позволяет сохранить запись в базе'
     few: '%{count} ошибки не позволяют сохранить запись в базе'
@@ -71,6 +83,9 @@ ru:
       spree/order:
         name: ФИО
         phone: Телефон
+
+      spree/user:
+        password: Пароль
 
     errors:
       models:
@@ -84,3 +99,7 @@ ru:
               blank: 'Дата обязательна для заполнения'
             active_till:
               blank: 'Дата обязательна для заполнения'
+        spree/user:
+          attributes:
+            email:
+              not_found: 'не найден'
