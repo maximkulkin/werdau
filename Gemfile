@@ -49,3 +49,5 @@ gem 'spree_yandex_market_scraper', :git => 'git://github.com/maximkulkin/spree_y
 
 gem 'spree_recently_viewed', :git => 'git://github.com/spree/spree_recently_viewed.git'
 
+gem 'spree_dynamic_sitemaps', :git => 'git://github.com/romul/spree_dynamic_sitemaps.git'
+

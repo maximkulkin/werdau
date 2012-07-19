@@ -6,6 +6,12 @@ GIT
       spree_core (~> 1.0.0)
 
 GIT
+  remote: git://github.com/romul/spree_dynamic_sitemaps.git
+  revision: 599fa90c6a4fb6ce86541a1ab5e3cf5444a71534
+  specs:
+    spree_dynamic_sitemaps (0.50.1)
+
+GIT
   remote: git://github.com/spree/spree_i18n.git
   revision: f16e8b829fb82261e3917d75afbf9de94840e154
   branch: 1-0-stable
@@ -266,6 +272,7 @@ DEPENDENCIES
   spree_api (~> 1.0.0)
   spree_auth (~> 1.0.0)
   spree_core (~> 1.0.0)
+  spree_dynamic_sitemaps!
   spree_editor!
   spree_i18n!
   spree_recently_viewed!
