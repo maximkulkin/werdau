@@ -528,13 +528,25 @@ header .cart .icon.act{
 }
 
 .bpanel {
-  bottom: 0;
   position: fixed;
-  background: url(<%= image_path 'store/bpanel.png' %>) repeat-x top;
-  padding-top: 18px;
-  height: 30px;
+  bottom: 0;
   z-index: 1000;
   width: 100%;
+}
+
+.bpanel > ul {
+  margin: 0;
+  padding-top: 18px;
+  padding-left: 10px;
+  width: 100%;
+  height: 30px;
+  background: url(<%= image_path 'store/bpanel.png' %>) repeat-x top;
+  list-style-type: none;
+}
+
+.bpanel > ul > li {
+  display: inline-block;
+  float: left;
 }
 
 aside#sidebar {

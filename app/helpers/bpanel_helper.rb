@@ -19,7 +19,8 @@ module BpanelHelper
   end
 
   def bpanel_viewed_recently_tab
-    bpanel_tab "Просмотренные (0)", :viewed_recently
+    count = get_recently_viewed_products.size
+    bpanel_tab "Просмотренные (#{count})", :viewed_recently
   end
 
   def bpanel_cart_tab(order=nil)

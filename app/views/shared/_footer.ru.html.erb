@@ -18,11 +18,26 @@
 </div>
 
 <div class="bpanel">
-  <%= bpanel_account_tab %>
-  <%= bpanel_compare_tab %>
-  <%= bpanel_bookmarks_tab %>
-  <%= bpanel_viewed_recently_tab %>
-  <%= bpanel_cart_tab %>
-  <a href="/" class="l6"><span class="call">Позвонить с сайта</span><span>достаточно кликнуть!</span></a>
+  <ul>
+    <li><%= bpanel_account_tab %></li>
+    <li><%= bpanel_compare_tab %></li>
+    <li><%= bpanel_bookmarks_tab %></li>
+    <li><%= bpanel_viewed_recently_tab %></li>
+    <li><%= bpanel_cart_tab %></li>
+    <li><a href="/" class="l6"><span class="call">Позвонить с сайта</span><span>достаточно кликнуть!</span></a></li>
+  </ul>
 
+  <div id="recently_viewed_products" style="display: none;">
+    <h2>Просмотренные товары</h2>
+    <% if get_recently_viewed_products %>
+      <ul>
+        <% for product in get_recently_viewed_products %>
+          <li>
+            <%= mini_image product %>
+            <%= link_to product.name, product_path(product) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
