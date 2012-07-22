@@ -53,6 +53,7 @@
       <%= link_to image_tag(taxon1.icon.url) + content_tag('span', taxon1.name), seo_url(taxon1) %>
 
       <% if taxon1.children.size > 0 %>
+      <div class="border-fix"></div>
       <ul class="level2">
         <% taxon1.children.each do |taxon2| %>
         <li>
