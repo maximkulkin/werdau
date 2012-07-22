@@ -10,4 +10,5 @@
  *= require jquery.fancybox
 
  *= require_self
+ *= require store/spree_reviews
 */

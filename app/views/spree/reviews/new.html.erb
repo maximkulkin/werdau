@@ -1,0 +1,14 @@
+<% content_for :product_content do %>
+  <div id="new_review">
+    <h2>Отзыв</h2>
+
+    <%= render 'form', { :review => @review, :product => @product } %>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() { $('#new_review').scrollIntoView(true) })
+  </script>
+<% end %>
+
+<%= render :partial => 'spree/products/layout', :locals => { :product => @product } %>
+

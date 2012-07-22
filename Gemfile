@@ -4,6 +4,7 @@ gem 'rails', '3.1.4'
 gem 'mysql2'
 
 group :development do
+  gem 'thin'
   gem 'rails-dev-tweaks', '~> 0.6.1'
   gem 'sqlite3'
 end
@@ -55,3 +56,4 @@ gem 'forem', :git => 'git://github.com/radar/forem.git'
 gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 gem 'spree_forem', :git => 'git://github.com/johndavid400/spree_forem.git'
 
+gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git', :branch => '1-0-stable'

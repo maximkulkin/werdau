@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-  $('.content.product .info .images a').fancybox({'type': 'ajax', 'showNavArrows': false})
+  $('.content.product .info .images a.main_image, .content.product .info .images .small a').fancybox({'type': 'ajax', 'showNavArrows': false})
   $('.content.product-images ul#thumbnails a').live('click', function(e) {
     e.preventDefault()
     var image_id = $(this).parent('li').attr('class')

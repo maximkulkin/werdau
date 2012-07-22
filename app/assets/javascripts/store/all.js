@@ -11,5 +11,6 @@
 //= require jquery.form
 //= require jquery.fancybox
 //= require jquery.pageless
+//= require jquery.scrollIntoView
 
 //= require_tree .

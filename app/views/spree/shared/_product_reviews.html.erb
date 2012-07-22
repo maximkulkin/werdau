@@ -1,50 +1,29 @@
-<% content_for :throw_out do %>
+<% content_for :sidebar do %>
   <%= section_title 'Отзывы' %>
-  <div class="review">
+  <% for review in product.reviews.approved.limit(5) %>
+    <div class="review">
 
-    <div class="customer-name">Елена <span>2012-02-03 23:23:07</span></div>
+      <div class="customer-name"><%= review.name %> <span><%= l review.created_at, :format => :short %></span></div>
 
-    <span class="stars ran3"></span> <br />
+      <span class="stars ran<%= review.rating %>"></span> <br />
 
-    <p class="experience">Опыт использования: 1 год </p>
+      <% if review.usage_period_value %>
+        <p class="experience">Опыт использования: <%= t(review.usage_period_unit, :count => review.usage_period_value) %></p>
+      <% end %>
 
-    <p class="modification">Модификация модели: OBM-204
-    </p>
+      <p><b>Достоинства:</b><br />
+      <%= review.pros %>
+      </p>
 
-    <p><b>Достоинства:</b><br />
-    Низкая цена, нерж.сталь-корпус, нестираемые кнопки, сборка -Венгрия
-    </p>
+      <p><b>Недостатки:</b><br />
+      <%= review.cons %>
+      </p>
 
-    <p><b>Недостатки:</b><br />
-    Нет
-    </p>
-
-    <p><b>Комментарий:</b><br />
-    Рецепты беру только с форума "Моя хлебопечка" - там они все проверенные, с фото, хлеб только удачный получался. Пекла пшеничный, ржаной, сдобу, кекс, тесто делала - все отлично. (Режим для сдобы и пшеничного - только "02" французский!)
-    </p>
-  </div>
-
-  <div class="review">
-
-    <div class="customer-name">Елена <span>2012-02-03 23:23:07</span></div>
-
-    <span class="stars ran3"></span> <br />
-
-    <p class="experience">Опыт использования: 1 год </p>
-
-    <p class="modification">Модификация модели: OBM-204
-    </p>
-
-    <p><b>Достоинства:</b><br />
-    Низкая цена, нерж.сталь-корпус, нестираемые кнопки, сборка -Венгрия
-    </p>
-
-    <p><b>Недостатки:</b><br />
-    Нет
-    </p>
-
-    <p><b>Комментарий:</b><br />
-    Рецепты беру только с форума "Моя хлебопечка" - там они все проверенные, с фото, хлеб только удачный получался. Пекла пшеничный, ржаной, сдобу, кекс, тесто делала - все отлично. (Режим для сдобы и пшеничного - только "02" французский!)
-    </p>
-  </div>
+      <p><b>Комментарий:</b><br />
+      <%= review.review %>
+      </p>
+    </div>
+  <% end %>
+  <%= link_to 'Оставить отзыв', new_product_review_path(product) %> /
+  <%= link_to 'Посмотреть все отзывы', product_reviews_path(product) %>
 <% end %>

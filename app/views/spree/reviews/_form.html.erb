@@ -1,0 +1,42 @@
+<%= form_for review, :url => product_reviews_path(product), :html => {:method => :post} do |f| %>
+  <%= render "spree/shared/error_messages", :target => review %>
+
+  <p class="review_name_field">
+    <%= f.label :name %> <span class="required">*</span><br />
+    <%= f.text_field :name, :maxlength => "255", :size => "50" %>
+  </p>
+
+  <p class="review_pros_field">
+    <%= f.label :pros %> <span class="required">*</span><br />
+    <%= f.text_area :pros, :wrap => "virtual", :rows => "4", :cols => "50" %>
+  </p>
+
+  <p class="review_cons_field">
+    <%= f.label :cons %> <span class="required">*</span><br />
+    <%= f.text_area :cons, :wrap => "virtual", :rows => "4", :cols => "50" %>
+  </p>
+
+  <p class="review_review_field">
+    <%= f.label :review %> <span class="required">*</span><br />
+    <%= f.text_area :review, :wrap => "virtual", :rows => "10", :cols => "50" %>
+  </p>
+
+  <p class="review_usage_preiod_field">
+    <%= f.label :usage_period_value %>
+    <%= f.text_field :usage_period_value, :size => 2 %>
+    <%= f.select :usage_period_unit, [['день', 'day'], ['неделя', 'week'], ['месяц', 'month'], ['год', 'year']], :include_blank => true %>
+  </p>
+
+  <p class="review_rating_field">
+    <%= f.label :rating %> <span class="required">*</span><br />
+    <%= f.radio_button :rating, 1 %> <span class="stars ran1"></span> - Ужасная модель<br/>
+    <%= f.radio_button :rating, 2 %> <span class="stars ran2"></span> - Плохая модель<br/>
+    <%= f.radio_button :rating, 3 %> <span class="stars ran3"></span> - Обычная модель<br/>
+    <%= f.radio_button :rating, 4 %> <span class="stars ran4"></span> - Хорошая модель<br/>
+    <%= f.radio_button :rating, 5 %> <span class="stars ran5"></span> - Отличная модель<br/>
+  </p>
+
+  <p class="review_submit">
+    <%= f.submit I18n.t('submit_your_review'), :class => "button bg_darkfirst" %>
+  </p>
+<% end %>

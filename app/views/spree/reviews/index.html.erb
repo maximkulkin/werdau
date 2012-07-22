@@ -1,0 +1,40 @@
+<% content_for :product_content do %>
+  <%= link_to 'Добавить отзыв', new_product_review_path(@product), :class => 'new_review' %>
+  <div id="new_review" style="display:none;">
+    <h2>Отзыв</h2>
+
+    <%= render 'form', { :review => Spree::Review.new, :product => @product } %>
+  </div>
+
+  <% if @approved_reviews %>
+    <ul id="reviews">
+      <% for review in @approved_reviews %>
+        <li>
+          <div class="heading">
+            <span class="timestamp"><%= l review.created_at, :format => :short %></span>
+            <%= review.name %>
+          </div>
+          <%= star_rating review.rating %>
+          <% if review.usage_period_value %>
+            <span class="usage_period">Опыт использования: <%= t(review.usage_period_unit, :count => review.usage_period_value) %></span>
+          <% end %>
+          <p>
+            <b>Достоинства:</b><br/>
+            <%= review.pros %>
+          </p>
+          <p>
+            <b>Недостатки:</b><br/>
+            <%= review.cons %>
+          </p>
+          <p>
+            <b>Комментарий:</b><br/>
+            <%= review.review %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+    <%= paginate @approved_reviews %>
+  <% end %>
+<% end %>
+
+<%= render :partial => 'spree/products/layout', :locals => { :product => @product } %>

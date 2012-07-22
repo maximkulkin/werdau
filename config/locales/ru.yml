@@ -46,6 +46,36 @@ ru:
   order_state:
     contacts: Ваши данные
 
+  star:
+    zero: "0"
+    one: "%{count}"
+    few: "%{count}"
+    many: "%{count}"
+  
+  day:
+    zero: "0 дней"
+    one: "день"
+    few: "%{count} дня"
+    many: "%{count} дней"
+
+  week:
+    zero: "0 недель"
+    one: "неделя"
+    few: "%{count} недели"
+    many: "%{count} недель"
+
+  month:
+    zero: "0 месяцев"
+    one: "месяц"
+    few: "%{count} месяца"
+    many: "%{count} месяцев"
+
+  year:
+    zero: "0 лет"
+    one: "год"
+    few: "%{count} года"
+    many: "%{count} лет"
+
   shipment_states:
     not_started: Не начата
 
@@ -69,6 +99,12 @@ ru:
   bookmark: В закладки
   in_bookmarks: В закладках
 
+  review:
+    zero: '0 отзывов'
+    one: '1 отзыв'
+    few: '%{count} отзыва'
+    many: '%{count} отзывов'
+
   errors:
     messages:
       not_saved: ''
@@ -86,6 +122,16 @@ ru:
 
       spree/user:
         password: Пароль
+
+      spree/review:
+        rating: Оценка
+        name: Имя
+        title: Заголовок
+        pros: Достоинства
+        cons: Недостатки
+        review: Комментарий
+        usage_period_value: Опыт использования
+        usage_period_unit: Размерность опыта использования
 
     errors:
       models:

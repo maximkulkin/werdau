@@ -1,0 +1,8 @@
+
+<div class="rating">
+  <%= star_rating product.stars %>
+  <%= t('review', :count => product.reviews_count) %>
+  <br/>
+  <span class="assess"><%= link_to 'Оценить', new_product_review_path(product) %></span>
+</div>
+
