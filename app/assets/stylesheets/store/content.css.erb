@@ -319,6 +319,9 @@
 
 #viewed_recently .name {
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #viewed_recently .price {
@@ -478,6 +481,7 @@
   background-color: #fff;
   white-space: nowrap;
   overflow: scroll;
+  list-style-type: none;
 }
 
 .bpanel #recently_viewed_products ul li {
@@ -485,7 +489,8 @@
   height: 65px;
   margin-right: 10px;
   padding: 5px;
-  display: inline-block;
+  float: left;
+  white-space: normal;
 }
 
 .bpanel #recently_viewed_products ul li:hover {
@@ -497,6 +502,13 @@
 .bpanel #recently_viewed_products ul li img {
   float: left;
   margin-right: 10px;
+}
+
+.bpanel #recently_viewed_products ul li .name {
+  max-height: 32px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
