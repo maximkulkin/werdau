@@ -541,12 +541,19 @@
   margin-left: 15px;
 }
 
-.linked {
+.order.current {
   font-weight: normal;
   color: #2e7fa7;
-  background: url(<%= image_path 'store/arrowbl2.png' %>) no-repeat right;
   padding-right: 10px;
   font-size: 12px;
+}
+
+.order.current.asc {
+  background: url(<%= image_path 'store/arrowbl_down.png' %>) no-repeat right;
+}
+
+.order.current.desc {
+  background: url(<%= image_path 'store/arrowbl_up.png' %>) no-repeat right;
 }
 
 .listing-controls .lc {
@@ -1877,4 +1884,21 @@ ul.taxons li span {
   font-weight: normal;
 }
 
+#product_filters h3 {
+  margin-bottom: 10px;
+}
+
+#product_filters .options {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+#product_filters .options input[type=checkbox] {
+  margin-right: 5px;
+}
+
+#product_filters .options .count {
+  font-size: 90%;
+  margin-left: 5px;
+}
 

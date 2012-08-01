@@ -1,0 +1,9 @@
+<h1>Фильтр продуктов</h1>
+
+<%= form_for [:admin, @taxon, @product_filter] do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <p class="form-buttons">
+    <%= button t(:edit) %> <%= t(:or) %> <%= link_to t(:cancel), url_for([:admin, @taxon.taxonomy, @taxon]) %>
+  </p>
+<% end %>

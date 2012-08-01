@@ -30,6 +30,10 @@ Werdau::Application.routes.draw do
           post :import, :to => 'product_import#import'
         end
       end
+
+      scope '/taxons/:taxon_id', :as => 'taxon' do
+        resources :product_filters, :only => [:new, :create, :destroy]
+      end
     end
   end
 

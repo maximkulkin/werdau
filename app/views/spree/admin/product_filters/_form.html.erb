@@ -1,0 +1,13 @@
+
+<%= f.field_container :property_id do %>
+  <%= f.label :property_id, 'Свойство' %> <span class="required">*</span><br/>
+  <%= error_message_on :product_filter, :property_id %>
+  <%= f.select :property_id, Spree::Property.all.map { |p| [p.name, p.id] } %>
+<% end %>
+
+<%= f.field_container :title do %>
+  <%= f.label :title, 'Название' %> <span class="required">*</span><br/>
+  <%= error_message_on :product_filter, :title %>
+  <%= f.text_field :title %>
+<% end %>
+

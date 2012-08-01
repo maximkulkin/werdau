@@ -57,3 +57,7 @@ gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 gem 'spree_forem', :git => 'git://github.com/johndavid400/spree_forem.git'
 
 gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git', :branch => '1-0-stable'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+

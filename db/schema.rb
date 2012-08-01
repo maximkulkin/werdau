@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721205156) do
+ActiveRecord::Schema.define(:version => 20120727013651) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -414,6 +414,14 @@ ActiveRecord::Schema.define(:version => 20120721205156) do
   end
 
   add_index "spree_preferences", ["key"], :name => "index_spree_preferences_on_key", :unique => true
+
+  create_table "spree_product_filters", :force => true do |t|
+    t.string  "title"
+    t.integer "taxon_id"
+    t.string  "type"
+    t.integer "property_id"
+    t.string  "value_type"
+  end
 
   create_table "spree_product_groups", :force => true do |t|
     t.string "name"
