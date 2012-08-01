@@ -1,0 +1,32 @@
+
+<h2>Фильтры товаров</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Свойство товара</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if taxon.product_filters.empty? %>
+      <tr>
+        <td colspan="2">Нет фильтров</td>
+      </tr>
+    <% else %>
+      <% for filter in taxon.product_filters.includes(:property) %>
+        <tr>
+          <td><%= filter.title %></td>
+          <td><%= filter.property.presentation %>
+          <td>
+            <%= link_to t(:delete), [:admin, taxon, filter], :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Добавить фильтр', new_admin_taxon_product_filter_path(taxon) %>
+

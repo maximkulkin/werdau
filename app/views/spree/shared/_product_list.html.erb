@@ -1,12 +1,13 @@
+<%= render :partial => 'spree/shared/product_filters', :locals => { :taxon => taxon } %>
 
 <div class="listing-controls">
   <span class="lc"></span>
 
   <div>
     <span>Сортировка:</span>
-    <a href="">по&nbsp;наименованию</a>
-    <a href="">по&nbsp;цене</a>
-    <strong class="linked">по&nbsp;рейтингу</strong>
+    <%= order_link 'по наименованию', :name, :default => true %>
+    <%= order_link 'по цене', :price %>
+    <%= order_link 'по рейтингу', :rating %>
   </div>
 
   <span class="rc"></span>

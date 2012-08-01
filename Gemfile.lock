@@ -204,6 +204,7 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    pr_geohash (1.0.0)
     pygments.rb (0.2.4)
       rubypython (~> 0.5.3)
     rack (1.3.6)
@@ -238,6 +239,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.0.1)
+    rsolr (1.0.8)
+      builder (>= 2.1.2)
     rubypython (0.5.3)
       blankslate (>= 2.1.2.3)
       ffi (~> 1.0.7)
@@ -281,6 +284,13 @@ GEM
     sqlite3 (1.3.6)
     state_machine (1.1.1)
     stringex (1.3.3)
+    sunspot (1.3.2)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.0.7)
+    sunspot_rails (1.3.2)
+      nokogiri
+      sunspot (= 1.3.2)
+    sunspot_solr (1.3.2)
     therubyracer (0.10.1)
       libv8 (~> 3.3.10)
     thin (1.4.1)
@@ -337,6 +347,8 @@ DEPENDENCIES
   spree_static_content (~> 1.0.1)!
   spree_yandex_market_scraper!
   sqlite3
+  sunspot_rails
+  sunspot_solr
   therubyracer
   thin
   tinymce-rails (>= 3.4.9)
