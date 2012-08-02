@@ -123,6 +123,25 @@ namespace :unicorn do
   after "deploy:finalize_update", "unicorn:symlink"
 end
 
+namespace :solr do
+  task :start do
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:start"
+  end
+
+  task :stop do
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:stop"
+  end
+
+  task :restart do
+    stop
+    start
+  end
+
+  after 'deploy:start',   'solr:start'
+  after 'deploy:stop',    'solr:stop'
+  after 'deploy:restart', 'solr:restart'
+end
+
 namespace :deploy do
   desc "Start unicorn server"
   task :start, :roles => :app, :except => { :no_release => true } do
