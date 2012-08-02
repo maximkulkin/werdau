@@ -22,13 +22,10 @@ Spree::Product.class_eval do
 
     integer :taxon_ids, :multiple => true
 
-    %w{string integer boolean}.each do |type|
-      send(:"dynamic_#{type}", :"#{type}_property", :stored => true) do
-        filters = taxons.collect { |t| t.product_filters }.flatten
-        filters.select! { |f| f.value_type == type }
-        filters.inject({}) do |fields,filter|
-          fields.merge(filter.extract_data(self))
-        end
+    dynamic_string :"property", :stored => true do
+      filters = taxons.collect { |t| t.product_filters }.flatten
+      filters.inject({}) do |fields,filter|
+        fields.merge(filter.extract_data(self))
       end
     end
   end

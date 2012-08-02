@@ -19,7 +19,7 @@ module Spree
     def apply(searcher, params)
       filter = self
       name = "filter_#{id}"
-      searcher.dynamic :"#{filter.value_type}_property" do
+      searcher.dynamic :property do
         options = { :name => name }
         if !searcher.params[name].blank?
           conditions = any_of do
