@@ -8,5 +8,5 @@ production:
   port: 3306
   database: werdau_production
   username: werdau
-  password: <%= Capistrano::CLI.ui.ask("Enter MySQL database password: ") %>
+  password: <%= Capistrano::CLI.password_prompt("MySQL password: ") %>
 
