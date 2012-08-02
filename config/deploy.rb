@@ -1,32 +1,8 @@
-# По умолчанию для дистрибуции проектов используется Bundler.
-# Эта строка включает автоматическое обновление и установку
-# недостающих gems, указанных в вашем Gemfile.
-#
-## !!! Не забудьте добавить
-# gem 'capistrano'
-# gem 'unicorn'
-#
-# в ваш Gemfile.
-#
-# Если вы используете другую систему управления зависимостями,
-# закомментируйте эту строку.
 require 'bundler/capistrano'
 
-# В rails 3 по умолчанию включена функция assets pipelining,
-# которая позволяет значительно уменьшить размер статических
-# файлов css и js.
-# Эта строка автоматически запускает процесс подготовки
-# сжатых файлов статики при деплое.
-# Если вы не используете assets pipelining в своем проекте,
-# или у вас старая версия rails, закомментируйте эту строку.
 load 'deploy/assets'
 
-# Для удобства работы мы рекомендуем вам настроить авторизацию
-# SSH по ключу. При работе capistrano будет использоваться
-# ssh-agent, который предоставляет возможность пробрасывать
-# авторизацию на другие хосты.
-# Если вы не используете авторизацию SSH по ключам И ssh-agent,
-# закомментируйте эту опцию.
+# Авторизацию SSH по ключу.
 ssh_options[:forward_agent] = true
 
 # Имя вашего проекта в панели управления.
@@ -34,20 +10,18 @@ ssh_options[:forward_agent] = true
 set :application,     "werdau"
 
 # Сервер размещения проекта.
-set :deploy_server,   "hydrogen.locum.ru"
+set :deploy_server,   "88.198.200.69"
 
 # Не включать в поставку разработческие инструменты и пакеты тестирования.
 set :bundle_without,  [:development, :test]
 
-set :user,            "hosting_snayp"
-set :login,           "snayp"
-set :use_sudo,        false
-set :deploy_to,       "/home/#{user}/projects/#{application}"
-set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
-set :unicorn_pid,     "/var/run/unicorn/#{application}.#{login}.pid"
+set :user,            "root"
+set :use_sudo,        true
+set :deploy_to,       "/var/www/#{application}"
+
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 
-set :shared_children, shared_children + %w{public/spree}
+set :shared_children, shared_children + %w{public/spree solr}
 
 role :web,            deploy_server
 role :app,            deploy_server
@@ -55,64 +29,104 @@ role :db,             deploy_server, :primary => true
 
 
 # Следующие строки необходимы, т.к. ваш проект использует rvm.
-set :rvm_ruby_string, "ruby-1.9.3-p125"
-set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake" 
-set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 
 
-# Настройка системы контроля версий и репозитария,
-# по умолчанию - git, если используется иная система версий,
-# нужно изменить значение scm.
 set :scm,             :git
-
-# Предполагается, что вы размещаете репозиторий Git в вашем
-# домашнем каталоге в подкаталоге git/<имя проекта>.git.
-# Подробнее о создании репозитория читайте в нашем блоге
-# http://locum.ru/blog/hosting/git-on-locum
-# set :repository,      "ssh://#{user}@#{deploy_server}/home/#{user}/git/#{application}.git"
-
-## Если ваш репозиторий в GitHub, используйте такую конфигурацию
 set :repository,    "git://github.com/maximkulkin/werdau.git"
 
-## Чтобы не хранить database.yml в системе контроля версий, поместите
-## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
-## следующие строки.
 
 namespace :db do
-  task :symlink, roles => :app do
-    run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
+
+  desc <<-DESC
+    Creates the database.yml configuration file in shared path.
+
+    By default, this task uses a template unless a template
+    called database.yml.erb is found either is :template_dir
+    or /config/deploy folders. The default template matches
+    the template for config/database.yml file shipped with Rails.
+
+    When this recipe is loaded, db:setup is automatically configured
+    to be invoked after deploy:setup. You can skip this task setting
+    the variable :skip_db_setup to true. This is especially useful
+    if you are using this recipe in combination with
+    capistrano-ext/multistaging to avoid multiple db:setup calls
+    when running deploy:setup for all stages one by one.
+  DESC
+  task :setup, :except => { :no_release => true } do
+
+    default_template = <<-EOF
+    base: &base
+      adapter: sqlite3
+      timeout: 5000
+    development:
+      database: #{shared_path}/db/development.sqlite3
+      <<: *base
+    test:
+      database: #{shared_path}/db/test.sqlite3
+      <<: *base
+    production:
+      database: #{shared_path}/db/production.sqlite3
+      <<: *base
+    EOF
+
+    location = fetch(:template_dir, "config") + '/database.yml.erb'
+    template = File.file?(location) ? File.read(location) : default_template
+
+    config = ERB.new(template)
+
+    run "mkdir -p #{shared_path}/db"
+    run "mkdir -p #{shared_path}/config"
+    put config.result(binding), "#{shared_path}/config/database.yml"
   end
+
+  task :symlink, :except => { :no_release => true } do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+
+  after "deploy:setup", "db:setup" unless fetch(:skip_db_setup, false)
+  after "deploy:finalize_update", "db:symlink"
 end
 
-after 'deploy:finalize_update', 'db:symlink'
 
-## --- Ниже этого места ничего менять скорее всего не нужно ---
+set :rvm_ruby_string, "ruby-1.9.3-p125"
+set :rvm_type, :system
 
-before 'deploy:finalize_update', 'set_current_release'
-task :set_current_release, :roles => :app do
-    set :current_release, latest_release
+require 'rvm/capistrano'
+
+before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy:setup', 'rvm:install_ruby'
+
+
+set :unicorn_config,  "#{current_path}/config/unicorn.rb"
+set :unicorn_pid,     "#{shared_path}/pids/unicorn.pid"
+require 'capistrano/ext/rvm-unicorn'
+
+namespace :unicorn do
+  task :setup do
+    default_template = <<-EOS
+    EOS
+
+    location = fetch(:template_dir, "config") + '/unicorn.rb.erb'
+    template = File.file?(location) ? File.read(location) : default_template
+
+    config = ERB.new(template)
+
+    run "mkdir -p #{shared_path}/config"
+    put config.result(binding), "#{shared_path}/config/unicorn.rb"
+  end
+
+  task :symlink, :except => { :no_release => true } do
+    run "ln -nfs #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
+  end
+
+  after "deploy:setup", "unicorn:setup"
+  after "deploy:finalize_update", "unicorn:symlink"
 end
 
-
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
-
-
-
-# - for unicorn - #
 namespace :deploy do
-  desc "Start application"
-  task :start, :roles => :app do
-    run unicorn_start_cmd
-  end
-
-  desc "Stop application"
-  task :stop, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
-  end
-
-  desc "Restart Application"
-  task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}` ; #{unicorn_start_cmd}"
+  desc "Start unicorn server"
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D"
   end
 end
 

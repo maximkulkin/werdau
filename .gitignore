@@ -31,4 +31,8 @@
 
 .project
 
+/solr
+
 config/database.yml
+config/unicorn.rb
+

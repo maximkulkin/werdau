@@ -6,7 +6,6 @@ gem 'mysql2'
 group :development do
   gem 'thin'
   gem 'rails-dev-tweaks', '~> 0.6.1'
-  gem 'sqlite3'
 end
 
 # Gems used only for assets and not required
@@ -25,8 +24,12 @@ gem 'jquery-rails'
 
 gem 'unicorn'
 
-# Deploy with Capistrano
-gem 'capistrano'
+group :development do
+  # Deploy with Capistrano
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  gem 'capistrano-ext-rvm-unicorn'
+end
 
 group :test do
   # Pretty printed test output
