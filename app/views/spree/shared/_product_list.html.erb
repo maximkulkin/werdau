@@ -1,4 +1,6 @@
+<% if defined?(taxon) %>
 <%= render :partial => 'spree/shared/product_filters', :locals => { :taxon => taxon } %>
+<% end %>
 
 <div class="listing-controls">
   <span class="lc"></span>
