@@ -124,21 +124,25 @@ namespace :unicorn do
 end
 
 namespace :solr do
-  task :start do
+  task :start, :role => :app do
     run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:start"
   end
 
-  task :stop do
+  task :stop, :role => :app do
     run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:stop"
   end
 
-  task :restart do
+  task :restart, :role => :app do
     stop
     start
   end
 
+  task :reindex, :role => :app do
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:reindex[100,Spree::Product]"
+  end
+
   after 'deploy:start',   'solr:start'
-  after 'deploy:stop',    'solr:stop'
+  after 'after:stop',     'solr:stop'
   after 'deploy:restart', 'solr:restart'
 end
 
@@ -146,6 +150,11 @@ namespace :deploy do
   desc "Start unicorn server"
   task :start, :roles => :app, :except => { :no_release => true } do
     run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D"
+  end
+
+  desc "Stop unicorn server"
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "kill -TERM `cat #{unicorn_pid}`"
   end
 end
 
