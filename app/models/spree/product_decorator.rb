@@ -20,6 +20,9 @@ Spree::Product.class_eval do
     float :price, :stored => true
     float :rating, :stored => true
 
+    date :available_on
+    date :deleted_at
+
     integer :taxon_ids, :multiple => true
 
     dynamic_string :"property", :stored => true do

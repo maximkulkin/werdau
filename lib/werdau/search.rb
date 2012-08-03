@@ -22,6 +22,9 @@ module Werdau
     def result
       searcher = self
       @result ||= Spree::Product.solr_search do
+        with(:available_on).less_than(Time.now)
+        without(:deleted_at)
+
         if searcher.taxon
           with :taxon_ids, searcher.taxon.id
           searcher.taxon.product_filters.each do |filter|
