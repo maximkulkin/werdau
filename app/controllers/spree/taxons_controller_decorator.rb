@@ -7,7 +7,7 @@ Spree::TaxonsController.class_eval do
     @products = @searcher.retrieve_products
 
     if request.xhr?
-      render :partial => 'product', :collection => @products 
+      render :partial => 'spree/shared/product', :collection => @products 
     else
       respond_with(@taxon)
     end

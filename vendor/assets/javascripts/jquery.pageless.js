@@ -184,7 +184,7 @@
            , settings.params
            , function (data) {
                $.isFunction(settings.scrape) ? settings.scrape(data) : data;
-               loader ? loader.before(data) : element.append(data);
+               element.append(data);
                loading(FALSE);
                // if there is a complete callback we call it
                if (settings.complete) settings.complete.call();
