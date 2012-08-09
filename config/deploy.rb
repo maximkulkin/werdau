@@ -153,7 +153,7 @@ namespace :deploy do
 
   desc "Stop unicorn server"
   task :stop, :roles => :app, :except => { :no_release => true } do
-    run "[ -e #{unicorn_pid} -a -e /proc/`cat #{unicorn_pid}` ] && kill -TERM `cat #{unicorn_pid}`; true"
+    run "[ -e #{unicorn_pid} ] && [ -e /proc/`cat #{unicorn_pid}` ] && kill -TERM `cat #{unicorn_pid}`; true"
   end
 end
  
