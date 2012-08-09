@@ -140,12 +140,11 @@ namespace :solr do
   task :reindex, :role => :app do
     run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:reindex[100,Spree::Product]"
   end
-
-  after 'deploy:start',   'solr:start'
-  after 'after:stop',     'solr:stop'
-  after 'deploy:restart', 'solr:restart'
 end
 
+before 'deploy:start',   'solr:start'
+after  'deploy:stop',    'solr:stop'
+  
 namespace :deploy do
   desc "Start unicorn server"
   task :start, :roles => :app, :except => { :no_release => true } do
