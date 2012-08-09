@@ -23,6 +23,8 @@ module Werdau
         variant = Spree::Variant.where(sku: sku).includes(:product).first
         product = variant ? variant.product : Spree::Product.create(name: name, price: price, sku: sku)
 
+        next unless product
+
         product.name = name
         product.price = price
         product.available_on = (active == 'Y') ? Date.today : nil
