@@ -1,0 +1,22 @@
+<%= f.field_container :title do %>
+  <%= f.label :title, t(:advertisement_title) %> <span class="required">*</span><br />
+  <%= f.text_field :title %>
+  <%= f.error_message_on :title %>
+<% end %>
+
+<%= f.field_container :link do %>
+  <%= f.label :link, t(:advertisement_link) %><br />
+  <%= f.text_field :link %>
+  <%= f.error_message_on :link %>
+<% end %>
+
+<%= f.field_container :vertical_image do %>
+  <%= f.label :vertical_image, t(:advertisement_vertical_image) %><br />
+  <%= f.file_field :vertical_image %>
+<% end %>
+
+
+<%= f.field_container :gorizontal_image do %>
+  <%= f.label :gorizontal_image, t(:advertisement_gorizontal_image) %><br />
+  <%= f.file_field :gorizontal_image %>
+<% end %>

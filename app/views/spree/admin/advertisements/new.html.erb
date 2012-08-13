@@ -1,0 +1,7 @@
+
+<h1><%= t(:advertisement_new) %></h1>
+
+<%= form_for [:admin, @object] do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+<% end %>

@@ -1,0 +1,28 @@
+<h1><%= t(:advertisement) %></h1>
+
+<div class="field">
+  <span class="field-name"><%= t(:advertisement_title) %>:</span>
+  <%= @object.title %>
+</div>
+
+<div class="field">
+  <span class="field-name"><%= t(:advertisement_link) %>:</span>
+  <%= @object.link %>
+</div>
+
+<div class="field">
+  <span class="field-name"><%= t(:advertisement_vertical_image) %>:</span><br/>
+  <%= image_tag @object.vertical_image.url if @object.vertical_image %>
+</div>
+
+<div class="field">
+  <span class="field-name"><%= t(:advertisement_gorizontal_image) %>:</span><br/>
+  <%= image_tag @object.gorizontal_image.url if @object.gorizontal_image %>
+</div>
+
+<p>
+  <%= link_to_edit @object %>
+  <%= t(:or) %>
+  <%= link_to t(:back), collection_url %>
+</p>
+

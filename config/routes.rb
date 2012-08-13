@@ -24,6 +24,7 @@ Werdau::Application.routes.draw do
 
     namespace :admin do
       resources :news_items
+      resources :advertisements
       resources :products do
         collection do
           get  :import, :to => 'product_import#form'

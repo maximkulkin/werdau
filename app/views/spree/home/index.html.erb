@@ -1,9 +1,11 @@
   <% content_for :advertisement do %>
+  
     <div class="mainact">
 
       <div class="advertisement">
-
-        <a href="/"><%= image_tag 'store/promo/1.jpg' %></a>
+  	    
+        <%= image_tag Spree::Advertisement.find(:all, :order => "RAND()").first.gorizontal_image.url %>
+<!--
         <ul class="pager">
           <li><a class="prev" href="/">&nbsp;</a></li>
           <li><a href="/">1</a></li>
@@ -13,6 +15,7 @@
           <li><a href="/">15</a></li>
           <li><a class="next" href="/">&nbsp;</a></li>
         </ul>
+-->
       </div>
 
       <nav class="additional">
@@ -21,7 +24,7 @@
           <li><a href="/news/advices">Советы потребителю</a></li>
           <li><a href="/news/info">Новости магазина</a></li>
           <li><a href="/news/tech">Новости техники</a></li>
-          <li><a class="callcenter" href="/"><span>Косультация сайта ONLINE" <span/></a></li>
+          <li><a class="callcenter" href="/"><span>Консультация сайта ONLINE" <span/></a></li>
         </ul>
       </nav>
 

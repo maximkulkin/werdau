@@ -1,0 +1,37 @@
+<div class="toolbar">
+  <ul class="actions">
+    <li id="new_advertisement_link">
+      <%= button_link_to t(:add_advertisement), new_object_url %>
+    </li>
+  </ul>
+  <br class="clear" />
+</div>
+
+<h2><%= t(:advertisements) %></h2>
+
+<table class="advertisements">
+  <thead>
+    <tr>
+      <th class='title'><%= t(:advertisement_title) %></th>
+      <th class='link'><%= t(:advertisement_link) %></th>
+      <th class='actions'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collection.each do |advertisement| %>
+      <tr>
+        <td class='title'><%= link_to advertisement.title, object_url(advertisement) %></td>
+        <td class='link'><%= advertisement.link %></td>
+        <td class='actions'>
+          <%= link_to_edit advertisement %>
+          &nbsp;
+          <%= link_to_delete advertisement %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--%= paginate @collection %-->
+

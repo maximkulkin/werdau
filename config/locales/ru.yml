@@ -96,6 +96,16 @@ ru:
   news_item_contents: Текст
   news_item_image: Изображение
 
+  advertisements: Акции
+  advertisement: Акция
+  add_advertisement: Добавить акцию
+  advertisement_new: Добавить акцию
+  advertisement_edit: Редактировать акцию
+  advertisement_title: Название акции
+  advertisement_link: Ссылка
+  advertisement_vertical_image: Вертикальное изображение
+  advertisement_gorizontal_image: Горизонтальное изображение 
+  
   bookmark: В закладки
   in_bookmarks: В закладках
 

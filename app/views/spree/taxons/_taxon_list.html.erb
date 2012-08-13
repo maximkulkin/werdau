@@ -6,3 +6,4 @@
   <% end %>
 </ul>
 
+<%= image_tag Spree::Advertisement.find(:all, :order => "RAND()").first.gorizontal_image.url %>
