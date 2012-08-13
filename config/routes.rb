@@ -22,6 +22,8 @@ Werdau::Application.routes.draw do
     match '/products/:product_id/images' => 'product_images#index',
       :as => :product_images
 
+    match '/advertisements/' => 'advertisements#index', :as => :advertisements
+
     namespace :admin do
       resources :news_items
       resources :advertisements

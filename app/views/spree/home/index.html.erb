@@ -60,6 +60,14 @@
 
       <div class="news">
 
+        <h2>Акции</h2>
+        <% advertisement = Spree::Advertisement.last %>
+        <% unless advertisement.nil? %>
+          <p class="date"><span><%= l(advertisement.created_at.to_date) %></span></p>
+          <p class="pre"><%= link_to advertisement.title, advertisement.link %></p>
+        <% end %>
+        <p class="all"><%= link_to "Все акции", advertisements_path %></p> 
+
         <h2>Новости магазина</h2>
         <% category = Spree::NewsItem::Category::NEWS_INFO %>
         <% news_item = Spree::NewsItem.from_category(category).last %>

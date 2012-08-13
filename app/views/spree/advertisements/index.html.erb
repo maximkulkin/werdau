@@ -1,0 +1,8 @@
+<div class="advertisement">
+
+<h1>Акции</h1>
+<% for advertisement in @advertisements %>
+  <h2><span class="date"><%= l(advertisement.created_at.to_date) %></span>&nbsp;<%= link_to advertisement.title, advertisement.link %></h2>
+<% end %>
+</div>
+ <%= render :partial => 'spree/shared/working_hours' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727013651) do
+ActiveRecord::Schema.define(:version => 20120812114450) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20120727013651) do
     t.string   "match_policy", :default => "all"
     t.string   "code"
     t.boolean  "advertise",    :default => false
+    t.string   "path"
   end
 
   create_table "spree_addresses", :force => true do |t|
@@ -153,10 +154,13 @@ ActiveRecord::Schema.define(:version => 20120727013651) do
 
   add_index "spree_adjustments", ["adjustable_id"], :name => "index_adjustments_on_order_id"
 
-  create_table "spree_assemblies_parts", :id => false, :force => true do |t|
-    t.integer "assembly_id",                :null => false
-    t.integer "part_id",                    :null => false
-    t.integer "count",       :default => 1, :null => false
+  create_table "spree_advertisements", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "vertical_image_file_name"
+    t.string   "gorizontal_image_file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_assets", :force => true do |t|
@@ -286,12 +290,12 @@ ActiveRecord::Schema.define(:version => 20120727013651) do
   end
 
   create_table "spree_news_items", :force => true do |t|
-    t.integer "category_id"
-    t.string  "title"
-    t.text    "contents"
-    t.string  "image_file_name"
-    t.date    "active_from"
-    t.date    "active_till"
+    t.integer  "category_id"
+    t.string   "title"
+    t.text     "contents"
+    t.string   "image_file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_option_types", :force => true do |t|
@@ -466,7 +470,7 @@ ActiveRecord::Schema.define(:version => 20120727013651) do
   add_index "spree_product_scopes", ["product_group_id"], :name => "index_product_scopes_on_product_group_id"
 
   create_table "spree_products", :force => true do |t|
-    t.string   "name",                                               :default => "",    :null => false
+    t.string   "name",                                               :default => "",  :null => false
     t.text     "description"
     t.datetime "available_on"
     t.datetime "deleted_at"
@@ -477,11 +481,9 @@ ActiveRecord::Schema.define(:version => 20120727013651) do
     t.integer  "shipping_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "count_on_hand",                                      :default => 0,     :null => false
-    t.boolean  "can_be_part",                                        :default => false, :null => false
-    t.boolean  "individual_sale",                                    :default => true,  :null => false
-    t.decimal  "avg_rating",           :precision => 7, :scale => 5, :default => 0.0,   :null => false
-    t.integer  "reviews_count",                                      :default => 0,     :null => false
+    t.integer  "count_on_hand",                                      :default => 0,   :null => false
+    t.decimal  "avg_rating",           :precision => 7, :scale => 5, :default => 0.0, :null => false
+    t.integer  "reviews_count",                                      :default => 0,   :null => false
   end
 
   add_index "spree_products", ["available_on"], :name => "index_products_on_available_on"
