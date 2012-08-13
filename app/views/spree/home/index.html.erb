@@ -4,7 +4,9 @@
 
       <div class="advertisement">
   	    
-        <%= image_tag Spree::Advertisement.find(:all, :order => "RAND()").first.gorizontal_image.url %>
+        <% advertistement = Spree::Advertisement.find(:all, :order => "RAND()").first %>
+
+        <%= image_tag advertisement.gorizontal_image.url if advertisement %>
 <!--
         <ul class="pager">
           <li><a class="prev" href="/">&nbsp;</a></li>
