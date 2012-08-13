@@ -4,7 +4,6 @@ module Spree
     belongs_to :property
     
     validates :taxon, :title, :property, :presence => true
-    validates :value_type, :presence => true, :inclusion => ['string', 'boolean']
 
     after_save :reindex_products
 
