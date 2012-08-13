@@ -123,6 +123,18 @@ namespace :unicorn do
   after "deploy:finalize_update", "unicorn:symlink"
 end
 
+namespace :unicorn do
+  desc "Start unicorn server"
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D"
+  end
+
+  desc "Stop unicorn server"
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "[ -e #{unicorn_pid} ] && [ -e /proc/`cat #{unicorn_pid}` ] && kill -TERM `cat #{unicorn_pid}`; true"
+  end
+end
+
 namespace :solr do
   task :start, :role => :app do
     run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:start"
@@ -146,14 +158,14 @@ before 'deploy:start',   'solr:start'
 after  'deploy:stop',    'solr:stop'
   
 namespace :deploy do
-  desc "Start unicorn server"
+  desc "Start web server"
   task :start, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D"
+    unicorn.start
   end
 
   desc "Stop unicorn server"
   task :stop, :roles => :app, :except => { :no_release => true } do
-    run "[ -e #{unicorn_pid} ] && [ -e /proc/`cat #{unicorn_pid}` ] && kill -TERM `cat #{unicorn_pid}`; true"
+    unicorn.stop
   end
 end
  
