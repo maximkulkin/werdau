@@ -137,11 +137,11 @@ end
 
 namespace :solr do
   task :start, :role => :app do
-    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:start"
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production solr:start"
   end
 
   task :stop, :role => :app do
-    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production sunspot:solr:stop"
+    run "cd #{current_path} && rvm '#{rvm_ruby_string}' && bundle exec rake RAILS_ENV=production solr:stop"
   end
 
   task :restart, :role => :app do
