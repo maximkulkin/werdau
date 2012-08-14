@@ -15,7 +15,12 @@
               <li>
                 <% selected = filter_values.include?(row.value.to_s) %>
                 <%= check_box_tag "#{filter_name}[]", row.value, selected, :disabled => (!selected && (row.count == 0)), :id => "#{filter_name}_#{i}" %>
-                <%= label_tag "#{filter_name}_#{i}", row.value %>
+                <% if selected %>
+                  <span class="selected"><%= row.value %></span>
+                  <%= link_to 'Удалить', filter_values.size == 1 ? params.reject {|k,v| k == filter_name } : params.merge(filter_name => filter_values.reject { |v| v == row.value.to_s }), :class => 'delete', :title => 'Удалить ограничение' %>
+                <% else %>
+                  <%= link_to_if row.count > 0, row.value, params.merge("#{filter_name}[]" => row.value) %>
+                <% end %>
                 <% if row.count > 0 %>
                   <span class="count">
                     (<%= '+' unless filter_values.empty? || selected %><%= row.count %>)
