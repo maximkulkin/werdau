@@ -9,7 +9,7 @@
   <ul id="images">
     <% for image in @images %>
       <% image_url = image.attachment.url(:product) %>
-      <li class="image-<%= image.id %> <%= 'current' if image.id == current_image_id %>"><%= link_to image_tag(image_url), image_url %></li>
+      <li class="image-<%= image.id %> <%= 'current' if image.id == current_image_id %>"><%= image_tag(image_url) %></li>
     <% end %>
   </ul>
 
