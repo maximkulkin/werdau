@@ -1,6 +1,6 @@
 <li class="product">
 
-  <span class="name"><%= product.name %></span>
+  <span class="name"><%= link_to product.name, product %></span>
 
   <%= link_to product_image(product), product, :class => 'image' %>
 

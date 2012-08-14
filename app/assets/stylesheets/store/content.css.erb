@@ -614,6 +614,8 @@
   width: 200px;
   float: left;
   padding: 10px 0 0 0;
+  position: relative;
+  top: -35px;
 }
 
 .product-table .product .image img {
@@ -624,6 +626,16 @@
   width: 450px;
   margin-left: 200px;
   min-height: 100px;
+}
+
+.product-table .product .price-block {
+  float: right;
+  position: relative;
+  top: -35px;
+  background: url(<%= image_path 'store/price.png' %>) no-repeat left 10px;
+  padding-left: 28px;
+  font-size: 38px;
+  color: #000;
 }
 
 /*
