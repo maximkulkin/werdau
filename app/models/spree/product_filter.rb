@@ -2,13 +2,15 @@ module Spree
   class ProductFilter < ActiveRecord::Base
     belongs_to :taxon
     belongs_to :property
+
+    acts_as_list :scope => :taxon
     
     validates :taxon, :title, :property, :presence => true
 
-    scope :indexed, where('indexed_at IS NOT NULL AND updated_at IS NOT NULL AND indexed_at >= updated_at')
+    scope :indexed, where('indexed_at IS NOT NULL')
 
     def indexed?
-      indexed_at && updated_at && indexed_at >= updated_at
+      indexed_at != nil
     end
 
     def extract_data(product)

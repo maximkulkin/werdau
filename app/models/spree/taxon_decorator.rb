@@ -3,7 +3,8 @@ Spree::Taxon.class_eval do
   attachment_definitions[:icon][:styles] = { :normal => '64x64>' }
   attachment_definitions[:icon][:default_style] = :normal
 
-  has_many :product_filters
+  has_many :product_filters, :order => 'position asc'
+  accepts_nested_attributes_for :product_filters
 
   def all_product_properties
     Spree::Property.includes(:products => :taxons).where(['spree_taxons.id = ?', id])

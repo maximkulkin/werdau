@@ -2,7 +2,7 @@
 
   <h2>Фильтры товаров</h2>
 
-  <table>
+  <table class="client-sortable">
     <thead>
       <tr>
         <th>Название</th>
@@ -16,9 +16,15 @@
           <td colspan="2">Нет фильтров</td>
         </tr>
       <% else %>
-        <% for filter in taxon.product_filters.includes(:property) %>
+        <%= f.fields_for :product_filters do |filter_form| %>
+          <% filter = filter_form.object %>
           <tr<%= ' class=not-indexed' unless filter.indexed? %>>
-            <td><%= filter.title %></td>
+            <td>
+              <span class="handle"></span>
+              <%= filter_form.hidden_field :id %>
+              <%= filter_form.hidden_field :position %>
+              <%= filter.title %>
+            </td>
             <td><%= filter.property.presentation %>
             <td>
               <%= link_to t(:delete), [:admin, taxon, filter], :method => :delete %>
