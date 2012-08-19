@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819065026) do
+ActiveRecord::Schema.define(:version => 20120819211225) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(:version => 20120819065026) do
     t.string   "title"
     t.string   "link"
     t.string   "vertical_image_file_name"
-    t.string   "gorizontal_image_file_name"
+    t.string   "horizontal_image_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
