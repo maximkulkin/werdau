@@ -12,7 +12,7 @@
   <div class="descr"><%= raw product.description %></div>
 
   <div class="more-dscr">
-    <a href="#">Оставить отзыв</a>
+    <%= link_to 'Оставить отзыв', new_product_review_path(product) %>
   </div>
   
   <div class="options">          
