@@ -18,4 +18,9 @@ namespace :solr do
       puts e.to_s
     end
   end
+
+  task :reindex => :environment do
+    Spree::ProductFilter.update_all(:indexed_at => DateTime.now)
+    Spree::Product.solr_reindex
+  end
 end
