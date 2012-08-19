@@ -7,3 +7,20 @@
   color: red;
 }
 
+#product-filters .alert {
+  font-size: 12px;
+  border: 1px solid #e75b5b;
+  color: #000;
+  background-color: #f4b4b4;
+}
+
+#product-filters .alert .title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#product-filters .alert p {
+  margin: 0;
+}
+

@@ -29,6 +29,18 @@
     </tbody>
   </table>
 
+  <% if taxon.product_filters.any? { |filter| !filter.indexed? } %>
+    <div class="alert">
+      <div class="title">Некоторые фильтры не были обновлены.</div>
+      <p>
+      Данные фильтров, помеченных крассным цветом, не были обновлены. Такие фильтры не будут отображаться в магазине.
+      </p>
+      <p>
+      Чтобы обновить данные, нажмите кнопку "Обновить данные".
+      </p>
+    </div>
+  <% end %>
+
   <%= link_to 'Добавить фильтр', new_admin_taxon_product_filter_path(taxon) %> | 
   <%= link_to 'Обновить данные', rebuild_admin_taxon_product_filters_path(taxon), :method => :post %>
 
