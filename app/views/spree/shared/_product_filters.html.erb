@@ -3,7 +3,7 @@
     <%= section_title 'Фильтры' %>
     <div id="product_filters">
       <form method="get">
-        <% for filter in taxon.product_filters %>
+        <% for filter in taxon.product_filters.indexed %>
           <%
             filter_name = "filter_#{filter.id}"
             filter_values = Array(params[filter_name])

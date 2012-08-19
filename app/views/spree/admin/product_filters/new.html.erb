@@ -4,6 +4,6 @@
   <%= render :partial => 'form', :locals => { :f => f } %>
 
   <p class="form-buttons">
-    <%= button t(:create) %> <%= t(:or) %> <%= link_to t(:cancel), url_for([:admin, @taxon.taxonomy, @taxon]) %>
+    <%= button t(:create) %> <%= t(:or) %> <%= link_to t(:cancel), url_for([:edit, :admin, @taxon.taxonomy, @taxon]) %>
   </p>
 <% end %>

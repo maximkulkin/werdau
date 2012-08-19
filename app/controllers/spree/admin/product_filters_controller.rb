@@ -20,6 +20,11 @@ class Spree::Admin::ProductFiltersController < Spree::Admin::BaseController
     respond_with(@product_filter, :location => taxon_path)
   end
 
+  def rebuild
+    @taxon.reindex_products
+    redirect_to [:edit, :admin, @taxon.taxonomy, @taxon]
+  end
+
   private
 
   def load_taxon

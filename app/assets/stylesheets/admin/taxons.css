@@ -3,3 +3,7 @@
   display: block;
 }
 
+#product-filters .not-indexed {
+  color: red;
+}
+

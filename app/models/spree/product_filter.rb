@@ -5,7 +5,11 @@ module Spree
     
     validates :taxon, :title, :property, :presence => true
 
-    after_save :reindex_products
+    scope :indexed, where('indexed_at IS NOT NULL AND updated_at IS NOT NULL AND indexed_at >= updated_at')
+
+    def indexed?
+      indexed_at && updated_at && indexed_at >= updated_at
+    end
 
     def extract_data(product)
       product_property = product.product_properties.

@@ -1,0 +1,6 @@
+$(document).ready(function() {
+  $('select#product_filter_property_id').change(function(e) {
+    var property_title = $(e.target).find('option:selected').text()
+    $('input#product_filter_title').val(property_title)
+  }).change()
+})

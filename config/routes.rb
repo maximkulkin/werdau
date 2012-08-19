@@ -35,7 +35,11 @@ Werdau::Application.routes.draw do
       end
 
       scope '/taxons/:taxon_id', :as => 'taxon' do
-        resources :product_filters, :only => [:new, :create, :destroy]
+        resources :product_filters, :only => [:new, :create, :destroy] do
+          collection do
+            post :rebuild
+          end
+        end
       end
     end
   end

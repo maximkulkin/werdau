@@ -27,7 +27,7 @@ module Werdau
 
         if searcher.taxon
           with :taxon_ids, searcher.taxon.id
-          searcher.taxon.product_filters.each do |filter|
+          searcher.taxon.product_filters.indexed.each do |filter|
             filter.apply(self, searcher.params)
           end
         end

@@ -1,8 +1,8 @@
 
-<%= f.field_container :property_id do %>
+<%= f.field_container :property do %>
   <%= f.label :property_id, 'Свойство' %> <span class="required">*</span><br/>
-  <%= error_message_on :product_filter, :property_id %>
-  <%= f.select :property_id, Spree::Property.all.map { |p| [p.name, p.id] } %>
+  <%= error_message_on :product_filter, :property %>
+  <%= f.select :property_id, [['', '']] + @taxon.all_product_properties.reject { |p| p.name =~ /^=/ }.sort_by { |p| p.name }.map { |p| [p.name, p.id] } %>
 <% end %>
 
 <%= f.field_container :title do %>
