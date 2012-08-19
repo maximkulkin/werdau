@@ -11,4 +11,6 @@ class Spree::Advertisement < ActiveRecord::Base
     :path => ':rails_root/public/spree/advertisements/gorizontal/:id/:style.:extension'
     
   validates :title, :presence => true
+
+  scope :random, order('RAND()')
 end

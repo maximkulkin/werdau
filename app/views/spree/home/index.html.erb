@@ -4,7 +4,7 @@
 
       <div class="advertisement">
   	    
-        <% advertisement = Spree::Advertisement.find(:all, :order => "RAND()").first %>
+        <% advertisement = Spree::Advertisement.random.first %>
 
         <%= image_tag advertisement.gorizontal_image.url if advertisement %>
 <!--

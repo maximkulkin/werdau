@@ -1,5 +1,7 @@
-<% content_for :sidebar do %>
-<div class="advertisement">
-  <%= image_tag Spree::Advertisement.find(:all, :order => "RAND()").first.vertical_image.url %>
-</div>
+<% if advertisement = Spree::Advertisement.random.first %>
+  <% content_for :sidebar do %>
+  <div class="advertisement">
+    <%= image_tag advertisement.vertical_image.url %>
+  </div>
+  <% end %>
 <% end %>
