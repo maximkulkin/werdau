@@ -9,6 +9,6 @@ Deface::Override.new(
   :name => 'add_sortable_handle',
   :virtual_path => 'spree/admin/product_properties/_product_property_fields',
   :insert_top => 'td.property_name',
-  :text => "<span class='handle' /><%= f.hidden_field :position %>"
+  :text => "<span class='handle'></span><%= f.hidden_field :position %>"
 )
 
