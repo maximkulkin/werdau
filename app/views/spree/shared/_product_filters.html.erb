@@ -1,4 +1,4 @@
-<% unless taxon.product_filters.empty? %>
+<% unless taxon.product_filters.indexed.empty? %>
   <% content_for :sidebar do %>
     <%= section_title 'Фильтры' %>
     <div id="product_filters">
