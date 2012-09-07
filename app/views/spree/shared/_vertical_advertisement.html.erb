@@ -1,7 +1,7 @@
 <% if advertisement = Spree::Advertisement.random.first %>
   <% content_for :sidebar do %>
   <div class="advertisement">
-    <%= image_tag advertisement.vertical_image.url %>
+    <%= link_to image_tag(advertisement.vertical_image.url), advertisement.link %>
   </div>
   <% end %>
 <% end %>

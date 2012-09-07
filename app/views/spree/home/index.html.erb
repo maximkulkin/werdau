@@ -6,7 +6,7 @@
   	    
         <% advertisement = Spree::Advertisement.random.first %>
 
-        <%= image_tag advertisement.horizontal_image.url if advertisement %>
+        <%= link_to image_tag(advertisement.horizontal_image.url), advertisement.link if advertisement %>
 <!--
         <ul class="pager">
           <li><a class="prev" href="/">&nbsp;</a></li>

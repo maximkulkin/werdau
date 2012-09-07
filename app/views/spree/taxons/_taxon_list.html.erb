@@ -6,6 +6,4 @@
   <% end %>
 </ul>
 
-<% if advertisement = Spree::Advertisement.random.first %>
-  <%= image_tag advertisement.horizontal_image.url %>
-<% end %>
+<%= render :partial => 'spree/shared/horizontal_advertisement', :locals => { :product => @product } %>

@@ -1,0 +1,5 @@
+<% if advertisement = Spree::Advertisement.random.first %>
+  <div class="advertisement">
+    <%= link_to image_tag(advertisement.horizontal_image.url), advertisement.link %>
+  </div>
+<% end %>
