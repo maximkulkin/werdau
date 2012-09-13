@@ -37,8 +37,8 @@ ru:
   data_file: Файл данных
   upload: Загрузить
   product_import_result:
-    success: Данные товаров были успешно загружены
-    failure: 'Не удалось загрузить данные товаров: %{message}'
+    success: "Данные товаров из файла '%{filename}' были успешно загружены"
+    failure: "Не удалось загрузить данные товаров из файла '%{filename}': %{message}"
 
   filters: Фильтры
 
