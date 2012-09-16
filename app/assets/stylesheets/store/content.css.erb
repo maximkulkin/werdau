@@ -579,13 +579,13 @@
   background: url(<%= image_path 'store/rc4.png' %>) no-repeat right;
 }
 
-.product-table {
+.product-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.product-table .product {
+.product-list .product {
   padding: 10px;
   border-bottom: 1px solid #afb0b1;
   position: relative;
@@ -593,15 +593,15 @@
   min-height: 145px;
 }
 
-.product-table .product a  {
+.product-list .product a  {
   color: #2e7fa7;
 }
 
-.product-table .product a.cat-name {
+.product-list .product a.cat-name {
   color: #000;
 }
 
-.product-table .product .name {
+.product-list .product .name {
   border-width: 0;
   font-size: 15px;
   font-weight: normal;
@@ -612,7 +612,7 @@
   display: block;
 }
 
-.product-table .product .image {
+.product-list .product .image {
   width: 200px;
   float: left;
   padding: 10px 0 0 0;
@@ -620,17 +620,17 @@
   top: -35px;
 }
 
-.product-table .product .image img {
+.product-list .product .image img {
   width: 160px;
 }
 
-.product-table .product .descr {
+.product-list .product .descr {
   width: 450px;
   margin-left: 200px;
   min-height: 100px;
 }
 
-.product-table .product .price-block {
+.product-list .product .price-block {
   float: right;
   position: relative;
   top: -35px;
@@ -641,11 +641,11 @@
 }
 
 /*
-.product-table .product .buy {
+.product-list .product .buy {
   display: inline;
 }
 
-.product-table .product .buy input[type=submit] {
+.product-list .product .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -660,11 +660,11 @@
   border: none;
 }
 
-.product-table .product .buy input[type=submit]:hover {
+.product-list .product .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left center;
 }
 
-.product-table .product .buy input[type=submit]:active {
+.product-list .product .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
 }
 */
@@ -683,7 +683,7 @@
   line-height: 40px;
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left top;
   font-size: 16px;
-  display: block;
+  display: inline-block;
   margin-top: 10px;
   border: none;
 }
@@ -696,7 +696,11 @@
   background: url(<%= image_path 'store/buyb.png' %>) no-repeat left bottom;
 }
 
-.product-table .product .more-dscr {
+.listing-controls .view-mode {
+  float: right;
+}
+
+.product-list .product .more-dscr {
   clear: right;
   margin: 0 0 0 200px;
   height: 26px;
@@ -705,26 +709,26 @@
   width: 652px;
 }
 
-.product-table .product .options {
+.product-list .product .options {
   float: right;
   text-align: right;
   position: relative;
   top: -26px;
 }
 
-.product-table .product .options a { 
+.product-list .product .options a { 
   display: inline-block;
   margin-left: 10px;
   float: left;
 }
 
 
-.product-list {
+.product-grid {
   list-style-type: none;
   padding: 0;
 }
 
-.product-list .product {
+.product-grid .product {
   float: left;
   width: 250px;
   height: 250px;
@@ -736,21 +740,21 @@
   -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
 }
 
-.product-list .product .name {
+.product-grid .product .name {
   border-width: 0;
   font-size: 15px;
   font-weight: normal;
   color: #2e7fa7;
   padding: 10px 0;
-  text-align: left;
+  text-align: center;
   display: block;
 }
 
-.product-list .product .image img {
+.product-grid .product .image img {
   width: 160px;
 }
 
-.product-list .product .price-block {
+.product-grid .product .price-block {
   font-size: 18px;
   color: #000;
   padding: 0;
@@ -765,11 +769,11 @@
   vertical-align: baseline;
 }
 
-.product-list .product .buy {
+.product-grid .product .buy {
   display: inline;
 }
 
-.product-list .product .buy input[type=submit] {
+.product-grid .product .buy input[type=submit] {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -784,22 +788,22 @@
   border: none;
 }
 
-.product-list .product .buy input[type=submit]:hover {
+.product-grid .product .buy input[type=submit]:hover {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left center;
 }
 
-.product-list .product .buy input[type=submit]:active {
+.product-grid .product .buy input[type=submit]:active {
   background: url(<%= image_path 'store/buym.png' %>) no-repeat left bottom;
 }
 
-.product-list .product .options {
+.product-grid .product .options {
   position: absolute;
   right: 10px;
   bottom: 20px;
   text-align: right;
 }
 
-.product-list .more-dscr, .product-list .descr {
+.product-grid .more-dscr, .product-grid .descr {
   display: none;
 }
 

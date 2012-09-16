@@ -5,6 +5,14 @@
 <div class="listing-controls">
   <span class="lc"></span>
 
+  <div class="view-mode">
+    Отображение:
+    <select name="view-mode">
+      <option value="list" selected="true">списком</option>
+      <option value="grid">сеткой</option>
+    </select>
+  </div>
+
   <div>
     <span>Сортировка:</span>
     <%= order_link 'по наименованию', :name, :default => true %>
@@ -15,7 +23,7 @@
   <span class="rc"></span>
 </div>
 
-<ol id="products" class="product-table">
+<ol id="products" class="product-list">
   <%= render :partial => 'spree/shared/product', :collection => products %>
 </ol>
 <div id="pageless-loader" style="display: none; text-align: center; width: 100%;">
