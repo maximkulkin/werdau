@@ -416,6 +416,11 @@
   padding-left: 18px;
 }
 
+.bpanel .tab.compare {
+  /* FIXME: remove this once compare feature ready */
+  display: none;
+}
+
 .bpanel .tab.compare .ic {
   background: url(<%= image_path 'store/ic2.png' %>) no-repeat left -1px;
   padding-left: 18px;
@@ -717,7 +722,6 @@
 }
 
 .product-list .product .options a { 
-  display: inline-block;
   margin-left: 10px;
   float: left;
 }
@@ -815,7 +819,10 @@
   padding: 0;
   color: #fff;
   text-decoration: none;
-  display: block;
+  /* FIXME: enable button when compare feature ready */
+  /* display: block; */
+  display: none;
+  float: none;
   width: 79px;
   text-align: center;
   height: 22px;
@@ -914,10 +921,6 @@
   font-size: 19px;
   line-height: 15px;
   color: #20764a;
-}
-
-.sbcompare {
-  display: block;  
 }
 
 
