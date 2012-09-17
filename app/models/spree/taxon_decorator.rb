@@ -13,7 +13,7 @@ Spree::Taxon.class_eval do
   def reindex_products
     # TODO: run indexing in background job
     product_filters.update_all(:indexed_at => DateTime.now)
-    products.find_each(:batch_size => 100, &:index)
+    products.active.find_each(:batch_size => 100, &:index)
   end
 end
 
