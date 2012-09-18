@@ -27,9 +27,9 @@
   </div>
 
   <ul class="submenu2">
-    <li>- <a href="#">Читайте отзывы других пользователей</a></li>
-    <li>- <a href="#">Оставьте свой отзыв</a></li>
-    <li>- <a href="#">Сравните с другим товаром</a></li>
+    <li>- <%= link_to 'Читайте отзывы других пользователей', product_reviews_path(@product) %></a></li>
+    <li>- <%= link_to 'Оставьте свой отзыв', new_product_review_path(@product) %></li>
+    <%# <li>- <a href="#">Сравните с другим товаром</a></li> %>
   </ul>
 
   <div class="product-info bottom">
