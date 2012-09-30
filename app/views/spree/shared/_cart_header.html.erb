@@ -42,7 +42,7 @@
       <div class="summary">
         Всего <%= ru_quantify order.item_count, '%d товар', '%d товара', '%d товаров' %>
         на сумму <%= format_price order.total %><br/>
-        <%= link_to 'Открыть корзину', cart_path, :class => 'open_cart' %>
+        <%= link_to 'Оформить заказ', cart_path, :class => 'open_cart' %>
       </div>
     </div>
   <% end %>
