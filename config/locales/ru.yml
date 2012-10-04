@@ -159,3 +159,10 @@ ru:
           attributes:
             email:
               not_found: 'не найден'
+
+  spree:
+    admin:
+      products:
+        index:
+          with_no_images: Только товары без картинок
+          with_no_properties: Только товары без описания свойств

@@ -6,7 +6,7 @@ Deface::Override.new(
   :text => '
   <p>
     <%= f.check_box :with_no_images, {:checked => !params[:search][:with_no_images].blank?}, "1", "" %>
-    <%= f.label :with_no_images, "Только товары без картинок" %>
+    <%= f.label :with_no_images, t(".with_no_images") %>
   </p>
   '
 )
@@ -18,7 +18,7 @@ Deface::Override.new(
   :text => '
   <p>
     <%= f.check_box :with_no_properties, {:checked => !params[:search][:with_no_properties].blank?}, "1", "" %>
-    <%= f.label :with_no_properties, "Только товары без описания свойств" %>
+    <%= f.label :with_no_properties, t(".with_no_properties") %>
   </p>
   '
 )
