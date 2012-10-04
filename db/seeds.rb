@@ -17,13 +17,18 @@ admin_role = Spree::Role.find_or_create_by_name('admin')
 ADMIN_EMAIL = 'spree@example.com'
 ADMIN_PASSWORD = 'spree123'
 
-Spree::User.create!({
-  :login => ADMIN_EMAIL,
-  :email => ADMIN_EMAIL,
-  :password => ADMIN_PASSWORD,
-  :password_confirmation => ADMIN_PASSWORD,
-  :role => admin_role
-}) unless Spree::User.exists?(:login => ADMIN_EMAIL)
+unless Spree::User.exists?(:login => ADMIN_EMAIL)
+  admin = Spree::User.create!({
+    :login => ADMIN_EMAIL,
+    :email => ADMIN_EMAIL,
+    :password => ADMIN_PASSWORD,
+    :password_confirmation => ADMIN_PASSWORD
+  })
+else
+  admin = Spree::User.find_by_login(ADMIN_EMAIL)
+end
+admin.roles << admin_role
+admin.save!
 
 unless Spree::Country.exists?(:id => 168)
   russia = Spree::Country.new({
