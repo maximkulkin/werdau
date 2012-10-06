@@ -22,3 +22,15 @@ Deface::Override.new(
   </p>
   '
 )
+
+Deface::Override.new(
+  :name => 'add_controls_to_search_products_with_no_taxons',
+  :virtual_path => 'spree/admin/products/index',
+  :insert_bottom => '[data-hook="admin_products_index_search"]',
+  :text => '
+  <p>
+    <%= f.check_box :with_no_taxons, {:checked => !params[:search][:with_no_taxons].blank?}, "1", "" %>
+    <%= f.label :with_no_properties, "Только товары без категории" %>
+  </p>
+  '
+)
