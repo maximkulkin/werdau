@@ -166,3 +166,4 @@ ru:
         index:
           with_no_images: Только товары без картинок
           with_no_properties: Только товары без описания свойств
+          with_no_taxons: Только товары без категории

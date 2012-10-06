@@ -30,7 +30,7 @@ Deface::Override.new(
   :text => '
   <p>
     <%= f.check_box :with_no_taxons, {:checked => !params[:search][:with_no_taxons].blank?}, "1", "" %>
-    <%= f.label :with_no_properties, "Только товары без категории" %>
+    <%= f.label :with_no_properties, t(".with_no_taxons") %>
   </p>
   '
 )
