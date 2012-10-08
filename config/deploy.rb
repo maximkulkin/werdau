@@ -32,7 +32,7 @@ role :db,             deploy_server, :primary => true
 
 
 set :scm,             :git
-set :repository,    "git://github.com/dshilin/werdau.git"
+set :repository,    "git://github.com/maximkulkin/werdau.git"
 
 
 namespace :db do
@@ -168,24 +168,16 @@ namespace :deploy do
     unicorn.stop
   end
 end
-
-
-before "deploy:update_code", "werdau:compress_assets"
-after "deploy:symlink", "werdau:upload_assets"
-
-namespace :werdau do
-  desc "Compress assets in a local file"
-  task :compress_assets do
-    run_locally("rm -rf public/assets/*")
-    run_locally("bundle exec rake assets:precompile")
-    run_locally("touch assets.tgz && rm assets.tgz")
-    run_locally("tar zcvf assets.tgz public/assets/")
-    run_locally("mv assets.tgz public/assets/")
-  end
-
-  desc "Upload assets"
-  task :upload_assets do
-    upload("public/assets/assets.tgz", release_path + '/assets.tgz')
-    run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
+ 
+namespace :deploy do
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      from = source.next_revision(current_revision)
+      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      else
+        logger.info "Skipping asset pre-compilation because there were no asset changes"
+      end
+    end
   end
 end
