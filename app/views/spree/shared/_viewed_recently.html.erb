@@ -6,7 +6,7 @@
         <li>
           <%= link_to product_image(product) + 
                 content_tag(:span, product.name, :class => 'name'), product, :title => product.name %>
-          <span class="price"><%= format_price product.price %></span>
+          <span class="price"><%= money product.price %></span>
         </li>
       <% end %>
     </ul>

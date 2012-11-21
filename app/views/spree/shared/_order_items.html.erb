@@ -16,9 +16,9 @@
       <tr>
         <td class="name"><b><%= link_to variant.name, variant.product %></b></td>
         <td class="quantity"><%= line_item.quantity %></td>
-        <td class="price"><%= format_price line_item.price %></td>
+        <td class="price"><%= money line_item.price %></td>
         <td class="discount"></td>
-        <td class="cost"><%= format_price line_item.amount %></td>
+        <td class="cost"><%= money line_item.amount %></td>
       </tr>
     <% end %>
 

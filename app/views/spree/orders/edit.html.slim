@@ -24,9 +24,9 @@
               td.name
                 b= link_to variant.name, variant.product
               td.quantity= item_form.number_field :quantity, min: 0, size: 2, class: 'quantity'
-              td.price= format_price line_item.price
+              td.price= money line_item.price
               td.discount
-              td.cost= format_price line_item.amount
+              td.cost= money line_item.amount
               td.delete
                 = link_to image_tag('icons/delete.png'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}"
           tr.total
