@@ -7,7 +7,6 @@
 
 //= require admin/spree_core
 //= require admin/spree_auth
-//= require admin/spree_api
 //= require tinymce-jquery
 //= require admin/spree_editor
 //= require_self
