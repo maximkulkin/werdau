@@ -7,6 +7,7 @@
 //= require store/spree_core
 //= require store/spree_auth
 
+//= require jquery
 //= require jquery.form
 //= require jquery.fancybox
 //= require jquery.pageless
