@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.4'
+gem 'rails', '~> 3.2.0'
 gem 'mysql2'
 
 group :development do
@@ -11,8 +11,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '= 3.1.4'
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails',   '~> 3.2.0'
+  gem 'coffee-rails', '~> 3.2.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer'
@@ -40,12 +40,11 @@ end
 
 gem 'unicode'
 gem 'russian', '~> 0.6.0'
-gem 'spree_core', '~> 1.0.0'
-gem 'spree_auth', '~> 1.0.0'
-gem 'spree_api', '~> 1.0.0'
-gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git',
-  :branch => '1-0-stable'
-gem 'spree_static_content', '~> 1.0.1', :git => 'git://github.com/spree/spree_static_content.git', :branch => '1-0-stable'
+gem 'spree_core', '~> 1.2.0'
+gem 'spree_auth_devise', :git => "git://github.com/spree/spree_auth_devise"
+gem 'spree_api', '~> 1.2.0'
+gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
+gem 'spree_static_content', :git => 'git://github.com/spree/spree_static_content.git', :branch => '1-2-stable'
 gem 'spree_editor', :git => 'git://raw.github.com/spree/spree_editor.git'
 gem 'tinymce-rails', '>= 3.4.9'
 gem 'tinymce-rails-langs'
@@ -61,7 +60,7 @@ gem 'forem', :git => 'git://github.com/radar/forem.git'
 gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 gem 'spree_forem', :git => 'git://github.com/johndavid400/spree_forem.git'
 
-gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git', :branch => '1-0-stable'
+gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'

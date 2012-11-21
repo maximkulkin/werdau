@@ -1,6 +1,7 @@
 module Werdau
   class Search
     attr_reader :params, :taxon, :keywords, :order, :order_direction, :per_page, :page
+    attr_accessor :current_user
 
     def initialize(params)
       @params = params
