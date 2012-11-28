@@ -182,7 +182,7 @@ namespace :deploy do
   end
 end
 
-before 'deploy:update',         'deploy:resque:stop'
+#before 'deploy:update',         'deploy:resque:stop'
 after  'deploy:create_symlink', 'deploy:resque:start'
  
 namespace :deploy do
