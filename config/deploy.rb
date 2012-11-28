@@ -161,12 +161,12 @@ namespace :deploy do
 
   namespace :resque do
     desc "Stop the resque workers"
-    task :stop, :roles => :service do
+    task :stop, :roles => :app do
       run "cd #{current_path}; nohup bundle exec rake resque:stop RAILS_ENV=#{rails_env}"
     end
 
     desc "Start the resque workers"
-    task :start, :roles => :service do
+    task :start, :roles => :app do
       run "cd #{current_path}; nohup bundle exec rake resque:start_worker RAILS_ENV=#{rails_env} > /dev/null 2>&1"
     end
   end
