@@ -1,4 +1,5 @@
 Werdau::Application.routes.draw do
+  mount Resque::Server, :at => '/resque-server'
   mount Forem::Engine, :at => "/forums"
 
   mount Spree::Core::Engine, :at => '/', :as => 'spree'
@@ -31,6 +32,7 @@ Werdau::Application.routes.draw do
         collection do
           get  :import, :to => 'product_import#form'
           post :import, :to => 'product_import#import'
+          get  :import_status, :to => 'product_import#import_status'
         end
       end
 
