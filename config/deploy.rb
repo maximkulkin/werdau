@@ -32,7 +32,7 @@ role :db,             deploy_server, :primary => true
 
 
 set :scm,             :git
-set :repository,    "https://github.com/werdau/Werdau.git"
+set :repository,    "git@github.com:werdau/Werdau.git"
 
 
 namespace :db do
