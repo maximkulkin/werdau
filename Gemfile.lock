@@ -162,6 +162,8 @@ GEM
     forem-redcarpet (1.0.0)
       pygments.rb (= 0.2.4)
       redcarpet (= 2.0.1)
+    foreman (0.60.2)
+      thor (>= 0.13.6)
     highline (1.6.8)
     hike (1.2.1)
     i18n (0.6.0)
@@ -349,6 +351,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   forem!
   forem-theme-twist!
+  foreman
   jquery-rails
   mysql2
   rails (= 3.1.4)

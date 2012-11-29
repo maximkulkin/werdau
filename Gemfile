@@ -66,3 +66,5 @@ gem 'sunspot_solr'
 
 gem 'resque'
 
+# development utils
+gem 'foreman'
