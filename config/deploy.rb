@@ -32,7 +32,7 @@ role :db,             deploy_server, :primary => true
 
 
 set :scm,             :git
-set :repository,    "git://github.com/dshilin/werdau.git"
+set :repository,    "git@github.com:werdau/Werdau.git"
 
 
 namespace :db do
@@ -156,8 +156,21 @@ end
 
 before 'deploy:start',   'solr:start'
 after  'deploy:stop',    'solr:stop'
-  
+
 namespace :deploy do
+
+  namespace :resque do
+    desc "Stop the resque workers"
+    task :stop, :roles => :app do
+      run "cd #{current_path}; nohup bundle exec rake resque:stop RAILS_ENV=#{rails_env}"
+    end
+
+    desc "Start the resque workers"
+    task :start, :roles => :app do
+      run "cd #{current_path}; nohup bundle exec rake resque:start_worker RAILS_ENV=#{rails_env} > /dev/null 2>&1"
+    end
+  end
+
   desc "Start web server"
   task :start, :roles => :app, :except => { :no_release => true } do
     unicorn.start
@@ -168,6 +181,9 @@ namespace :deploy do
     unicorn.stop
   end
 end
+
+before 'deploy:update',         'deploy:resque:stop'
+after  'deploy:create_symlink', 'deploy:resque:start'
  
 namespace :deploy do
   namespace :assets do

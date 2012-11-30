@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819211225) do
+ActiveRecord::Schema.define(:version => 20121121110911) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -246,6 +246,18 @@ ActiveRecord::Schema.define(:version => 20120819211225) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "spree_import_statuses", :force => true do |t|
+    t.integer  "count_all",      :default => 0
+    t.integer  "count_process",  :default => 0
+    t.boolean  "active",         :default => false
+    t.text     "error_messages"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "count_errors",   :default => 0
+  end
+
+  add_index "spree_import_statuses", ["active"], :name => "index_spree_import_statuses_on_active"
 
   create_table "spree_inventory_units", :force => true do |t|
     t.integer  "lock_version",            :default => 0

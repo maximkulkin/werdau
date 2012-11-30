@@ -1,0 +1,60 @@
+<!-- #TODO: Need move to locales -->
+<fieldset>
+  <div class="flash error">Процесс импорта товаров еще не закончен!</div>
+  <br>
+  <p><b>Информация о процессе импорта:</b></p><br>
+  <ul>
+    <li id="task_wait" style="display: none;"><b>Задача в ожидании запуска!</b></li>
+    <li id="task_process" style="display: none;"><b>Задача выполняется!</b></li>
+    <li>Дата создания задачи: <b><%= @status.created_at.to_time -%></b></li>
+    <li>Всего/выполнено: <b><span id="count_all"><%= @status.count_all -%></span> / <span id="count_process"><%= @status.count_process -%></span></b></li>
+    <li>Ошибок импорта: <b><span id="count_errors"><%= @status.count_errors -%></span></b></li>
+    <li id="errors_import" style="display: none;"><b>Ошибки:</b>
+      <ul id="error_messages">
+      </ul>
+    </li>
+  </ul>
+</fieldset>
+
+<script language="JavaScript">
+  setInterval( function() 
+  { 
+      $.ajax({
+          global:  false,
+          url:     '<%= import_status_admin_products_path -%>',
+          success: function( result ) 
+          {
+              if ( result && result.import_status ) {
+                  with ( result.import_status ) {
+                      $( '#count_process' ).html( count_process );
+                      $( '#count_errors' ).html( count_errors );
+                      
+                      if ( count_process == 0 ) {
+                          $( '#task_wait' ).show();
+                          $( '#task_process' ).hide();
+                      } else {
+                          $( '#task_wait' ).hide();
+                          $( '#task_process' ).show();
+                      }
+                      
+                      if ( count_errors > 0 ) {
+                        $( '#errors_import' ).show();
+                        var errors = ''
+                        
+                        $.each( error_messages, function( index, item )
+                        {
+                          errors += '<li>' + item + '</li>';
+                        });
+                        $( '#error_messages' ).html( errors );
+                      }
+                  }
+              } else {
+                  window.location.reload();
+              }
+          },
+          dataType: 'json'
+      });
+  }, 1500);
+</script>
+
+

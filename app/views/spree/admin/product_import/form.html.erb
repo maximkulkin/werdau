@@ -8,15 +8,9 @@
 
 <h1><%= t(:product_import) %></h1>
 
-<fieldset>
-  <%= form_tag import_admin_products_path, :multipart => true do %>
-    <%= label_tag 'data', t(:data_file) %>
-    <%= file_field_tag 'data' %>
-    <div class="form-buttons">
-      <%= button t(:upload) %>
-      <%= t(:or) %>
-      <%= link_to t(:cancel), admin_products_path %>
-    </div>
-  <% end %>
-</fieldset>
+<% if @status.present? %>
+  <%= render :partial => 'process' %>
+<% else %>
+  <%= render :partial => 'form' %>
+<% end %>
 

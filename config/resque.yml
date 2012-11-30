@@ -1,0 +1,3 @@
+development: "localhost:6379/werdau_development:resque"
+test: "localhost:6379/werdau_test:resque"
+production: "localhost:6379/werdau_production:resque"
