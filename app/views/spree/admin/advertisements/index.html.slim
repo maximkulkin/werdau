@@ -1,0 +1,25 @@
+= render 'spree/admin/shared/specials_sub_menu'
+
+.toolbar
+  ul.actions
+    li#new_advertisement_link
+      = button_link_to t(:add_advertisement), new_object_url
+  br.clear/
+h2= t(:advertisements)
+
+table.advertisements
+  thead
+    tr
+      th.title= t(:advertisement_title)
+      th.link= t(:advertisement_link)
+      th.actions
+  tbody
+    - @collection.each do |advertisement|
+      tr
+        td.title= link_to advertisement.title, object_url(advertisement)
+        td.link= advertisement.link
+        td.actions
+          = link_to_edit advertisement
+          == '&nbsp;'
+          = link_to_delete advertisement
+/ = paginate @collection 

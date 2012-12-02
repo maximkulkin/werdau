@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'slim'
+
 gem 'unicorn'
 
 group :development do

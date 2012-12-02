@@ -105,6 +105,18 @@ ru:
   advertisement_link: Ссылка
   advertisement_vertical_image: Вертикальное изображение
   advertisement_horizontal_image: Горизонтальное изображение 
+
+  special_offers: Спец-предложения
+  special_offer: Спец-предложение
+  new_special_offer: Новое спец-предложение
+  add_special_offer: Добавить спец-предложение
+  edit_special_offer: Редактировать спец-предложение
+  listing_special_offers: Спец-предложение
+  special_offer_taxon: Таксон
+  special_offer_search_taxons: Поиск таксонов
+  special_offer_affordable_product: Самый доступный продукт
+  special_offer_popular_product: Популярный продукт
+  special_offer_best_product: Лучший продукт
   
   bookmark: В закладки
   in_bookmarks: В закладках

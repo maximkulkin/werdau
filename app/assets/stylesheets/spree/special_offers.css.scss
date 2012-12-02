@@ -1,0 +1,15 @@
+.special-offer {
+  display: table;
+  table-layout: fixed;
+  border: solid 1px #aaa;
+  background-color: #f9f9f9;
+  padding-top: 30px;
+
+  > * {
+    display: table-cell;
+    width: 33%; }
+  .product {
+    background-color: white;
+    h2 {
+      margin-top: -48px; } }
+}

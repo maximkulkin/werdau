@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121110911) do
+ActiveRecord::Schema.define(:version => 20121130113726) do
+
+  create_table "coupons", :force => true do |t|
+    t.string   "code"
+    t.string   "description"
+    t.integer  "usage_limit"
+    t.boolean  "combine"
+    t.datetime "expires_at"
+    t.datetime "starts_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -99,6 +110,14 @@ ActiveRecord::Schema.define(:version => 20121121110911) do
   add_index "forem_views", ["updated_at"], :name => "index_forem_views_on_updated_at"
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
   add_index "forem_views", ["viewable_id"], :name => "index_forem_views_on_topic_id"
+
+  create_table "promotion_rules_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "promotion_rule_id"
+  end
+
+  add_index "promotion_rules_users", ["promotion_rule_id"], :name => "index_promotion_rules_users_on_promotion_rule_id"
+  add_index "promotion_rules_users", ["user_id"], :name => "index_promotion_rules_users_on_user_id"
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -653,6 +672,14 @@ ActiveRecord::Schema.define(:version => 20121121110911) do
     t.integer  "transaction_id"
     t.integer  "customer_id"
     t.string   "payment_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spree_special_offers", :force => true do |t|
+    t.integer  "taxon_id"
+    t.integer  "popular_product_id"
+    t.integer  "best_product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

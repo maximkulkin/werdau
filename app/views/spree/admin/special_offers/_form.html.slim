@@ -1,0 +1,42 @@
+= form_for [:admin, @special_offer], :html => { :multipart => true } do |f|
+  - unless @special_offer.new_record?
+    h2 Таксоны
+    #selected-taxons
+      = render 'spree/admin/taxons/taxon_table_for_special_offer', { taxons: @special_offer.taxon.present? ? [@special_offer.taxon] : [] }
+
+    = f.field_container :taxon_id do
+      = f.label :taxon_id, t(:special_offer_search_taxons)
+      span.required *
+      br/
+      input#searchtext
+      #search_hits
+        / Seach results will be placed here via AJAX
+      - search_url = available_for_special_offer_admin_special_offer_taxons_url(@special_offer, format: 'js')
+      script Spree.Admin.ajaxSearchField($("#searchtext"), "#{search_url}", $("#search_hits"));
+
+  h2 Продукты
+  - if not(@special_offer.new_record?) && @special_offer.taxon.present?
+    label
+      | Самый доступный
+      input disabled="disabled" size=50 value=@special_offer.affordable_product.try(:name)
+  - else
+    p.note Чтобы увидеть самый доступный продукт, необходимо привязать спец-предложение к категории.
+
+  = f.field_container :popular_product_id do
+    = f.label :popular_product_id, t(:special_offer_popular_product)
+    span.required *
+    br/
+    = f.text_field :popular_product_id
+    = f.error_message_on :popular_product_id
+
+  = f.field_container :best_product_id do
+    = f.label :best_product_id, t(:special_offer_best_product)
+    span.required *
+    br/
+    = f.text_field :best_product_id
+    = f.error_message_on :best_product_id
+
+  - if @special_offer.new_record?
+    = render :partial => 'spree/admin/shared/new_resource_links'
+  - else
+    = render :partial => 'spree/admin/shared/edit_resource_links'

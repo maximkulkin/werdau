@@ -6,6 +6,8 @@ Spree::Taxon.class_eval do
   has_many :product_filters, :order => 'position asc'
   accepts_nested_attributes_for :product_filters
 
+  has_many :special_offers
+
   def all_product_properties
     Spree::Property.includes(:products => :taxons).where(['spree_taxons.id = ?', id])
   end
@@ -14,6 +16,14 @@ Spree::Taxon.class_eval do
     # TODO: run indexing in background job
     product_filters.update_all(:indexed_at => DateTime.now)
     products.active.find_each(:batch_size => 100, &:index)
+  end
+
+  def has_available_special_offer?
+    special_offers.first.try(:available?)
+  end
+
+  def special_offer
+    special_offers.first
   end
 end
 

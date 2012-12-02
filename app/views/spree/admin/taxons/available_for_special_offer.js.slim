@@ -1,0 +1,20 @@
+h4= t(:available_taxons)
+table.index
+  thead
+    tr
+      th= t(:name)
+      th= t(:path)
+      th= t(:action)
+  tbody
+    - @taxons.each do |taxon|
+      tr id=dom_id(taxon, :sel)
+        td= taxon.name
+        td= taxon_path taxon
+        td.actions
+          = link_to icon(:add) + ' ' + t(:select),                                            \
+              select_for_special_offer_admin_special_offer_taxon_path(@special_offer, taxon), \
+              :remote => true, :class => 'iconlink'
+    - if @taxons.empty?
+      tr
+        td colspan="3"
+          = t(:no_match_found)

@@ -1,0 +1,5 @@
+section.special-offer
+  ol.product-grid
+    = render "spree/shared/product", {product: special_offer.affordable_product, additional_content: "<h2>Самый доступный</h2>"}
+    = render "spree/shared/product", {product: special_offer.popular_product, additional_content: "<h2>Популярный</h2>"}
+    = render "spree/shared/product", {product: special_offer.best_product, additional_content: "<h2>Лучший</h2>"}

@@ -1,0 +1,9 @@
+h1 Спец-предложения
+
+= content_for :sidebar do
+  h3 Настройки
+  br.clear
+  ul.sidebar.product-menu data-hook="admin_product_tabs"
+    li class=("active" if current == 'Special Offers')
+      = link_to t(:special_offers), admin_special_offers_url
+  br.clear
