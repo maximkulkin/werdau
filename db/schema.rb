@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130113726) do
+ActiveRecord::Schema.define(:version => 20121202122445) do
 
   create_table "coupons", :force => true do |t|
     t.string   "code"
@@ -672,6 +672,13 @@ ActiveRecord::Schema.define(:version => 20121130113726) do
     t.integer  "transaction_id"
     t.integer  "customer_id"
     t.string   "payment_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spree_special_offer_empty_taxon_bindings", :force => true do |t|
+    t.integer  "empty_taxon_id"
+    t.integer  "special_offer_taxon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

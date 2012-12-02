@@ -28,18 +28,12 @@ Werdau::Application.routes.draw do
     namespace :admin do
       resources :news_items
       resources :advertisements
-      resources :special_offers do
-        resources :taxons do
-          member do
-            get :select_for_special_offer
-            delete :remove_for_special_offer
-          end
-          collection do
-            get :available_for_special_offer
-            get :selected_for_special_offer
-          end
-        end
-      end
+
+      resources :special_offers
+      resources :special_offer_empty_taxon_bindings
+      match "search_taxons" => "taxons#search"
+      match "search_products" => "products#search"
+      
       resources :products do
         collection do
           get  :import, :to => 'product_import#form'
