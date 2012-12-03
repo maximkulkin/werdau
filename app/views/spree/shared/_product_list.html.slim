@@ -21,10 +21,12 @@
     - if taxon.has_available_special_offer?
       = render 'spree/shared/special_offer', {special_offer: taxon.special_offer, title: "Спец-предложение"}
   - else
+    h1.notice К сожалению, в данной категории товаров пока нет. Посмотрите наши спец-предложения.
     - @taxon.special_offer_empty_taxon_bindings.each do |binding|
       - if binding.special_offer_taxon.has_available_special_offer?
         = render 'spree/shared/special_offer', {special_offer: binding.special_offer_taxon.special_offer}
 - elsif params.has_key?(:keywords) && products.empty? # search without results
+  h1.notice К сожалению, по Вашему запросу ничего не найдено. Посмотрите наши спец-предложения.
   = render "spree/shared/special_offers_and_recommendations_for_top_categories"
 
 / Products
