@@ -11,15 +11,13 @@ Spree::Order.class_eval do
   validates :name, :phone, :presence => true,
     :if => lambda { |r| r.state == 'contacts' }
 
-  state_machines[:state] = StateMachine::Machine.new(Spree::Order, :initial => 'cart') do
-    event :next do
-      transition :from => 'cart', :to => 'contacts'
-      transition :from => 'contacts', :to => 'complete'
-    end
-
-    before_transition :to => 'complete', :do => :init_shipping_and_payment
-    after_transition  :to => 'complete', :do => :finalize!
+  checkout_flow do
+    go_to_state :contacts
+    go_to_state :complete
   end
+
+  state_machine.before_transition :to => :complete, :do => :init_shipping_and_payment
+  state_machine.after_transition  :to => :complete, :do => :finalize!
 
 
   def payment?
