@@ -28,6 +28,9 @@ en:
   news_item_contents: Contents
   news_item_image: Image
 
+  admin_mailer:
+    new_order: There is a new order available.
+
   activerecord:
     errors:
       models:

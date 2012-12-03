@@ -28,6 +28,19 @@ Spree::Order.class_eval do
     super || 'not_started'
   end
 
+  def deliver_order_confirmation_email_with_admin_notification
+    deliver_order_confirmation_email_without_admin_notification
+
+    begin
+      Spree::AdminMailer.order_notification(self).deliver
+    rescue Exception => e
+      logger.error "#{e.class.name}: #{e.message}"
+      logger.error e.backtrace * "\n"
+    end
+  end
+  
+  alias_method_chain :deliver_order_confirmation_email, :admin_notification
+
   private
 
   def init_shipping_and_payment

@@ -135,6 +135,10 @@ ru:
     few: '%{count} отзыва'
     many: '%{count} отзывов'
 
+
+  admin_mailer:
+    new_order: Появился новый заказ.
+
   errors:
     messages:
       not_saved: ''
