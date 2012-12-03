@@ -1,2 +1,4 @@
 E-commerce application based on spree
 =====================================
+
+Use "foreman start" to start application in development mode. All the necessary processes, required for this app (listed in Procfile) will be launched.
