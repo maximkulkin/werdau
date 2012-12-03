@@ -10,5 +10,10 @@
 //= require admin/spree_api
 //= require tinymce-jquery
 //= require admin/spree_editor
-
+//= require_self
 //= require_tree .
+
+
+var Spree = {
+	Admin: {}
+};

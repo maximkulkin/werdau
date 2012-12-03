@@ -1,0 +1,47 @@
+.content.cart
+  h1 Ваша корзина
+  .phone Тел.: (845-2) 25-49-90
+  - if @order.item_count > 0
+    = form_for @order, url: update_cart_path, html: { class: 'order-items' } do |order_form|
+      table
+        thead
+          tr
+            td
+              .lc
+              | Товар
+            td Кол-во
+            td Цена
+            td Скидка
+            td.rt Стоимость
+            td
+              | Удалить
+              .rc
+        tbody
+          = order_form.fields_for :line_items do |item_form|
+            - line_item = item_form.object
+            - variant = line_item.variant
+            tr
+              td.name
+                b= link_to variant.name, variant.product
+              td.quantity= item_form.number_field :quantity, min: 0, size: 2, class: 'quantity'
+              td.price= format_price line_item.price
+              td.discount
+              td.cost= format_price line_item.amount
+              td.delete
+                = link_to image_tag('icons/delete.png'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}"
+          tr.total
+            td align="right" colspan="4" Итого:
+            td.cost= @order.total
+            td
+      .update
+        = submit_tag 'Пересчитать'
+  - else
+    p.empty В корзине пусто. Самое время что-то купить...
+    = render "spree/shared/special_offers_and_recommendations_for_top_categories"
+
+  .note Доставка по Саратову бесплатно!
+  - unless @order.line_items.empty?
+    = form_for @order, url: update_checkout_path(:contacts), html: { class: 'checkout' } do |checkout_form|
+      = render 'spree/checkout/contacts', { form: checkout_form }
+      .submit
+        = submit_tag 'Оформить заказ'

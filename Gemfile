@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'slim'
+
 gem 'unicorn'
 
 group :development do
@@ -66,3 +68,5 @@ gem 'sunspot_solr'
 
 gem 'resque'
 
+# development utils
+gem 'foreman'

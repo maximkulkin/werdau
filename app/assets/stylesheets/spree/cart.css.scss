@@ -1,0 +1,22 @@
+.cart {
+  > .special-offer {
+    margin-bottom: 20px;
+
+    h2 {
+      text-align: center; }
+
+    .product-grid .product {
+      width: 224px;
+      height: 224px;
+      h3 {
+        text-align: center; }
+      .image img {
+        width: 141px; }
+      .options {
+        display: none; } }
+  }
+  > #recommendations {
+    background: none;
+    .product {
+      width: 180px; } }
+}

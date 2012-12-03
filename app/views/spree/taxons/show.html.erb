@@ -1,9 +1,0 @@
-<div class="content taxon">
-  <%= section_title accurate_title %>
-
-  <% if @taxon.children.empty? || !params[:keywords].blank? %>
-    <%= render :partial => 'spree/shared/product_list', :locals => { :products => @products, :taxon => @taxon } %>
-  <% else %>
-    <%= render :partial => 'taxon_list', :locals => { :taxon => @taxon } %>
-  <% end %>
-</div>

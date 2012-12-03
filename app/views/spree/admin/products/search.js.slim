@@ -1,0 +1,18 @@
+h4= t(:available_products)
+table.index
+  thead
+    tr
+      th= t(:name)
+      th= t(:price)
+      th= t(:action)
+  tbody
+    - @products.each do |product|
+      tr id=dom_id(product, :sel) data-id=product.id data-name=product.name
+        td.name= product.name
+        td.price= format_price product.price
+        td.actions
+          = link_to icon(:add) + ' ' + t(:select), "#", :class => 'iconlink'
+    - if @products.empty?
+      tr
+        td colspan="3"
+          = t(:no_match_found)

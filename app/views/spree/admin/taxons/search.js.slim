@@ -1,0 +1,18 @@
+h4= t(:available_taxons)
+table.index
+  thead
+    tr
+      th= t(:name)
+      th= t(:path)
+      th= t(:action)
+  tbody
+    - @taxons.each do |taxon|
+      tr id=dom_id(taxon, :sel) data-id=taxon.id data-name=taxon.name
+        td.name= taxon.name
+        td.path= taxon_path taxon
+        td.actions
+          = link_to icon(:add) + ' ' + t(:select), "#", :class => 'iconlink'
+    - if @taxons.empty?
+      tr
+        td colspan="3"
+          = t(:no_match_found)

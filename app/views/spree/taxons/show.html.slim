@@ -1,0 +1,6 @@
+div.content.taxon
+  = section_title accurate_title
+  - if @taxon.children.empty? || !params[:keywords].blank?
+    = render 'spree/shared/product_list', { :products => @products, :taxon => @taxon }
+  - else
+    = render 'taxon_list', { :taxon => @taxon }

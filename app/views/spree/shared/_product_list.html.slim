@@ -1,0 +1,60 @@
+- if defined?(taxon)
+  = render 'spree/shared/product_filters', { taxon: taxon }
+
+.listing-controls
+  span.lc
+  .view-mode
+    | Отображение:
+    select name="view-mode"
+      option value="list" selected="true" списком
+      option value="grid" сеткой
+  div
+    span Сортировка:
+    = order_link 'по наименованию', :name, default: true
+    = order_link 'по цене', :price
+    = order_link 'по рейтингу', :rating
+  span.rc
+
+/ Special offers
+- if defined?(taxon)
+  - if taxon.products.present?
+    - if taxon.has_available_special_offer?
+      = render 'spree/shared/special_offer', {special_offer: taxon.special_offer, title: "Спец-предложение"}
+  - else
+    h1.notice К сожалению, в данной категории товаров пока нет. Посмотрите наши спец-предложения.
+    - @taxon.special_offer_empty_taxon_bindings.each do |binding|
+      - if binding.special_offer_taxon.has_available_special_offer?
+        = render 'spree/shared/special_offer', {special_offer: binding.special_offer_taxon.special_offer}
+- elsif params.has_key?(:keywords) && products.empty? # search without results
+  h1.notice К сожалению, по Вашему запросу ничего не найдено. Посмотрите наши спец-предложения.
+  = render "spree/shared/special_offers_and_recommendations_for_top_categories"
+
+/ Products
+ol#products.product-list
+  = render partial: 'spree/shared/product', collection: products
+#pageless-loader style="display: none; text-align: center; width: 100;"
+  .msg style="color:#e9e9e9;font-size:2em;" Загрузка товаров
+script
+  |
+    $('#products').pageless({
+      totalPages:  products.num_pages ,
+      loader: $('#pageless-loader')
+    })
+
+dl.compare-block-2
+  h1 Трудно сделать выбор? Мы вам поможем!
+  dd
+    | Звонок с сайта!
+    br/
+    span.phone
+      a href="/" (8452) 25-49-90
+  dd
+    | Не дозвонились?
+    br/
+    span.callback
+      a href="/" Мы вам перезвоним!
+  dd
+    | Косультант сайта
+    br/
+    span.question
+      a href="/" Задайте вопрос!
