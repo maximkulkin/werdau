@@ -1,12 +1,12 @@
 Werdau::Application.routes.draw do
   mount Resque::Server, :at => '/resque-server'
-  mount Forem::Engine, :at => "/forums"
+  # mount Forem::Engine, :at => "/forums"
 
   mount Spree::Core::Engine, :at => '/', :as => 'spree'
   root :to => 'spree/home#index'
 
   Spree::Core::Engine.routes.draw do
-    mount Forem::Engine, :at => "/forums", :as => 'forem'
+    # mount Forem::Engine, :at => "/forums", :as => 'forem'
 
     # Add your extension routes here
     match '/news/:id' => 'news_items#show', :as => :news_item,
