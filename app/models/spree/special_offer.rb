@@ -12,8 +12,12 @@ class Spree::SpecialOffer < ActiveRecord::Base
   end
 
   def affordable_product
-    return nil unless taxon.present?
-    taxon.products.joins(:variants_including_master).order("spree_variants.price ASC").limit(1).first
+    if affordable_product_id
+      Spree::Product.find affordable_product_id
+    else
+      return nil unless taxon.present?
+      taxon.products.joins(:variants_including_master).order("spree_variants.price ASC").limit(1).first
+    end
   end
 
   def available?

@@ -2,7 +2,7 @@ div.content.taxon
   = section_title accurate_title
   - if @taxon.children.empty? || !params[:keywords].blank?
     - if @taxon.products.present?
-      = render 'spree/shared/special_offer', {special_offer: @taxon.special_offer} if @taxon.has_available_special_offer?
+      = render 'spree/shared/special_offer', {special_offer: @taxon.special_offer, title: "Спец-предложение"} if @taxon.has_available_special_offer?
     - else
       - @taxon.special_offer_empty_taxon_bindings.each do |binding|
         = render 'spree/shared/special_offer', {special_offer: binding.special_offer_taxon.special_offer} if binding.special_offer_taxon.has_available_special_offer?

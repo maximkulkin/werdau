@@ -1,8 +1,8 @@
 /
-  additional_content
+  extra_content
 
 li.product
-  == additional_content if defined? additional_content
+  == extra_content if defined? extra_content
 
   span.name= link_to product.name, product
   = link_to product_image(product), product, :class => 'image'

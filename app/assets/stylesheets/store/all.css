@@ -12,4 +12,5 @@
  *= require_self
  *= require store/spree_reviews
  *= require spree/special_offers
+ *= require spree/cart
 */
