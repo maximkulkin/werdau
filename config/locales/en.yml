@@ -3,6 +3,7 @@
 
 en:
   purchase: Purchase
+  admin_email: Admin email
 
   order_state:
     contacts: Contact information

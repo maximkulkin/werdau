@@ -30,6 +30,7 @@ ru:
       last: Последняя
       truncate: ...
 
+  admin_email: Email администратора
   listing_products: Товары
 
   product_import: Импорт товаров
