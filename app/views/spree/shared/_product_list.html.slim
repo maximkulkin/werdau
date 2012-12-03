@@ -16,7 +16,7 @@
   span.rc
 
 / Special offers
-- if defined?(taxon)
+- if defined? taxon
   - if taxon.products.present?
     - if taxon.has_available_special_offer?
       = render 'spree/shared/special_offer', {special_offer: taxon.special_offer, title: "Спец-предложение"}
@@ -31,7 +31,20 @@
 
 / Products
 ol#products.product-list
-  = render partial: 'spree/shared/product', collection: products
+  - if defined? taxon
+    - products.each do |product|
+      - if in_special_offer_for_taxon? product, taxon
+        = render 'spree/shared/product', {product: product, extra_content: "<p class='special-offer-label'>Спец-предложение</p>"}
+      - else
+        = render 'spree/shared/product', {product: product}
+  - else
+    - taxons = products.collect(&:taxons).flatten.uniq
+    - products.each do |product|
+      - if in_special_offer_for_search_result? product, taxons
+        = render 'spree/shared/product', {product: product, extra_content: "<p class='special-offer-label'>Спец-предложение</p>"}
+      - else
+        = render 'spree/shared/product', {product: product}
+
 #pageless-loader style="display: none; text-align: center; width: 100;"
   .msg style="color:#e9e9e9;font-size:2em;" Загрузка товаров
 script
