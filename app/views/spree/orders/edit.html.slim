@@ -37,10 +37,7 @@
         = submit_tag 'Пересчитать'
   - else
     p.empty В корзине пусто. Самое время что-то купить...
-    - taxonomy(:categories).root.children.each do |root_taxon|
-      - if root_taxon.has_available_special_offer?
-        = render "spree/shared/special_offer", {special_offer: root_taxon.special_offers.first, title: root_taxon.name}
-    = render "spree/shared/recomendations"
+    = render "spree/shared/special_offers_and_recomendations_for_top_categories"
 
   .note Доставка по Саратову бесплатно!
   - unless @order.line_items.empty?

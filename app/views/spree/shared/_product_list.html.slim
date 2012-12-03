@@ -16,11 +16,16 @@
   span.rc
 
 / Special offers
-- if @taxon.products.present?
-  = render 'spree/shared/special_offer', {special_offer: @taxon.special_offer, title: "Спец-предложение"} if @taxon.has_available_special_offer?
-- else
-  - @taxon.special_offer_empty_taxon_bindings.each do |binding|
-    = render 'spree/shared/special_offer', {special_offer: binding.special_offer_taxon.special_offer} if binding.special_offer_taxon.has_available_special_offer?
+- if defined?(taxon)
+  - if taxon.products.present?
+    - if taxon.has_available_special_offer?
+      = render 'spree/shared/special_offer', {special_offer: taxon.special_offer, title: "Спец-предложение"}
+  - else
+    - @taxon.special_offer_empty_taxon_bindings.each do |binding|
+      - if binding.special_offer_taxon.has_available_special_offer?
+        = render 'spree/shared/special_offer', {special_offer: binding.special_offer_taxon.special_offer}
+- elsif params.has_key[:keywords] && products.empty? # search without results
+  = render "spree/shared/special_offers_and_recomendations_for_top_categories"
 
 / Products
 ol#products.product-list
