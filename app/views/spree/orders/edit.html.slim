@@ -37,7 +37,7 @@
         = submit_tag 'Пересчитать'
   - else
     p.empty В корзине пусто. Самое время что-то купить...
-    = render "spree/shared/special_offers_and_recomendations_for_top_categories"
+    = render "spree/shared/special_offers_and_recommendations_for_top_categories"
 
   .note Доставка по Саратову бесплатно!
   - unless @order.line_items.empty?
