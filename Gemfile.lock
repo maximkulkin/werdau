@@ -400,8 +400,8 @@ DEPENDENCIES
   resque
   russian (~> 0.6.0)
   rvm-capistrano
-  slim
   sass-rails (~> 3.2.0)
+  slim
   spree_api (~> 1.2.0)
   spree_auth_devise!
   spree_core (~> 1.2.0)
