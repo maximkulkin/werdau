@@ -138,6 +138,8 @@ ru:
 
   admin_mailer:
     new_order: Появился новый заказ.
+    order_notification:
+      subject: Появился новый заказ.
 
   errors:
     messages:

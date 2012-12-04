@@ -30,6 +30,8 @@ en:
 
   admin_mailer:
     new_order: There is a new order available.
+    order_notification:
+      subject: New order available
 
   activerecord:
     errors:
