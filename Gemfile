@@ -56,9 +56,9 @@ gem 'spree_recently_viewed', :git => 'git://github.com/spree/spree_recently_view
 
 gem 'spree_dynamic_sitemaps', :git => 'git://github.com/romul/spree_dynamic_sitemaps.git'
 
-gem 'forem', :git => 'git://github.com/radar/forem.git'
-gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
-gem 'spree_forem', :git => 'git://github.com/johndavid400/spree_forem.git'
+# gem 'forem', :git => 'git://github.com/radar/forem.git'
+# gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
+# gem 'spree_forem', :git => 'git://github.com/johndavid400/spree_forem.git'
 
 gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git'
 

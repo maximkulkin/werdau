@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/johndavid400/spree_forem.git
-  revision: e524b89b71dd8ea337fd324a1c6e5e8ecd348440
-  specs:
-    spree_forem (1.0.3)
-      spree_core (>= 1.0.0)
-
-GIT
   remote: git://github.com/maximkulkin/spree_i18n.git
   revision: 7d65e94ef56e2972f68c151ddb464a4b2f44ccc2
   specs:
@@ -19,25 +12,6 @@ GIT
   specs:
     spree_yandex_market_scraper (0.1)
       spree_core (> 1.0.0)
-
-GIT
-  remote: git://github.com/radar/forem-theme-twist.git
-  revision: f08ab243ee695bd5485d589c1177d99d00602150
-  specs:
-    forem-theme-twist (0.0.1)
-
-GIT
-  remote: git://github.com/radar/forem.git
-  revision: f02615f0618cf45835fa7a73681a4d02373e7431
-  specs:
-    forem (1.0.0.beta1)
-      cancan (= 1.6.7)
-      forem-redcarpet (= 1.0.0)
-      friendly_id (~> 4.0)
-      gemoji (= 1.1.2)
-      rails (~> 3.1)
-      simple_form
-      workflow (= 0.8.0)
 
 GIT
   remote: git://github.com/romul/spree_dynamic_sitemaps.git
@@ -136,7 +110,6 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
-    blankslate (3.1.2)
     builder (3.0.4)
     cancan (1.6.7)
     capistrano (2.13.5)
@@ -172,14 +145,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffaker (1.12.1)
-    ffi (1.0.11)
-    forem-redcarpet (1.0.0)
-      pygments.rb (= 0.2.4)
-      redcarpet (= 2.0.1)
     foreman (0.60.2)
       thor (>= 0.13.6)
-    friendly_id (4.0.9)
-    gemoji (1.1.2)
     highline (1.6.11)
     hike (1.2.1)
     httparty (0.8.3)
@@ -226,8 +193,6 @@ GEM
       activerecord (~> 3.0)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
-    pygments.rb (0.2.4)
-      rubypython (~> 0.5.3)
     rabl (0.7.2)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
@@ -264,7 +229,6 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
-    redcarpet (2.0.1)
     redis (2.2.2)
     redis-namespace (1.1.0)
       redis (< 3.0.0)
@@ -275,9 +239,6 @@ GEM
       vegas (~> 0.1.2)
     rsolr (1.0.8)
       builder (>= 2.1.2)
-    rubypython (0.5.3)
-      blankslate (>= 2.1.2.3)
-      ffi (~> 1.0.7)
     russian (0.6.0)
       i18n (>= 0.5.0)
     rvm-capistrano (1.2.7)
@@ -289,9 +250,6 @@ GEM
       tilt (~> 1.3)
     select2-rails (3.2.1)
       thor (~> 0.14)
-    simple_form (2.0.4)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -381,7 +339,6 @@ GEM
       rack (>= 1.0.0)
     warden (1.1.1)
       rack (>= 1.0)
-    workflow (0.8.0)
 
 PLATFORMS
   ruby
@@ -390,8 +347,6 @@ DEPENDENCIES
   capistrano
   capistrano-ext-rvm-unicorn
   coffee-rails (~> 3.2.0)
-  forem!
-  forem-theme-twist!
   foreman
   jquery-rails
   mysql2
@@ -407,7 +362,6 @@ DEPENDENCIES
   spree_core (~> 1.2.0)
   spree_dynamic_sitemaps!
   spree_editor!
-  spree_forem!
   spree_i18n!
   spree_recently_viewed!
   spree_reviews!
