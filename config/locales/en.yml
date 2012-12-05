@@ -32,6 +32,12 @@ en:
     new_order: There is a new order available.
     order_notification:
       subject: New order available
+    callback:
+      subject: Callback request
+      intro: User requested callback call.
+      name: Name
+      phone: Phone
+      info: Extra information
 
   activerecord:
     errors:

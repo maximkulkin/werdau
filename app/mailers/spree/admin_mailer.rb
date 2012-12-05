@@ -9,5 +9,14 @@ module Spree
 
       mail(:to => Spree::Config[:admin_email], :subject => subject)
     end
+
+
+    def callback_notification(callback)
+      @callback = callback
+
+      subject = "#{Spree::Config[:site_name]} #{t('admin_mailer.callback.subject')}"
+
+      mail(:to => Spree::Config[:admin_email], :subject => subject)
+    end
   end
 end

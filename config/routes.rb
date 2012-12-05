@@ -25,6 +25,9 @@ Werdau::Application.routes.draw do
 
     match '/advertisements/' => 'advertisements#index', :as => :advertisements
 
+    match '/support/callback' => 'support#callback',         :via => :get,  :as => :callback
+    match '/support/callback' => 'support#request_callback', :via => :post, :as => :request_callback
+
     namespace :admin do
       resources :news_items
       resources :advertisements

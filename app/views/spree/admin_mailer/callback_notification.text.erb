@@ -1,0 +1,9 @@
+
+<%= t 'admin_mailer.callback.intro' %>
+
+<%= t 'admin_mailer.callback.name' %>: <%= @callback.name %>
+<%= t 'admin_mailer.callback.phone' %>: <%= @callback.phone %>
+<% unless @callback.info.blank? %>
+<%= t 'admin_mailer.callback.info' %>: <%= @callback.info %>
+<% end %>
+

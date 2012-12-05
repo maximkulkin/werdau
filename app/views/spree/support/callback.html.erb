@@ -1,0 +1,28 @@
+<h1>Заказ услуги "Обратный звонок"</h1>
+
+<p>Если вы не можете нам дозвониться — сообщите нам свою контактную информацию и мы вам перезвоним в указанное Вами время.</p>
+
+<h2>Ваши данные:</h2>
+
+<%= form_for @callback, :as => :callback, :url => request_callback_path, :html => { :class => 'callback' } do |form| %>
+
+  <table class="callback">
+    <tr>
+      <th><%= form.label :name, 'ФИО:' %><span class="req">*</span></th>
+      <td><%= form.text_field :name %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :phone, 'Телефон:' %><span class="req">*</span></th>
+      <td><%= form.text_field :phone %></td>
+    </tr>
+    <tr>
+      <th><%= form.label 'Дополнительная информация:' %></th>
+      <td><%= form.text_area :info %></td>
+    </tr>
+  </table>
+
+  <div class="submit">
+    <%= submit_tag 'Заказать' %>
+  </div>
+<% end %>
+
