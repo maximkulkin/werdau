@@ -1,0 +1,17 @@
+/
+  extra_content
+
+li.product
+  == extra_content if defined? extra_content
+
+  span.name= link_to product.name, product
+  = link_to product_image(product), product, :class => 'image'
+  .price-block
+    = money product.price
+    = purchase_button_for product
+  .descr= raw product.description
+  .more-dscr
+    = link_to 'Оставить отзыв', new_product_review_path(product)
+  .options
+    a.sbcompare href="#" К сравнению
+    = bookmark_link product.master

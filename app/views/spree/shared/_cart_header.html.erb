@@ -9,7 +9,7 @@
   <div class="cont">
     <% if order && !order.line_items.empty? %>
       В корзине <%= ru_quantify order.item_count, '%d товар', '%d товара', '%d товаров' %><br />
-      на сумму <%= format_price order.total %>
+      на сумму <%= money order.total %>
     <% else %>
       Пока пусто...
       <p>Самое время что-то купить </p>
@@ -29,7 +29,7 @@
               <%= link_to line_item.product.name, line_item.product %>
               <br/>
               <span class="price">
-                <%= format_price line_item.price %>
+                <%= money line_item.price %>
               </span>
             </td>
             <td class="quantity">
@@ -41,7 +41,7 @@
 
       <div class="summary">
         Всего <%= ru_quantify order.item_count, '%d товар', '%d товара', '%d товаров' %>
-        на сумму <%= format_price order.total %><br/>
+        на сумму <%= money order.total %><br/>
         <%= link_to 'Оформить заказ', cart_path, :class => 'open_cart' %>
       </div>
     </div>

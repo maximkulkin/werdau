@@ -1,12 +1,12 @@
 Werdau::Application.routes.draw do
   mount Resque::Server, :at => '/resque-server'
-  mount Forem::Engine, :at => "/forums"
+  # mount Forem::Engine, :at => "/forums"
 
   mount Spree::Core::Engine, :at => '/', :as => 'spree'
   root :to => 'spree/home#index'
 
   Spree::Core::Engine.routes.draw do
-    mount Forem::Engine, :at => "/forums", :as => 'forem'
+    # mount Forem::Engine, :at => "/forums", :as => 'forem'
 
     # Add your extension routes here
     match '/news/:id' => 'news_items#show', :as => :news_item,
@@ -25,9 +25,18 @@ Werdau::Application.routes.draw do
 
     match '/advertisements/' => 'advertisements#index', :as => :advertisements
 
+    match '/support/callback' => 'support#callback',         :via => :get,  :as => :callback
+    match '/support/callback' => 'support#request_callback', :via => :post, :as => :request_callback
+
     namespace :admin do
       resources :news_items
       resources :advertisements
+
+      resources :special_offers
+      resources :special_offer_empty_taxon_bindings
+      match "search_taxons" => "taxons#search"
+      match "search_products" => "products#search"
+      
       resources :products do
         collection do
           get  :import, :to => 'product_import#form'

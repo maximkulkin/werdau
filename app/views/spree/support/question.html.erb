@@ -1,0 +1,33 @@
+<h2>Ваши данные:</h2>
+
+<table class="contacts">
+  <tr>
+    <th><%= form.label :name, 'ФИО:' %><span class="req">*</span></th>
+    <td><%= form.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :phone, 'Телефон:' %><span class="req">*</span></th>
+    <td><%= form.text_field :phone %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :email, 'E-mail:' %><span class="req">*</span></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+  <tr>
+    <%= form.fields_for :ship_address do |ship_form| %>
+      <th><%= ship_form.label :address1, 'Адрес:' %><span class="req">*</span></th>
+      <td><%= ship_form.text_field :address1 %></td>
+    <% end %>
+  </tr>
+</table>
+
+<h2>Условия доставки:</h2>
+
+<table class="special_instructions">
+  <tr>
+    <th><%= form.label 'Дополнительная информация:' %></th>
+    <td><%= form.text_area :special_instructions %></td>
+  </tr>
+</table>
+
+

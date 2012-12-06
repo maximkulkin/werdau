@@ -30,6 +30,7 @@ ru:
       last: Последняя
       truncate: ...
 
+  admin_email: Email администратора
   listing_products: Товары
 
   product_import: Импорт товаров
@@ -105,6 +106,25 @@ ru:
   advertisement_link: Ссылка
   advertisement_vertical_image: Вертикальное изображение
   advertisement_horizontal_image: Горизонтальное изображение 
+
+  special_offers: Спец-предложения
+  special_offer: Спец-предложение
+  new_special_offer: Новое спец-предложение
+  add_special_offer: Добавить спец-предложение
+  edit_special_offer: Редактировать спец-предложение
+  special_offer_edit: Редактирование спец-предложения
+  listing_special_offers: Спец-предложения
+  special_offer_taxon: Таксон
+  special_offer_affordable_product: Самый доступный продукт
+  special_offer_popular_product: Популярный продукт
+  special_offer_best_product: Лучший продукт
+  
+  special_offer_empty_taxon_bindings: Привязка к пустым категориям
+  add_special_offer_empty_taxon_binding: Добавить привязку
+  new_special_offer_empty_taxon_binding: Новая привязка
+  edit_special_offer_empty_taxon_binding: Редактирование привязки
+  special_offer_empty_taxon_binding_empty_taxon: Пустой таксон
+  listing_special_offer_empty_taxon_bindings: Привязки к пустым категориям
   
   bookmark: В закладки
   in_bookmarks: В закладках
@@ -115,14 +135,26 @@ ru:
     few: '%{count} отзыва'
     many: '%{count} отзывов'
 
+
+  admin_mailer:
+    new_order: Появился новый заказ.
+    order_notification:
+      subject: Появился новый заказ.
+    callback:
+      subject: Запрос обратного вызова
+      intro: Пользователь сайта запросил обратный вызов.
+      name: ФИО
+      phone: Телефон
+      info: Дополнительная информация
+
   errors:
     messages:
       not_saved: ''
 
   errors_prohibited_this_record_from_being_saved:
-    one: '1 ошибка не позволяет сохранить запись в базе'
-    few: '%{count} ошибки не позволяют сохранить запись в базе'
-    many: '%{count} ошибок не позволяют сохранить запись в базе'
+    one: '1 ошибка не позволяет сохранить запись'
+    few: '%{count} ошибки не позволяют сохранить запись'
+    many: '%{count} ошибок не позволяют сохранить запись'
 
   activerecord:
     attributes:
@@ -159,6 +191,13 @@ ru:
           attributes:
             email:
               not_found: 'не найден'
+
+  activemodel:
+    attributes:
+      spree/callback_request:
+        name: ФИО
+        phone: Телефон
+
 
   spree:
     admin:

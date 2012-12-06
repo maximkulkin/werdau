@@ -171,6 +171,7 @@
 
 #recommendations {
   background: url(<%= image_path 'store/rec.png' %>) no-repeat ; 
+  background-position-y: 80px;
   width: auto;
   overflow: hidden;
 }
@@ -598,6 +599,15 @@
   min-height: 145px;
 }
 
+.product-list .product .special-offer-label {
+  position: absolute;
+  left: -1px;
+  top: -14px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+}
+
 .product-list .product a  {
   color: #2e7fa7;
 }
@@ -742,6 +752,17 @@
   text-align: center;
   margin: 15px 10px;
   -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
+}
+
+.product-grid .product .special-offer-label {
+  position: absolute;
+  left: -1px;
+  top: -26px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .product-grid .product .name {
@@ -1946,4 +1967,22 @@ ul.taxons li span {
 
 #sidebar .advertisement {
 	text-align: center;
+}
+
+.content.taxon .advertisement {
+  clear: left;
+  padding: 40px 0;
+}
+
+form.callback table {
+  margin: 1em 5em;
+}
+
+form.callback th {
+  width: 6em;
+  text-align: right;
+}
+
+form.callback textarea {
+  height: 3em;
 }

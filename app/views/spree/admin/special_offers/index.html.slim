@@ -1,0 +1,31 @@
+= render 'spree/admin/shared/specials_sub_menu'
+= render 'spree/admin/shared/special_offers_tabs', { :current => 'Special Offers' }
+
+div.toolbar
+  ul.actions
+    li#new_special_offer_link
+      = button_link_to t(:add_special_offer), new_object_url
+  br.clear/
+h2= t(:listing_special_offers)
+table.special_offers
+  thead
+    tr
+      th.id #
+      th.taxon= t(:special_offer_taxon)
+      th.affordable_product= t(:special_offer_affordable_product)
+      th.popular_product= t(:special_offer_popular_product)
+      th.best_product= t(:special_offer_best_product)
+      th.actions
+  tbody
+    - @collection.each do |special_offer|
+      tr
+        td.id= special_offer.id
+        td.taxon= special_offer.taxon.try(:name)
+        td.affordable_product= special_offer.affordable_product.try(:name)
+        td.popular_product= special_offer.popular_product.try(:name)
+        td.best_product= special_offer.best_product.try(:name)
+        td.actions
+          = link_to_edit special_offer
+          ' &nbsp;
+          = link_to_delete special_offer
+/ %= paginate @collection %

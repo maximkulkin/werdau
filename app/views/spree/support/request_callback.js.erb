@@ -1,0 +1,8 @@
+<% unless @callback.valid? %>
+  $('form.callback .errorExplanation').remove()
+  $('form.callback').prepend("<%=j render :partial => 'spree/shared/error_messages', :locals => { :target => @callback } %>")
+<% else %>
+  $.fancybox({type: 'html', content: "<div class=\"info\">Ваш запрос принят! Наши менеджеры свяжутся с вами.</div>"})
+<% end %>
+
+

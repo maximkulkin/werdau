@@ -18,3 +18,10 @@ end
 Spree::Auth.config do |config|
   config.registration_step = false
 end
+
+Spree.user_class = 'Spree::User'
+
+Spree::Config.class_eval do
+  preference :admin_email, :string, :default => 'admin@localhost'
+end
+

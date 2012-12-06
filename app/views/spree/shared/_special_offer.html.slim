@@ -1,0 +1,10 @@
+/
+  title
+
+section.special-offer
+  - if local_variables.include? :title
+    h2= title
+  ol.product-grid
+    = render "spree/shared/product", {product: special_offer.affordable_product, extra_content: "<h3>Самый доступный</h3>"}
+    = render "spree/shared/product", {product: special_offer.popular_product, extra_content: "<h3>Популярный</h3>"}
+    = render "spree/shared/product", {product: special_offer.best_product, extra_content: "<h3>Лучший</h3>"}

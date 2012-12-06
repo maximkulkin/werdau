@@ -1,0 +1,27 @@
+= render 'spree/admin/shared/specials_sub_menu'
+= render 'spree/admin/shared/special_offers_tabs', { :current => 'Special Offers for empty taxons' }
+
+div.toolbar
+  ul.actions
+    li#new_special_offer_empty_taxon_binding
+      = button_link_to t(:add_special_offer_empty_taxon_binding), new_object_url
+  br.clear/
+h2= t(:listing_special_offer_empty_taxon_bindings)
+table.special_offer_taxons_for_empty_taxons
+  thead
+    tr
+      th.id #
+      th.empty_taxon= t(:special_offer_empty_taxon_binding_empty_taxon)
+      th.special_offer_taxon= t(:special_offer_empty_taxon_binding_special_offer_taxon)
+      th.actions
+  tbody
+    - @collection.each do |special_offer_empty_taxon_binding|
+      tr
+        td.id= special_offer_empty_taxon_binding.id
+        td.empty_taxon= special_offer_empty_taxon_binding.empty_taxon.try(:name)
+        td.special_offer_taxon= special_offer_empty_taxon_binding.special_offer_taxon.try(:name)
+        td.actions
+          = link_to_edit special_offer_empty_taxon_binding
+          ' &nbsp;
+          = link_to_delete special_offer_empty_taxon_binding
+/ %= paginate @collection %

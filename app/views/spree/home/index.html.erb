@@ -40,19 +40,8 @@
   <div class="content index">
 
     <div class="col-1">
-      <h1>Мы рекомендуем</h1>
       <% if taxon_recommend %>
-      <div id="recommendations">
-        <% for product in taxon_recommend.products.limit(4) %>
-        <div class="product">
-          <% taxon = categories_taxon(product) %>
-          <h2><%= link_to taxon.name, seo_url(taxon) %></h2>
-          <%= link_to tiny_image(product) + 
-                      content_tag(:span, product.name, :class => 'name') +
-                      content_tag(:span, number_to_currency(product.price), :class => 'price'), product %>
-        </div>
-        <% end %>
-      </div>
+        <%= render "spree/shared/recommendations" %>
       <% end %>
     </div><!-- end col-1 -->
 
@@ -99,7 +88,7 @@
 
         <%= raw Spree::Page.find_by_slug('/reviews').body %>
 
-        <p><%= link_to 'Форум Werdau.ru', forem.root_path %></p>
+        <p><%#= link_to 'Форум Werdau.ru', forem.root_path %></p>
 
       </div>
 

@@ -1,0 +1,43 @@
+- search_url = admin_search_taxons_url(format: 'js')
+
+= form_for [:admin, @special_offer_empty_taxon_binding], :html => { :multipart => true, :id => "special_offer_empty_taxon_binding" } do |f|
+  h2 Пустой таксон
+  = f.field_container :empty_taxon_id do
+    .current
+      = f.hidden_field :empty_taxon_id
+      input#selected_empty_taxon_name disabled="disabled" type="text" value=@special_offer_empty_taxon_binding.empty_taxon.try(:name)
+    .search
+      p Поиск
+      input#search_empty_taxon type="text"
+      #empty_taxon_search_hits
+        / Seach results will be placed here via AJAX
+      script Spree.Admin.ajaxSearchField($("#search_empty_taxon"), "#{search_url}", $("#empty_taxon_search_hits"));
+      script
+        |
+          Spree.Admin.ajaxSearchResultsSelector(
+            $("#empty_taxon_search_hits"),
+            $("#selected_empty_taxon_name"),
+            $("#special_offer_empty_taxon_binding_empty_taxon_id"));
+
+  h2 Таксоны со спец-предложением
+  = f.field_container :special_offer_taxon_id do
+    .current
+      = f.hidden_field :special_offer_taxon_id
+      input#selected_special_offer_taxon_name disabled="disabled" type="text" value=@special_offer_empty_taxon_binding.special_offer_taxon.try(:name)
+    .search
+      p Поиск
+      input#search_special_offer_taxon type="text"
+      #special_offer_taxon_search_hits
+        / Seach results will be placed here via AJAX
+      script Spree.Admin.ajaxSearchField($("#search_special_offer_taxon"), "#{search_url}", $("#special_offer_taxon_search_hits"));
+      script
+        |
+          Spree.Admin.ajaxSearchResultsSelector(
+            $("#special_offer_taxon_search_hits"),
+            $("#selected_special_offer_taxon_name"),
+            $("#special_offer_empty_taxon_binding_special_offer_taxon_id"));
+
+  - if @special_offer_empty_taxon_binding.new_record?
+    = render :partial => 'spree/admin/shared/new_resource_links'
+  - else
+    = render :partial => 'spree/admin/shared/edit_resource_links'

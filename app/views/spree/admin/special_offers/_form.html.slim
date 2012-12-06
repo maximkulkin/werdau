@@ -1,0 +1,109 @@
+= form_for [:admin, @special_offer], :html => { :multipart => true, id: "special_offer" } do |f|
+  h2 Таксон
+  = f.field_container :taxon_id do
+    .current
+      = f.hidden_field :taxon_id
+      input#selected_empty_taxon_name disabled="disabled" type="text" value=@special_offer.taxon.try(:name)
+    .search
+      p Поиск
+      input#search_taxons type="text"
+      #search_taxons_results
+        / Seach results will be placed here via AJAX
+      - search_url = admin_search_taxons_url(format: 'js')
+      script Spree.Admin.ajaxSearchField($("#search_taxons"), "#{search_url}", $("#search_taxons_results"));
+      script
+        |
+          Spree.Admin.ajaxSearchResultsSelector(
+            $("#search_taxons_results"),
+            $("#selected_empty_taxon_name"),
+            $("#special_offer_taxon_id"));
+
+  .products
+    h2 Продукты
+
+    .affordable
+      h3 Доступный
+      - if not(@special_offer.new_record?) && @special_offer.taxon.present?
+        - if @special_offer.taxon.products.exists?
+          input disabled="disabled" type="text" size=50 value=@special_offer.affordable_product.try(:name)
+        - else
+          p.note Данная категория не имеет продуктов.
+      - else
+        p.note
+          |
+            Чтобы увидеть самый доступный продукт, необходимо привязать спец-предложение к категории.
+            <br/>
+      = link_to "Задать вручную", "#", class: "manually_set_affordable_product"
+      script
+        |
+          jQuery(function($){
+            $("a.manually_set_affordable_product").click(function(){
+              $("div.manually_set_affordable_product").slideDown();
+              return false;
+            });
+          });
+      .manually_set_affordable_product style=(@special_offer.affordable_product_id ? "display: block;" : "display: none;")
+        .current
+          = f.hidden_field :affordable_product_id
+          input#selected_affordable_product_name disabled="disabled" type="text" value=@special_offer.affordable_product.try(:name)
+        .search
+          p Поиск
+          input#search_affordable_products type="text"
+          #search_affordable_products_results
+            / Seach results will be placed here via AJAX
+
+          - search_url = admin_search_products_url(format: 'js')
+          script Spree.Admin.ajaxSearchField($("#search_affordable_products"), "#{search_url}", $("#search_affordable_products_results"));
+          script
+            |
+              Spree.Admin.ajaxSearchResultsSelector(
+                $("#search_affordable_products_results"),
+                $("#selected_affordable_product_name"),
+                $("#special_offer_affordable_product_id"));
+
+    .popular
+      h3 Популярный
+      = f.field_container :popular_product_id do
+        .current
+          = f.hidden_field :popular_product_id
+          input#selected_popular_product_name disabled="disabled" type="text" value=@special_offer.popular_product.try(:name)
+        .search
+          p Поиск
+          input#search_popular_products type="text"
+          #search_popular_products_results
+            / Seach results will be placed here via AJAX
+
+          - search_url = admin_search_products_url(format: 'js')
+          script Spree.Admin.ajaxSearchField($("#search_popular_products"), "#{search_url}", $("#search_popular_products_results"));
+          script
+            |
+              Spree.Admin.ajaxSearchResultsSelector(
+                $("#search_popular_products_results"),
+                $("#selected_popular_product_name"),
+                $("#special_offer_popular_product_id"));
+
+    .best
+      h3 Лучший
+      = f.field_container :best_product_id do
+        .current
+          = f.hidden_field :best_product_id
+          input#selected_best_product_name disabled="disabled" type="text" value=@special_offer.best_product.try(:name)
+        .search
+          p Поиск
+          input#search_best_products type="text"
+          #search_best_products_results
+            / Seach results will be placed here via AJAX
+
+          - search_url = admin_search_products_url(format: 'js')
+          script Spree.Admin.ajaxSearchField($("#search_best_products"), "#{search_url}", $("#search_best_products_results"));
+          script
+            |
+              Spree.Admin.ajaxSearchResultsSelector(
+                $("#search_best_products_results"),
+                $("#selected_best_product_name"),
+                $("#special_offer_best_product_id"));
+
+  - if @special_offer.new_record?
+    = render :partial => 'spree/admin/shared/new_resource_links'
+  - else
+    = render :partial => 'spree/admin/shared/edit_resource_links'

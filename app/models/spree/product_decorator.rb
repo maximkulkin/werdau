@@ -5,11 +5,17 @@ Spree::Product.class_eval do
     permalink.present? ? permalink : (permalink_was || name.to_s.to_url.gsub("'", ''))
   end
 
-  scope :with_no_images, where("(select count(*) from spree_assets where type = 'Spree::Image' and viewable_type = 'Spree::Product' and viewable_id = spree_products.id) = 0")
-  scope :with_no_properties, where("(select count(*) from spree_product_properties where product_id = spree_products.id) = 0")
-  scope :with_no_taxons, where("(select count(*) from spree_products_taxons where product_id = spree_products.id) = 0")
+  add_search_scope :with_no_images do
+    where("(select count(*) from spree_assets where type = 'Spree::Image' and viewable_type = 'Spree::Product' and viewable_id = spree_products.id) = 0")
+  end
 
-  search_methods :with_no_images, :with_no_properties, :with_no_taxons
+  add_search_scope :with_no_properties do
+    where("(select count(*) from spree_product_properties where product_id = spree_products.id) = 0")
+  end
+
+  add_search_scope :with_no_taxons do
+    where("(select count(*) from spree_products_taxons where product_id = spree_products.id) = 0") 
+  end
 
   def rating
     stars.to_f
@@ -34,4 +40,3 @@ Spree::Product.class_eval do
     end
   end
 end
-

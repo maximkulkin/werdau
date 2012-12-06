@@ -11,15 +11,13 @@ Spree::Order.class_eval do
   validates :name, :phone, :presence => true,
     :if => lambda { |r| r.state == 'contacts' }
 
-  state_machines[:state] = StateMachine::Machine.new(Spree::Order, :initial => 'cart') do
-    event :next do
-      transition :from => 'cart', :to => 'contacts'
-      transition :from => 'contacts', :to => 'complete'
-    end
-
-    before_transition :to => 'complete', :do => :init_shipping_and_payment
-    after_transition  :to => 'complete', :do => :finalize!
+  checkout_flow do
+    go_to_state :contacts
+    go_to_state :complete
   end
+
+  state_machine.before_transition :to => :complete, :do => :init_shipping_and_payment
+  state_machine.after_transition  :to => :complete, :do => :finalize!
 
 
   def payment?
@@ -29,6 +27,19 @@ Spree::Order.class_eval do
   def shipment_state
     super || 'not_started'
   end
+
+  def deliver_order_confirmation_email_with_admin_notification
+    deliver_order_confirmation_email_without_admin_notification
+
+    begin
+      Spree::AdminMailer.order_notification(self).deliver
+    rescue Exception => e
+      logger.error "#{e.class.name}: #{e.message}"
+      logger.error e.backtrace * "\n"
+    end
+  end
+  
+  alias_method_chain :deliver_order_confirmation_email, :admin_notification
 
   private
 

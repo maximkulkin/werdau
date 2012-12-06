@@ -15,7 +15,7 @@
 
   <div class="info">
     <div class="price_block">
-      <span class="price"><%= format_price @product.price %></span>
+      <span class="price"><%= money @product.price %></span>
       <%= purchase_button_for @product %>
     </div>
 
