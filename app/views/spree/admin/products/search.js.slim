@@ -9,7 +9,7 @@ table.index
     - @products.each do |product|
       tr id=dom_id(product, :sel) data-id=product.id data-name=product.name
         td.name= product.name
-        td.price= format_price product.price
+        td.price= money product.price
         td.actions
           = link_to icon(:add) + ' ' + t(:select), "#", :class => 'iconlink'
     - if @products.empty?
