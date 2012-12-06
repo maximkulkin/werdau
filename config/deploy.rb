@@ -10,7 +10,7 @@ ssh_options[:forward_agent] = true
 set :application,     "werdau"
 
 # Сервер размещения проекта.
-set :deploy_server,   "88.198.200.69"
+set :deploy_server,   "87.118.92.187"
 
 # Не включать в поставку разработческие инструменты и пакеты тестирования.
 set :bundle_without,  [:development, :test]
