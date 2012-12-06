@@ -64,6 +64,7 @@ gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'progress_bar'
 
 gem 'resque'
 
