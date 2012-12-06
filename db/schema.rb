@@ -252,8 +252,8 @@ ActiveRecord::Schema.define(:version => 20121203010301) do
     t.integer  "count_process",  :default => 0
     t.boolean  "active",         :default => false
     t.text     "error_messages"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "count_errors",   :default => 0
   end
 
