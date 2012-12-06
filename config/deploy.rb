@@ -1,6 +1,6 @@
 require 'bundler/capistrano'
 
-load 'deploy/assets'
+#load 'deploy/assets'
 
 # Авторизацию SSH по ключу.
 ssh_options[:forward_agent] = true
