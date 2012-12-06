@@ -118,14 +118,15 @@ ru:
   special_offer_affordable_product: Самый доступный продукт
   special_offer_popular_product: Популярный продукт
   special_offer_best_product: Лучший продукт
-  
+
   special_offer_empty_taxon_bindings: Привязка к пустым категориям
   add_special_offer_empty_taxon_binding: Добавить привязку
   new_special_offer_empty_taxon_binding: Новая привязка
   edit_special_offer_empty_taxon_binding: Редактирование привязки
   special_offer_empty_taxon_binding_empty_taxon: Пустой таксон
+  special_offer_empty_taxon_binding_special_offer_taxon: Таксон со спец-предложением
   listing_special_offer_empty_taxon_bindings: Привязки к пустым категориям
-  
+
   bookmark: В закладки
   in_bookmarks: В закладках
 
