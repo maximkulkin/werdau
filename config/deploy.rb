@@ -88,7 +88,7 @@ namespace :db do
 end
 
 
-set :rvm_ruby_string, "ruby-1.9.3-p125"
+set :rvm_ruby_string, "ruby-1.9.3-p327"
 set :rvm_type, :system
 
 require 'rvm/capistrano'
