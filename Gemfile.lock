@@ -306,13 +306,13 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     state_machine (1.1.2)
     stringex (1.3.3)
-    sunspot (1.3.3)
+    sunspot (2.0.0.pre.120925)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
-    sunspot_rails (1.3.3)
+    sunspot_rails (2.0.0.pre.120925)
       nokogiri
-      sunspot (= 1.3.3)
-    sunspot_solr (1.3.3)
+      sunspot (= 2.0.0.pre.120925)
+    sunspot_solr (2.0.0.pre.120925)
     temple (0.5.5)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
@@ -374,8 +374,8 @@ DEPENDENCIES
   spree_reviews!
   spree_static_content!
   spree_yandex_market_scraper!
-  sunspot_rails
-  sunspot_solr
+  sunspot_rails (~> 2.0.0.pre.120925)
+  sunspot_solr (~> 2.0.0.pre.120925)
   therubyracer
   thin
   tinymce-rails (>= 3.4.9)

@@ -62,8 +62,8 @@ gem 'spree_dynamic_sitemaps', :git => 'git://github.com/romul/spree_dynamic_site
 
 gem 'spree_reviews', :git => 'git://github.com/spree/spree_reviews.git'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'sunspot_rails', '~> 2.0.0.pre.120925'
+gem 'sunspot_solr',  '~> 2.0.0.pre.120925'
 gem 'progress_bar'
 
 gem 'resque'
