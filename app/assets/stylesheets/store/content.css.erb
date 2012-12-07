@@ -585,6 +585,28 @@
   background: url(<%= image_path 'store/rc4.png' %>) no-repeat right;
 }
 
+.product .special-offer-label {
+  position: absolute;
+  left: -4px;
+  top: -17px;
+  width: 83px;
+  height: 89px;
+  background: url("/assets/store/special-offer-labels.png");
+  display: block;
+  text-indent: -999px;
+  overflow: hidden;
+}
+.product .special-offer-label.affordable {
+  background-position: 0 0;
+}
+.product .special-offer-label.popular {
+  background-position: 0 -89px;
+}
+.product .special-offer-label.best {
+  background-position: 0 -178px;
+}
+
+
 .product-list {
   list-style-type: none;
   margin: 0;
@@ -597,15 +619,6 @@
   position: relative;
   margin: 0 10px;
   min-height: 145px;
-}
-
-.product-list .product .special-offer-label {
-  position: absolute;
-  left: -1px;
-  top: -14px;
-  padding: 5px;
-  background-color: red;
-  color: white;
 }
 
 .product-list .product a  {
@@ -752,17 +765,6 @@
   text-align: center;
   margin: 15px 10px;
   -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
-}
-
-.product-grid .product .special-offer-label {
-  position: absolute;
-  left: -1px;
-  top: -26px;
-  padding: 5px;
-  background-color: red;
-  color: white;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 .product-grid .product .name {
