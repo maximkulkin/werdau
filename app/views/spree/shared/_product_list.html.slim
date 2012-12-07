@@ -33,15 +33,15 @@
 ol#products.product-list
   - if defined? taxon
     - products.each do |product|
-      - if in_special_offer_for_taxon? product, taxon
-        = render 'spree/shared/product', {product: product, extra_content: "<p class='special-offer-label'>Спец-предложение</p>"}
+      - if cls = in_special_offer_for_taxon?(product, taxon)
+        = render 'spree/shared/product', {product: product, extra_content: "<p class='special-offer-label #{cls}'>Спец-предложение</p>"}
       - else
         = render 'spree/shared/product', {product: product}
   - else
     - taxons = products.collect(&:taxons).flatten.uniq
     - products.each do |product|
-      - if in_special_offer_for_search_result? product, taxons
-        = render 'spree/shared/product', {product: product, extra_content: "<p class='special-offer-label'>Спец-предложение</p>"}
+      - if cls = in_special_offer_for_search_result?(product, taxons)
+        = render 'spree/shared/product', {product: product, extra_content: "<p class='special-offer-label #{cls}'>Спец-предложение</p>"}
       - else
         = render 'spree/shared/product', {product: product}
 
