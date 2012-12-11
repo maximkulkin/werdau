@@ -26,9 +26,7 @@ module Werdau
         self.on_db :werdau_market do
           res = self.connection.execute("SELECT category_id, category_name FROM jos_vm_category WHERE category_id = #{params['category_id'].to_i}")
           res.each(:as => :hash) do |row|
-            taxon = Spree::Taxon.find_by_name(row['category_name'])
-
-            return taxon
+            return Spree::Taxon.find_by_name(row['category_name'])
           end
         end
       end
@@ -39,9 +37,7 @@ module Werdau
         self.on_db :werdau_market do
           res = self.connection.execute("SELECT title FROM jos_content WHERE id = #{params['id'].to_s.split(':').first.to_i}")
           res.each(:as => :hash) do |row|
-            news_item = Spree::NewsItem.find_by_title(row['title'])
-
-            return news_item
+            return Spree::NewsItem.find_by_title(row['title'])
           end
         end
       end
