@@ -10,3 +10,15 @@ production:
   username: werdau
   password: <%= Capistrano::CLI.password_prompt("MySQL password: ") %>
 
+  werdau_market:
+    adapter: mysql2
+    encoding: utf8
+    collation: utf8_unicode_ci
+    reconnect: false
+    pool: 5
+    host: localhost
+    port: 3306
+    database: werdau_market_production
+    username: werdau
+    password: <%= Capistrano::CLI.password_prompt("MySQL password: ") %>
+
