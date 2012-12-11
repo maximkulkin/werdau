@@ -33,6 +33,19 @@ module Werdau
         end
       end
 
+      def find_news_item(params)
+        return nil if params['id'].blank?
+
+        self.on_db :werdau_market do
+          res = self.connection.execute("SELECT title FROM jos_content WHERE id = #{params['id'].to_s.split(':').first.to_i}")
+          res.each(:as => :hash) do |row|
+            news_item = Spree::NewsItem.find_by_title(row['title'])
+
+            return news_item
+          end
+        end
+      end
+
     end
 
   end
