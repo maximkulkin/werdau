@@ -68,5 +68,8 @@ gem 'progress_bar'
 
 gem 'resque'
 
+# For redirects from old site
+gem 'db-charmer', :require => 'db_charmer'
+
 # development utils
 gem 'foreman'

@@ -13,17 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121203010301) do
 
-  create_table "coupons", :force => true do |t|
-    t.string   "code"
-    t.string   "description"
-    t.integer  "usage_limit"
-    t.boolean  "combine"
-    t.datetime "expires_at"
-    t.datetime "starts_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at"
@@ -110,14 +99,6 @@ ActiveRecord::Schema.define(:version => 20121203010301) do
   add_index "forem_views", ["updated_at"], :name => "index_forem_views_on_updated_at"
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
   add_index "forem_views", ["viewable_id"], :name => "index_forem_views_on_topic_id"
-
-  create_table "promotion_rules_users", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "promotion_rule_id"
-  end
-
-  add_index "promotion_rules_users", ["promotion_rule_id"], :name => "index_promotion_rules_users_on_promotion_rule_id"
-  add_index "promotion_rules_users", ["user_id"], :name => "index_promotion_rules_users_on_user_id"
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -679,16 +660,16 @@ ActiveRecord::Schema.define(:version => 20121203010301) do
   create_table "spree_special_offer_empty_taxon_bindings", :force => true do |t|
     t.integer  "empty_taxon_id"
     t.integer  "special_offer_taxon_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "spree_special_offers", :force => true do |t|
     t.integer  "taxon_id"
     t.integer  "popular_product_id"
     t.integer  "best_product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.integer  "affordable_product_id"
   end
 

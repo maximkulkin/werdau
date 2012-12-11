@@ -53,6 +53,7 @@ Werdau::Application.routes.draw do
         end
       end
     end
-  end
 
+    get '/index.php' => 'redirects#index'
+  end
 end
