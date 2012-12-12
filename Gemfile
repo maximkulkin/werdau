@@ -43,7 +43,7 @@ gem 'russian', '~> 0.6.0'
 gem 'spree_core', '~> 1.2.0'
 gem 'spree_auth_devise', :git => "git://github.com/spree/spree_auth_devise"
 gem 'spree_api', '~> 1.2.0'
-gem 'spree_i18n', :git => 'git://github.com/maximkulkin/spree_i18n.git'
+gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 gem 'spree_static_content', :git => 'git://github.com/spree/spree_static_content.git', :branch => '1-2-stable'
 gem 'spree_editor', :git => 'git://raw.github.com/spree/spree_editor.git'
 gem 'tinymce-rails', '>= 3.4.9'
