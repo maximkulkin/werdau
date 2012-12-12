@@ -159,6 +159,84 @@ ru:
     many: '%{count} ошибок не позволяют сохранить запись'
 
   activerecord:
+    models:
+      spree/address:
+        few: Адреса
+        many: Адресов
+      spree/cheque_payment:
+        few: Платежа чеком
+        many: Платежи чеком
+      spree/country:
+        few: Страны
+        many: Страны
+      spree/credit_card:
+        few: "Кредитные карты"
+        many: "Кредитные карты"
+      spree/creditcard_payment:
+        few: "Платёжи кредитной картой"
+        many: "Платёжи кредитной картой"
+      spree/creditcard_txn:
+        few: "Транзакции кредитной картой"
+        many: "Транзакции кредитной картой"
+      spree/inventory_unit:
+        few: "Инвентарные позиции"
+        many: "Инвентарные позиции"
+      spree/line_item:
+        few: "Позиции"
+        many: "Позиции"
+      spree/order:
+        few: Заказы
+        many: Заказы
+      spree/payment:
+        few: Платежи
+        many: Платежи
+      spree/product:
+        few: Товары
+        many: Товары
+      spree/property:
+        few: Свойства
+        many: Свойства
+      spree/prototype:
+        few: Прототипы
+        many: Прототипы
+      spree/return_authorization:
+        one: Авторизация возврата средств
+        other: Авторизации возврата средств
+        few: Авторизации возврата средств
+        many: Авторизации возврата средств
+      spree/role:
+        few: Роли
+        many: Роли
+      spree/shipment:
+        few: Доставки
+        many: Доставки
+      spree/shipping_category:
+        few: "Категории доставки"
+        many: "Категории доставки"
+      spree/state:
+        few: Области/Регионы
+        many: Области/Регионы
+      spree/tax_category:
+        few: "Категории налогов"
+        many: "Категории налогов"
+      spree/tax_rate:
+        few: "Ставки налога"
+        many: "Ставки налога"
+      spree/taxon:
+        few: Рубрики
+        many: Рубрики
+      spree/taxonomy:
+        few: Категории
+        many: Категории
+      spree/user:
+        few: Пользователи
+        many: Пользователи
+      spree/variant:
+        few: Варианты
+        many: Варианты
+      spree/zone:
+        few: Зоны
+        many: Зоны
     attributes:
       spree/order:
         name: ФИО
