@@ -280,6 +280,8 @@ ru:
 
 
   spree:
+    date: Дата
+    time: Время
     admin:
       products:
         index:
