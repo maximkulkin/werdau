@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/maximkulkin/spree_yandex_market_scraper.git
-  revision: 8f9c6bc12992c1f9744a8be79c40ed06e4aea0cf
+  revision: a046ae3c2a36ff66ec19181d312e0eefa6f7cf1e
   specs:
     spree_yandex_market_scraper (0.1)
       spree_core (> 1.0.0)
