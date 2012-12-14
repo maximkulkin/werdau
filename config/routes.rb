@@ -36,6 +36,8 @@ Werdau::Application.routes.draw do
       resources :special_offer_empty_taxon_bindings
       match "search_taxons" => "taxons#search"
       match "search_products" => "products#search"
+      resources :products_kits
+      resources :products_kit_items
       
       resources :products do
         collection do

@@ -1,0 +1,9 @@
+li
+  h3 Комплект ##{products_kit.id}
+  ul.items
+    = render partial: "spree/admin/products_kit_items/products_kit_item", collection: products_kit.items
+  = link_to t(:new_products_kit_item), new_admin_products_kit_item_url(products_kit_id: products_kit.id), remote: true, class: "new products_kit_item"
+  - if products_kit.new_record?
+    = link_to t(:destroy_products_kit), "#", class: "delete new-record"
+  - else
+    = link_to t(:destroy_products_kit), admin_products_kit_path(products_kit), method: "delete", remote: true, class: "delete saved"

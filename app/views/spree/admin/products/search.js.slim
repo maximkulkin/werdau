@@ -7,7 +7,7 @@ table.index
       th= t(:action)
   tbody
     - @products.each do |product|
-      tr id=dom_id(product, :sel) data-id=product.id data-name=product.name
+      tr id=dom_id(product, :sel) data-id=product.id data-name=product.name data-price=product.price
         td.name= product.name
         td.price= money product.price
         td.actions

@@ -128,6 +128,17 @@ ru:
   special_offer_empty_taxon_binding_special_offer_taxon: Таксон со спец-предложением
   listing_special_offer_empty_taxon_bindings: Привязки к пустым категориям
 
+  products_kits: Комплекты
+  listing_products_kits: Комплекты
+  add_products_kit: Новый комплект
+  no_products_kits: Нет ни одного комплекта
+  products_kit_item_variant_name: Продукт
+  products_kit_item_variant_price: Цена
+  destroy_products_kit: Удалить комплект
+
+  new_products_kit_item: Добавить продукт
+  destroy_products_kit_item: Удалить продукт
+
   bookmark: В закладки
   in_bookmarks: В закладках
 
@@ -254,6 +265,10 @@ ru:
         review: Комментарий
         usage_period_value: Опыт использования
         usage_period_unit: Размерность опыта использования
+
+      spree/products_kit_item:
+        is_primary: основной
+        discount: скидка
 
     errors:
       models:
