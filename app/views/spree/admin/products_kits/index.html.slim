@@ -1,0 +1,22 @@
+= render 'spree/admin/shared/specials_sub_menu'
+
+div.toolbar
+  ul.actions
+    li#new_products_kit_link
+      = button_link_to t(:add_products_kit), new_object_url, remote: true
+  br.clear/
+h1= t(:listing_products_kits)
+
+- if @collection.empty?
+  p.notice= t(:no_products_kits)
+
+ul.products_kits
+  = render partial: "products_kit", collection: @collection
+
+script
+  |
+  	$("ul.products_kits > li").each(function(){
+  		Spree.Admin.ProductsKit($(this));
+  	});
+
+/ %= paginate @collection %

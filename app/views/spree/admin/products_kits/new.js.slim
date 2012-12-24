@@ -1,0 +1,4 @@
+== "var content = $('#{escape_javascript(render "products_kit", products_kit: @object)}');"
+|
+  $("ul.products_kits").prepend(content);
+  Spree.Admin.ProductsKit(content);

@@ -1,0 +1,18 @@
+li
+  = form_for [:admin, products_kit_item], remote: true, html: { "data-search-products-url" => admin_search_products_url(format: 'js') } do |f|
+    = f.hidden_field :products_kit_id
+    = f.hidden_field :variant_id
+    label for="products_kit_item_variant_name"= t(:products_kit_item_variant_name)
+    input id="products_kit_item_variant_name" type="text" value=products_kit_item.variant.try(:name)
+    = f.label :is_primary
+    = f.check_box :is_primary
+    label for="products_kit_item_variant_price"= t(:products_kit_item_variant_price)
+    input id="products_kit_item_variant_price" type="text" disabled="disabled" value=products_kit_item.variant.try(:price)
+    = f.label :discount
+    = f.text_field :discount
+  - if products_kit_item.new_record?
+    = link_to t(:destroy_products_kit_item), "#", class: "delete new-record"
+  - else
+    = link_to t(:destroy_products_kit_item), admin_products_kit_item_path(products_kit_item), method: "delete", remote: true, class: "delete saved"
+  .products-search-results
+    / Seach results will be placed here via AJAX

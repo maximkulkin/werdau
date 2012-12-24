@@ -1,0 +1,37 @@
+#products_kits {
+  ul.products_kits {
+    list-style: none;
+    padding: 0;
+    
+    .title {
+      .discount {
+        color: red;
+        font-weight: bold; } }
+    
+    .content {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: top;
+        padding: 12px;
+
+        &.images {
+          width: auto; /* overcome overriding */
+          float: none; /* overcome overriding */
+          img {
+            width: 80px;
+            max-height: 80px; }
+          .plus {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 30px;
+            font-size: 64px;
+            color: #AAA; } }
+        &.prices {
+          .price {
+            color: red; }
+          .with_kit {
+            font-weight: bold;
+            .price {
+              font-size: 17px; } } } } } }
+}

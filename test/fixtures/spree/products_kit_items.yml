@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  products_kit_id: 1
+  variant_id: 1
+  is_primary: false
+  discount: 1
+  calculator_type: MyString
+
+two:
+  products_kit_id: 1
+  variant_id: 1
+  is_primary: false
+  discount: 1
+  calculator_type: MyString

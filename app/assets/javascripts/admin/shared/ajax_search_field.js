@@ -1,24 +1,36 @@
-Spree.Admin.ajaxSearchField = function(searchField, searchUrl, searchHits) {
-	function search_for_taxons(){
+Spree.Admin.ajaxSearchField = function(searchField, searchUrl, searchHits, nameField, idField, priceField, params) {
+	var defaults = {
+		onSelect: function(){}
+	};
+	params = jQuery.extend( false, defaults, params ); // Override defaults with user's provided params
+
+	function doSearch(){
 		$.ajax({
 			data: {q: searchField.val() },
 			dataType: 'html',
 			success: function(request){
-			 searchHits.html(request);
+				searchHits.html(request);
+				setupSelector();
 			},
 			url: searchUrl
 		});
 	}
 
-	searchField.keypress(function (e) {
-		if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-			search_for_taxons();
-			return false;
-		} else
-			 return true;
-	});
+	function setupSelector(){
+		var fields = [];
+		if ( nameField != null )
+			fields.push([nameField, "data-name"]);
+		if ( idField != null )
+			fields.push([idField, "data-id"]);
+		if ( priceField != null )
+			fields.push([priceField, "data-price"]);
 
-	searchField.delayedObserver(function() {
-		search_for_taxons();
-	}, 0.75);
+		Spree.Admin.ajaxSearchResultsSelector(
+			searchHits,
+			fields,
+			{
+				onSelect: params.onSelect});
+	}
+
+	Spree.Admin.doOnTyping(searchField, doSearch);
 };
