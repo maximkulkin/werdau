@@ -5,6 +5,8 @@ class Spree::ProductsKit < ActiveRecord::Base
   attr_accessible :enabled
   accepts_nested_attributes_for :products_kit_items
 
+  scope :enabled, where(enabled: true)
+
   def primary_product
   	products_kit_items.where(is_primary: true).first.try(:variant)
   end

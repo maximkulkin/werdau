@@ -1,5 +1,8 @@
 li
   h3 Комплект ##{products_kit.id}
+  = form_for [:admin, products_kit], remote: true, html: {class: "products_kit"} do |f|
+  	= f.label :enabled
+  	= f.check_box :enabled
   ul.items
     = render partial: "spree/admin/products_kit_items/products_kit_item", collection: products_kit.items
   = link_to t(:new_products_kit_item), new_admin_products_kit_item_url(products_kit_id: products_kit.id), remote: true, class: "new products_kit_item"

@@ -266,6 +266,9 @@ ru:
         usage_period_value: Опыт использования
         usage_period_unit: Размерность опыта использования
 
+      spree/products_kit:
+        enabled: включён
+
       spree/products_kit_item:
         is_primary: основной
         discount: скидка

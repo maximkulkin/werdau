@@ -3,6 +3,11 @@ Spree.Admin.ProductsKit = function(elem){
 		new Spree.Admin.ProductsKitItem($(this));
 	});
 
+	// Editing properties
+	elem.find("> form :checkbox").click(function(){
+		$(this).closest("form").submit();
+	});
+
 	// New item
 	elem.find("a.new.products_kit_item").click(function(){
 		$.ajax({

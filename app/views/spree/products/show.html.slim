@@ -28,11 +28,12 @@
       span.price= money(@product.price)
       = purchase_button_for @product
   
-  - if @product.products_kit_items.present?
+  - products_kits = @product.products_kit_items.collect{|item| item.products_kit}.uniq.compact
+  - if products_kits.length > 0
     #products_kits
       h2 Сэкономьте, купив в комплекте
       ul.products_kits
-        - @product.products_kit_items.collect{|item| item.products_kit}.uniq.compact.each do |kit|
+        - products_kits.each do |kit|
           li
             .title
               ' Купите
