@@ -1,4 +1,4 @@
-Spree.Admin.doOnType = function(field, func) {
+Spree.Admin.doOnTyping = function(field, func) {
 	field.keypress(function (e) {
 		if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 			func();

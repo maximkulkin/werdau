@@ -12,7 +12,7 @@ Spree.Admin.ProductsKitItem = function(elem){
 
 
 	elem.find(":checkbox").click(save);
-	Spree.Admin.doOnType(elem.find("#products_kit_item_discount"), save);
+	Spree.Admin.doOnTyping(elem.find("#products_kit_item_discount"), save);
 
 	// Delete self
 	elem.find("> a.delete.saved").bind("ajax:success", function(){

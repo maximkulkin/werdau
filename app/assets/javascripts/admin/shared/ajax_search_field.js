@@ -32,5 +32,5 @@ Spree.Admin.ajaxSearchField = function(searchField, searchUrl, searchHits, nameF
 				onSelect: params.onSelect});
 	}
 
-	Spree.Admin.doOnType(searchField, doSearch);
+	Spree.Admin.doOnTyping(searchField, doSearch);
 };
