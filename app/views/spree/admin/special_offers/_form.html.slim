@@ -10,13 +10,12 @@
       #search_taxons_results
         / Seach results will be placed here via AJAX
       - search_url = admin_search_taxons_url(format: 'js')
-      script Spree.Admin.ajaxSearchField($("#search_taxons"), "#{search_url}", $("#search_taxons_results"));
       script
         |
-          Spree.Admin.ajaxSearchResultsSelector(
-            $("#search_taxons_results"),
-            $("#selected_empty_taxon_name"),
-            $("#special_offer_taxon_id"));
+          Spree.Admin.ajaxSearchField(
+            $("#search_taxons"), "#{search_url}", $("#search_taxons_results"),
+            $("#selected_empty_taxon_name"), $("#special_offer_taxon_id"), null );
+      
 
   .products
     h2 Продукты
@@ -53,14 +52,12 @@
             / Seach results will be placed here via AJAX
 
           - search_url = admin_search_products_url(format: 'js')
-          script Spree.Admin.ajaxSearchField($("#search_affordable_products"), "#{search_url}", $("#search_affordable_products_results"));
           script
             |
-              Spree.Admin.ajaxSearchResultsSelector(
-                $("#search_affordable_products_results"),
-                $("#selected_affordable_product_name"),
-                $("#special_offer_affordable_product_id"));
-
+              Spree.Admin.ajaxSearchField(
+                $("#search_affordable_products"), "#{search_url}", $("#search_affordable_products_results"),
+                $("#selected_affordable_product_name"), $("#special_offer_affordable_product_id"), null);
+          
     .popular
       h3 Популярный
       = f.field_container :popular_product_id do
@@ -74,13 +71,11 @@
             / Seach results will be placed here via AJAX
 
           - search_url = admin_search_products_url(format: 'js')
-          script Spree.Admin.ajaxSearchField($("#search_popular_products"), "#{search_url}", $("#search_popular_products_results"));
           script
             |
-              Spree.Admin.ajaxSearchResultsSelector(
-                $("#search_popular_products_results"),
-                $("#selected_popular_product_name"),
-                $("#special_offer_popular_product_id"));
+              Spree.Admin.ajaxSearchField(
+                $("#search_popular_products"), "#{search_url}", $("#search_popular_products_results"),
+                $("#selected_popular_product_name"), $("#special_offer_popular_product_id"), null);
 
     .best
       h3 Лучший
@@ -95,13 +90,11 @@
             / Seach results will be placed here via AJAX
 
           - search_url = admin_search_products_url(format: 'js')
-          script Spree.Admin.ajaxSearchField($("#search_best_products"), "#{search_url}", $("#search_best_products_results"));
           script
             |
-              Spree.Admin.ajaxSearchResultsSelector(
-                $("#search_best_products_results"),
-                $("#selected_best_product_name"),
-                $("#special_offer_best_product_id"));
+              Spree.Admin.ajaxSearchField(
+                $("#search_best_products"), "#{search_url}", $("#search_best_products_results"),
+                $("#selected_best_product_name"), $("#special_offer_best_product_id"), null);
 
   - if @special_offer.new_record?
     = render :partial => 'spree/admin/shared/new_resource_links'

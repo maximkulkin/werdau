@@ -17,11 +17,17 @@ Spree.Admin.ajaxSearchField = function(searchField, searchUrl, searchHits, nameF
 	}
 
 	function setupSelector(){
+		var fields = [];
+		if ( nameField != null )
+			fields.push([nameField, "data-name"]);
+		if ( idField != null )
+			fields.push([idField, "data-id"]);
+		if ( priceField != null )
+			fields.push([priceField, "data-price"]);
+
 		Spree.Admin.ajaxSearchResultsSelector(
 			searchHits,
-			[[nameField, "data-name"],
-			 [idField, "data-id"],
-			 [priceField, "data-price"]],
+			fields,
 			{
 				onSelect: params.onSelect});
 	}
