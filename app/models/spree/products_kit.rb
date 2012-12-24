@@ -10,6 +10,10 @@ class Spree::ProductsKit < ActiveRecord::Base
   end
 
   def secondary_products
-  	products_kit_items.where(is_primary: false)
+  	products_kit_items.where(is_primary: false).collect(&:variant)
+  end
+
+  def total_discount
+    products_kit_items.collect(&:discount).inject(&:+)
   end
 end

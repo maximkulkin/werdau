@@ -1,0 +1,61 @@
+- content_for :product_content do
+  .technical-description
+    - property_groups = []
+    - for product_property in @product_properties
+      - if /^=/ =~ product_property.property_name
+        - property_groups.push [product_property, []]
+      - else
+        - property_groups.last[1].push product_property
+
+    - for group in property_groups
+        h2= group[0].property.presentation
+        table
+          - for property in group[1]
+            tr class=cycle('even', 'odd')
+              th= property.property.presentation
+              td= property.value
+  
+  ul.submenu2
+    li= link_to 'Читайте отзывы других пользователей', product_reviews_path(@product)
+    li= link_to 'Оставьте свой отзыв', new_product_review_path(@product)
+  
+  .product-info.bottom
+    .product-name= @product.name
+    .image
+      = mini_image(@product)
+    .price-block
+      span.slogan Успей купить
+      span.price= money(@product.price)
+      = purchase_button_for @product
+  
+  - if @product.products_kit_items.present?
+    #products_kits
+      h2 Сэкономьте, купив в комплекте
+      ul.products_kits
+        - @product.products_kit_items.collect{|item| item.products_kit}.uniq.compact.each do |kit|
+          li
+            .title
+              ' Купите
+              span= kit.primary_product.name
+              ' &nbsp;вместе с
+              - kit.secondary_products.each do |p|
+                = link_to p.name, "#"
+              ' &nbsp;и сэкономьте
+              span.discount= money kit.total_discount
+            .content
+              .images
+                = product_image kit.primary_product
+                span.plus +
+                = product_image kit.secondary_products.first
+              .prices
+                .without_kit
+                  ' Стоимость отдельно:
+                  span.price= money kit.items.collect{|item|item.variant.price}.inject(0){|sum, price| sum + price}
+                .with_kit
+                  ' Стоимость комплекта:
+                  span.price= money kit.items.collect{|item|item.variant.price - item.discount}.inject(0){|sum, price| sum + price}
+                .buy
+
+= render 'spree/shared/product_reviews', { product: @product }
+= render 'spree/products/layout', { product: @product }
+= render 'spree/shared/vertical_advertisement', { product: @product }
