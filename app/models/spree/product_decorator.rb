@@ -7,16 +7,44 @@ Spree::Product.class_eval do
     permalink.present? ? permalink : (permalink_was || name.to_s.to_url.gsub("'", ''))
   end
 
-  add_search_scope :with_no_images do
-    where("(select count(*) from spree_assets where type = 'Spree::Image' and viewable_type = 'Spree::Product' and viewable_id = spree_products.id) = 0")
+  ransacker :images_count do |parent|
+    variants = Arel::Table.new(:spree_variants)
+    assets = Arel::Table.new(:spree_assets)
+
+    sql = \
+      variants.where(
+            variants[:is_master].eq(true).
+        and(variants[:product_id].eq(parent.table[:id]))
+      ).join(assets, Arel::Nodes::OuterJoin).on(assets[:viewable_id].eq(variants[:id])).
+      where(
+            assets[:type].eq('Spree::Image').
+        and(assets[:viewable_type].eq('Spree::Variant'))
+      ).project(assets[:id].count).
+      to_sql
+
+    Arel::SqlLiteral.new("(#{sql})")
   end
 
-  add_search_scope :with_no_properties do
-    where("(select count(*) from spree_product_properties where product_id = spree_products.id) = 0")
+  ransacker :properties_count do |parent|
+    properties = Arel::Table.new(:spree_product_properties)
+
+    sql = \
+      properties.where(properties[:product_id].eq(parent.table[:id])).
+      project(properties[:id].count).
+      to_sql
+
+    Arel::SqlLiteral.new("(#{sql})")
   end
 
-  add_search_scope :with_no_taxons do
-    where("(select count(*) from spree_products_taxons where product_id = spree_products.id) = 0") 
+  ransacker :taxons_count do |parent|
+    taxons = Arel::Table.new(:spree_products_taxons)
+
+    sql = \
+      taxons.where(taxons[:product_id].eq(parent.table[:id])).
+      project(taxons[:taxon_id].count).
+      to_sql
+
+    Arel::SqlLiteral.new("(#{sql})")
   end
 
   def rating

@@ -5,8 +5,8 @@ Deface::Override.new(
   :insert_bottom => '[data-hook="admin_products_index_search"]',
   :text => '
   <p>
-    <%= f.check_box :with_no_images, {:checked => !params[:q][:with_no_images].blank?}, "1", "" %>
-    <%= f.label :with_no_images, t(".with_no_images") %>
+    <%= f.check_box :images_count_eq, {:checked => !params[:q][:images_count_eq].blank?}, "0", "" %>
+    <%= f.label :images_count_eq, t(".with_no_images") %>
   </p>
   '
 )
@@ -17,8 +17,8 @@ Deface::Override.new(
   :insert_bottom => '[data-hook="admin_products_index_search"]',
   :text => '
   <p>
-    <%= f.check_box :with_no_properties, {:checked => !params[:q][:with_no_properties].blank?}, "1", "" %>
-    <%= f.label :with_no_properties, t(".with_no_properties") %>
+    <%= f.check_box :properties_count_eq, {:checked => !params[:q][:properties_count_eq].blank?}, "0", "" %>
+    <%= f.label :properties_count_eq, t(".with_no_properties") %>
   </p>
   '
 )
@@ -29,8 +29,8 @@ Deface::Override.new(
   :insert_bottom => '[data-hook="admin_products_index_search"]',
   :text => '
   <p>
-    <%= f.check_box :with_no_taxons, {:checked => !params[:q][:with_no_taxons].blank?}, "1", "" %>
-    <%= f.label :with_no_properties, t(".with_no_taxons") %>
+    <%= f.check_box :taxons_count_eq, {:checked => !params[:q][:taxons_count_eq].blank?}, "0", "" %>
+    <%= f.label :taxons_count_eq, t(".with_no_taxons") %>
   </p>
   '
 )
